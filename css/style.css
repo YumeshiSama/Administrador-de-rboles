@@ -1,0 +1,82 @@
+/*
+colores:
+    #009CA1 Verde agua/main color
+*/
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	background-color: white !important;
+}
+
+/*
+##################################
+			NavBar
+##################################
+*/
+.navbar a{
+	text-decoration: none !important;
+	font-size: 20px !important;
+	color: #D3D3D3 !important;
+}
+.navbar{
+	padding: 10px;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	background-color: #009CA1 !important;
+}
+.navbar ul{
+	flex: 1;
+	text-align: right;
+}
+.navbar ul li{
+	display: inline-block;
+	margin: 0 6px;
+}
+.navbar ul li a:hover{
+	color: white!important;
+	transition: .5s;
+}
+.logo {
+	font-size: 35px;
+	color: white;
+}
+.mobile-list{
+	display: none;
+}
+@media only screen and (max-width:  800px) {
+.navbar .desktop-list{
+	display:none;
+}
+.mobile-list{
+	background-color: #009CA1 !important;
+	color: white;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	padding: 10px;
+	z-index: 1;
+}
+.mobile-list i{
+	font-size: 30px;
+}
+/*
+########################################
+				Map
+########################################
+*/
+}
+.map {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	position: fixed;
+	z-index: -1;
+}
