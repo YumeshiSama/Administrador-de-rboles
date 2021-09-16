@@ -6,19 +6,27 @@
 ############################
 */
 
-   var map = new ol.Map({
-        target: 'mapa',
-        layers: [
-          new ol.layer.Tile({
+ let ultimaCapa; // Para removerla cada vez que se selecciona otra categoría
+
+
+const LATITUD_CENTRO = -36.5311294868868,
+    LONGITUD_CENTRO = -56.71174973909938,
+    ZOOM = 17;
+
+var mapa = new ol.Map({
+    target: 'mapa', // el id del elemento en donde se monta
+    layers: [
+        new ol.layer.Tile({
             source: new ol.source.OSM()
-          })
-        ],
-        view: new ol.View({
-          center: ol.proj.fromLonLat([-56.683333, -36.566667]),
-          zoom: 10
         })
-      });
-   const refrescarMapaConCategoria = categoria => {
+    ],
+    view: new ol.View({
+        center: ol.proj.fromLonLat([LONGITUD_CENTRO, LATITUD_CENTRO]),
+        zoom: ZOOM,
+    })
+});
+
+const refrescarMapaConCategoria = categoria => {
     fetch(`coordenadas.php?categoria=${categoria}`)
         .then(datos => datos.json())
         .then(coordenadasConIcono => {

@@ -12,20 +12,20 @@
 </head>
 <body>
 
+<?php include 'navbar.php' ?>
 
-   <main role="main" class="container-fluid">
-            <div class="row">
-                <div class="col-12 mb-2">
-                    <div class="form-group">
-                        <label for="selectCategorias">Categoría:</label>
+   <main >
+            <div >
+                <div>
+                    <div class="form-group navbar">
                         <select class="form-control" id="selectCategorias">
                             <option value="veterinarias">Pinos </option>
                             <option value="pizzerias">Alamos</option>
                         </select>
                     </div>
                 </div>
-                <div class="col-12">
-                    <div id="mapa" class="mapa"></div>
+                <div >
+                    <div id="mapa"></div>
                 </div>
             </div>
         </main>

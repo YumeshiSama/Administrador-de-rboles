@@ -73,10 +73,12 @@ body{
 ########################################
 */
 }
-.mapa {
-	height: 100%;
+#mapa {
+
 	width: 100%;
-	display: flex;
-	position: fixed;
-	z-index: -1;
+    height: 100%;
+    display: flex;
+    position: fixed;
+    z-index: -1;
+
 }

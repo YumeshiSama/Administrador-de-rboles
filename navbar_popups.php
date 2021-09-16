@@ -7,9 +7,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Open+Sans" rel="stylesheet"> 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
 	<link rel="stylesheet" href="css/popup.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<title>Ventana Emergente Animada</title>
 </head>
 <body>
@@ -24,7 +21,6 @@
 			<div class="popup" id="popup">
 			<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>	
 				<?php include 'cargar_arbol.php' ?>
-
 			</div>
 		</div>
 	<!--
@@ -209,8 +205,5 @@
 				</form>
 			</div>
 		</div>
-
-
-	<script src="js/main.js"></script>
 </body>
 </html>
