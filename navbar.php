@@ -11,7 +11,19 @@
 </head>
 <body>
 <nav class="navbar">
+	<div class="row">
+	<div class="col-auto">
 	<h1 class="logo fadeInDown">A.D.A</h1>
+	</div>
+	<div class="col-auto">
+	 	<div class="form-group navbar">
+            <select class="form-control fadeInDown" id="selectCategorias">
+                <option value="veterinarias">Pinos</option>
+                <option value="pizzerias">Alamos</option>
+            </select>
+        </div>
+    </div>
+    </div>
 	<ul class="desktop-list fadeInDown">
 		<li><a href="#" class="btn-abrir-popup" id="btn-abrir-popup6">Añadir Arbol</a></li>
 		<li><a href="#" class="btn-abrir-popup" id="btn-abrir-popup7">Administrar mis cargas</a></li>

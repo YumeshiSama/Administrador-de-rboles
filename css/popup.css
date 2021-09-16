@@ -49,7 +49,7 @@ body {
 .popup .btn-cerrar-popup {
 	font-size: 16px;
 	line-height: 16px;
-	display: block;
+	display: flex;
 	text-align: right;
 	transition: .3s ease all;
 	color: #008388;

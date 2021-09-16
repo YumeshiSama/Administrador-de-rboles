@@ -82,3 +82,6 @@ body{
     z-index: -1;
 
 }
+#selectCategorias{
+	width: 100%!important;
+}

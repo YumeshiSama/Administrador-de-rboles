@@ -16,14 +16,6 @@
 
    <main >
             <div >
-                <div>
-                    <div class="form-group navbar">
-                        <select class="form-control" id="selectCategorias">
-                            <option value="veterinarias">Pinos </option>
-                            <option value="pizzerias">Alamos</option>
-                        </select>
-                    </div>
-                </div>
                 <div >
                     <div id="mapa"></div>
                 </div>
