@@ -15,7 +15,7 @@
 	<ul class="desktop-list fadeInDown">
 		<li><a href="#" class="btn-abrir-popup" id="btn-abrir-popup6">Añadir Arbol</a></li>
 		<li><a href="#" class="btn-abrir-popup" id="btn-abrir-popup7">Administrar mis cargas</a></li>
-		<li><a href="#" class="btn-abrir-popup" id="btn-abrir-popup8">Enciclopedia</a></li>
+		<li><a href="arboles_comunes.php" class="btn-abrir-popup" id="btn-abrir-popup8">Enciclopedia</a></li>
 		<li><a href="#" class="btn-abrir-popup" id="btn-abrir-popup9">Añadir usuarios</a></li>
 		<li><a href="#" class="btn-abrir-popup" id="btn-abrir-popup10">Administrar usuarios</a></li>
 		<li><a href="#">Salir</a></li>
