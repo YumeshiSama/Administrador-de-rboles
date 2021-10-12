@@ -72,14 +72,14 @@
 		                        <input id="uploadBtn_copa" type="file" class="upload" name="copa">
 		                      </div>
 		                      <div class="col-9">
-		                        <input type="text" class="form-control" id="uploadFile_copa" placeholder="Copa..." name="copa_file_name" disabled="disabled">
+		                        <input type="text" class="form-control" id="uploadFile_copa" placeholder="Copa..." name="copa_file_name" readonly="readonly" >
 		                      </div>
 		                      <div class="col-3 fileUpload btn btn-primary">
 		                        <span><i class="fa-solid fa-camera"></i></span>
 		                        <input id="uploadBtn_tronco" type="file" class="upload" name="tronco">
 		                      </div>
 		                      <div class="col-9">
-		                        <input type="text" id="uploadFile_tronco" class="form-control" placeholder="Tronco..." name="tronco_file_name" disabled="disabled">
+		                        <input type="text" id="uploadFile_tronco" class="form-control" placeholder="Tronco..." name="tronco_file_name" readonly="readonly">
 		                      </div>
 		                    </div>
 		                  </div>
@@ -288,13 +288,13 @@
 		                        <span class="card-text">Latitud:</span>
 		                      </div>
 		                      <div class="col-6">
-							  <input type="text" class="card-text" name="latitud" id="latitud">
+							  <input type="text" class="form-control" name="latitud" id="latitud" readonly="readonly">
 		                      </div>
 		                      <div class="col-6">
 		                        <span class="card-text">Longitud:</span>
 		                      </div>
 		                      <div class="col-6">
-								  <input type="text"class="card-text" name="longitud" id="longitud">
+								  <input type="text" class="form-control" name="longitud" id="longitud" readonly="readonly">
 		                      </div>
 		                    </div>
 		                  </div>
@@ -343,14 +343,12 @@ const funcionInit = () => {
 		return alert("Tu navegador no soporta el acceso a la ubicación. Intenta con otro");
 	}
 
-	const RUTA_API = "./loguear.php";
 
 	let idWatcher = null;
 
 	const $latitud = document.querySelector("#latitud"),
 		$longitud = document.querySelector("#longitud"),
-		$btnIniciar = document.querySelector("#btnIniciar"),
-		$log = document.querySelector("#log");
+		$btnIniciar = document.querySelector("#btnIniciar");
 
 
 	const onUbicacionConcedida = ubicacion => {
@@ -359,29 +357,7 @@ const funcionInit = () => {
 		//$longitud.innerText = coordenadas.longitude;
 		$latitud.value = coordenadas.latitude;
 		$longitud.value = coordenadas.longitude;
-		loguear(`${ubicacion.timestamp}: ${coordenadas.latitude},${coordenadas.longitude}`);
-		enviarAServidor(ubicacion);
 	}
-
-	const enviarAServidor = ubicacion => {
-		// Debemos crear otro objeto porque el que nos mandan no se puede codificar
-		const otraUbicacion = {
-			coordenadas: {
-				latitud: ubicacion.coords.latitude,
-				longitud: ubicacion.coords.longitude,
-			},
-			timestamp: ubicacion.timestamp,
-		};
-		console.log("Enviando: ", otraUbicacion);
-		fetch(RUTA_API, {
-			method: "POST",
-			body: JSON.stringify(otraUbicacion),
-		}); // No esperamos el then porque no hacemos nada cuando se termine
-	};
-
-	const loguear = texto => {
-		$log.innerText += "\n" + texto;
-	};
 
 	const onErrorDeUbicacion = err => {
 
