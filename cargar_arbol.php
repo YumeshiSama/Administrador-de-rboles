@@ -68,23 +68,23 @@
 		                        <p class="card-text">Copa:</p>
 		                      </div>
 		                      <div class="col-12">
-		                        <input type="radio" name="copa" id="copa_radio1" value="globosa">
+		                        <input checked type="radio" name="copa" id="copa_radio1" value="1">
 		                        <label for="copa_radio1">Globosa</label>
 		                      </div>
 		                      <div class="col-12">
-		                        <input type="radio" name="copa" id="copa_radio2" value="pira">
+		                        <input type="radio" name="copa" id="copa_radio2" value="2">
 		                        <label for="copa_radio2">Piramidal</label>
 		                      </div>
 		                      <div class="col-12">
-		                        <input type="radio" name="copa" id="copa_radio3" value="colum">
+		                        <input type="radio" name="copa" id="copa_radio3" value="3">
 		                        <label for="copa_radio3">Columnar</label>
 		                      </div>
 		                      <div class="col-12">
-		                        <input type="radio" name="copa" id="copa_radio4" value="acha">
+		                        <input type="radio" name="copa" id="copa_radio4" value="4">
 		                        <label for="copa_radio4">Achaparrado</label>
 		                      </div>
 		                      <div class="col-12">
-		                        <input type="radio" name="copa" id="copa_radio5" value="llov">
+		                        <input type="radio" name="copa" id="copa_radio5" value="5">
 		                        <label for="copa_radio5">Llovedizo</label>
 		                      </div>
 		                    </div>
@@ -95,15 +95,15 @@
 		                        <p class="card-text">Magnitud:</p>
 		                      </div>
 		                      <div class="col-12">
-		                        <input type="radio" name="magnitud" id="magnitud_radio1">
+		                        <input checked type="radio" name="magnitud" value="1" id="magnitud_radio1">
 		                        <label for="magnitud_radio1">Hasta 5 metros</label>
 		                      </div>
 		                      <div class="col-12">
-		                        <input type="radio" name="magnitud" id="magnitud_radio2">
+		                        <input type="radio" name="magnitud" value="2" id="magnitud_radio2">
 		                        <label for="magnitud_radio2">De 5 a 15 metros</label>
 		                      </div>
 		                      <div class="col-12">
-		                        <input type="radio" name="magnitud" id="magnitud_radio3">
+		                        <input type="radio" name="magnitud" value="3" id="magnitud_radio3">
 		                        <label for="magnitud_radio3">Mas de 15 metros</label>
 		                      </div>
 		                    </div>
@@ -125,12 +125,12 @@
 		                        <p class="card-text">Poda:</p>
 		                      </div>
 		                      <div class="col-6">
-		                        <input type="radio" name="poda" id="poda_radio1">
-		                        <label for="poda_radio1">Buena</label>
+		                        <input checked type="radio" name="poda" id="poda_radio1">
+		                        <label for="poda_radio1" value="1">Buena</label>
 		                      </div>
 		                      <div class="col-6">
 		                        <input type="radio" name="poda" id="poda_radio2">
-		                        <label for="poda_radio2">Mala</label>
+		                        <label for="poda_radio2" value="0">Mala</label>
 		                      </div>
 		                    </div>
 		                  </div>
@@ -140,15 +140,15 @@
 		                        <p class="card-text">Edad:</p>
 		                      </div>
 		                      <div class="col-6">
-		                        <input type="radio" name="edad" id="edad_radio1">
+		                        <input checked type="radio" value="2" name="edad" id="edad_radio1">
 		                        <label for="edad_radio1">Joven</label>
 		                      </div>
 		                      <div class="col-6">
-		                        <input type="radio" name="edad" id="edad_radio2">
+		                        <input type="radio" value="1" name="edad" id="edad_radio2">
 		                        <label for="edad_radio2">Adulto</label>
 		                      </div>
 		                      <div class="col-6">
-		                        <input type="radio" name="edad" id="edad_radio3">
+		                        <input type="radio" value="3" name="edad" id="edad_radio3">
 		                        <label for="edad_radio3">Viejo</label>
 		                      </div>
 		                    </div>
@@ -159,19 +159,19 @@
 		                        <p class="card-text">Salud:</p>
 		                      </div>
 		                      <div class="col-6">
-		                        <input type="radio" name="salud" id="salud_radio1">
-		                        <label for="salud_radio1">Sano</label>
+		                        <input checked type="radio" value="1" name="salud" id="salud_radio1">
+		                        <label for="salud_radio1" >Sano</label>
 		                      </div>
 		                      <div class="col-6">
-		                        <input type="radio" name="salud" id="salud_radio2">
+		                        <input type="radio" value="2" name="salud" id="salud_radio2">
 		                        <label for="salud_radio2">Hueco</label>
 		                      </div>
 		                      <div class="col-6">
-		                        <input type="radio" name="salud" id="salud_radio3">
+		                        <input type="radio" value="4" name="salud" id="salud_radio3">
 		                        <label for="salud_radio3">Con hongos</label>
 		                      </div>
 		                      <div class="col-6">
-		                        <input type="radio" name="salud" id="salud_radio4">
+		                        <input type="radio" value="3" name="salud" id="salud_radio4">
 		                        <label for="salud_radio4">Plagado</label>
 		                      </div>
 		                    </div>
@@ -182,12 +182,12 @@
 		                        <p class="card-text">Peligro de caida?:</p>
 		                      </div>
 		                      <div class="col-6">
-		                        <input type="radio" name="caida" id="caida_radio1">
-		                        <label for="caida_radio1">Si</label>
+		                        <input checked type="radio" name="caida" id="caida_radio1">
+		                        <label for="caida_radio1" value="1">Si</label>
 		                      </div>
 		                      <div class="col-6">
 		                        <input type="radio" name="caida" id="caida_radio2">
-		                        <label for="caida_radio2">No</label>
+		                        <label for="caida_radio2" value="0">No</label>
 		                      </div>
 		                    </div>
 		                  </div>
@@ -209,11 +209,11 @@
 		                        <p class="card-text">Extraccion:</p>
 		                      </div>
 		                      <div class="col-12">
-		                        <input type="radio" name="extraccion" id="extraccion_radio1">
+		                        <input checked type="radio" value="1" name="extraccion" id="extraccion_radio1">
 		                        <label for="extraccion_radio1">Posible</label>
 		                      </div>
 		                      <div class="col-12">
-		                        <input type="radio" name="extraccion" id="extraccion_radio2">
+		                        <input type="radio" value="0" name="extraccion" id="extraccion_radio2">
 		                        <label for="extraccion_radio2">Imposible</label>
 		                      </div>
 		                    </div>
@@ -248,7 +248,7 @@
 		                        <label for="reemplazo_radio1">Si</label>
 		                      </div>
 		                      <div class="col-12">
-		                        <input type="radio" name="reemplazo" id="reemplazo_radio2">
+		                        <input checked type="radio" name="reemplazo" id="reemplazo_radio2">
 		                        <label for="reemplazo_radio2">No</label>
 		                      </div>
 		                    </div>
