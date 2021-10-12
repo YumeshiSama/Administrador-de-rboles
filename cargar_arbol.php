@@ -41,7 +41,7 @@
 		    <div class="container">
 		        <div class="row">
 		          <div class="col-12 col-lg-8 m-auto">
-		            <form class="multisteps-form__form">
+		            <form action="cargar.php" class="multisteps-form__form">
 		              <!--====================================
 		                                STEP 1
 		              =====================================-->
@@ -55,9 +55,9 @@
 		                      </div>
 		                      <div class="col-12 col-sm-6 mt-4 mt-sm-0">
 		                        <select class="form-control" id="especie" name="especie">
-		                          <option>-SELECCIONAR-</option>
-		                          <option>Pino</option>
-		                          <option>Alamo</option>
+		                          <option value="0">-SELECCIONAR-</option>
+		                          <option value="1">Pino</option>
+		                          <option value="2">Alamo</option>
 		                        </select>
 		                      </div>
 		                    </div>
@@ -288,19 +288,19 @@
 		                        <span class="card-text">Latitud:</span>
 		                      </div>
 		                      <div class="col-6">
-		                      	<span class="card-text" id="latitud"></span>
+							  <input type="text" class="card-text" name="latitud" id="latitud">
 		                      </div>
 		                      <div class="col-6">
 		                        <span class="card-text">Longitud:</span>
 		                      </div>
 		                      <div class="col-6">
-		                      	<span class="card-text" id="longitud"></span>
+								  <input type="text"class="card-text" name="longitud" id="longitud">
 		                      </div>
 		                    </div>
 		                  </div>
 			                <div class="button-row d-flex mt-4">
 				                <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Atras</button>
-				                <button class="btn btn-success ml-auto" type="button" title="Send">Cargar</button>
+				                <button class="btn btn-success ml-auto" type="submit" title="Send">Cargar</button>
 			                </div>
 		                </div>
 		              </div>
@@ -355,8 +355,10 @@ const funcionInit = () => {
 
 	const onUbicacionConcedida = ubicacion => {
 		const coordenadas = ubicacion.coords;
-		$latitud.innerText = coordenadas.latitude;
-		$longitud.innerText = coordenadas.longitude;
+		//$latitud.innerText = coordenadas.latitude;
+		//$longitud.innerText = coordenadas.longitude;
+		$latitud.value = coordenadas.latitude;
+		$longitud.value = coordenadas.longitude;
 		loguear(`${ubicacion.timestamp}: ${coordenadas.latitude},${coordenadas.longitude}`);
 		enviarAServidor(ubicacion);
 	}

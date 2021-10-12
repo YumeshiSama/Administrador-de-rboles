@@ -23,8 +23,8 @@
 				<div class="form-group">
 					<label for="selectCategorias">Especie:</label>
 					<select class="form-control" id="selectCategorias">
-						<option value="pinos">Pinos</option>
-						<option value="alamos">Alamos</option>
+						<option value="1">Pinos</option>
+						<option value="2">Alamos</option>
 					</select>
 				</div>
 			</div>
