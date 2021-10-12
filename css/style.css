@@ -1,87 +1,448 @@
-/*
-colores:
-    #009CA1 Verde agua/main color
-*/
 *{
-	margin: 0;
 	padding: 0;
+	margin: 0;
 	box-sizing: border-box;
+	font-family: 'verdana', sans-serif;
 }
 body{
-	background-color: white !important;
+	margin: 0 0 55px 0;
 }
-
-/*
-##################################
-			NavBar
-##################################
-*/
-.navbar a{
-	text-decoration: none !important;
-	font-size: 20px !important;
-	color: #D3D3D3 !important;
-}
-.navbar{
-	padding: 10px;
-	display: flex;
-	width: 100%;
-	align-items: center;
-	background-color: #009CA1 !important;
-}
-.navbar ul{
-	flex: 1;
-	text-align: right;
-}
-.navbar ul li{
-	display: inline-block;
-	margin: 0 6px;
-}
-.navbar ul li a:hover{
-	color: white!important;
-	transition: .5s;
-}
-.logo {
-	font-size: 35px;
-	color: white;
-}
-.mobile-list{
-	display: none;
-}
-@media only screen and (max-width:  800px) {
-.navbar .desktop-list{
-	display:none;
-}
-.mobile-list{
-	background-color: #009CA1 !important;
-	color: white;
+/*===================================
+				NAVBAR
+=====================================*/
+.nav{
 	position: fixed;
 	bottom: 0;
-	left: 0;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
 	width: 100%;
-	padding: 10px;
+	height: 55px;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.2%);
+	background-color: #009CA1;
+	display: flex;
+	overflow-x: auto;
 	z-index: 1;
 }
-.mobile-list i{
-	font-size: 30px;
+.nav_items{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex-grow: 1;
+	min-width: 50px;
+	overflow: hidden;
+	white-space: nowrap;
+	font-family: 'verdana', sans-serif;
+	font-size: 20px;
+	color: white;
+	text-decoration: none!important;
+	-webkit-tap-highlight-color: transparent;
+	transition: backgraund-color 0.1s ease-in-out;
 }
-/*
-########################################
-				Map
-########################################
-*/
+.nav_items i{
+	font-size: 15px;
 }
-#mapa {
-
+.nav_items:hover{
+	background-color: rgba(0, 0, 0,20%);
+	color: white
+}
+/*===================================
+				MAP
+===================================*/
+.map_filter{
 	width: 100%;
-    height: 100%;
-    display: flex;
-    position: fixed;
-    z-index: -1;
-
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	background-color: #009CA1;
 }
-#selectCategorias{
-	width: 100%!important;
+.map_filter label{
+	color: white;
+	font-family: 'verdana', sans-serif;
+	font-size: 16px;
+}
+.form-group{
+	width: 1000px;}
+@media only screen and (max-width: 1200px) {
+.form-group{
+	width: 600px;
+}
+}
+@media only screen and (max-width: 800px) {
+.form-group{
+	width: 400
+}
+}
+@media only screen and (max-width: 600px) {
+.form-group{
+	width: 280px;
+}
+}
+@media only screen and (max-width: 300px) {
+.form-group{
+	width: 200px;
+}
+}
+#mapa{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	position: fixed;
+	z-index: -1;
+}
+/*==================================
+				MENU
+====================================*/
+.main{
+	transition: 0.5s;
+}
+.main#blur.active{
+	filter: blur(20px);
+	pointer-events: none;
+	user-select: none;
+}
+.menu{
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%,-40%);
+	width: 90%;
+	height: 80%;
+	padding: 5%;
+	overflow-x: auto;
+	z-index: 2;
+	visibility: hidden;
+	opacity: 1;
+	transition: 0.5s;
+}
+.menu.active{
+	visibility: visible;
+	opacity: 1;
+	transition: 0.5s;
+}
+.menu_items{
+	display: flex;
+	padding: 10%;
+	margin: 10% 0;
+	background: rgba(0, 0, 0,50%);
+	border-radius: 20%;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex-grow: 1;
+	min-width: 50px;
+	overflow: hidden;
+	white-space: nowrap;
+	font-family: 'verdana', sans-serif;
+	font-size: 20px;
+	color: white;
+	text-decoration: none!important;
+	-webkit-tap-highlight-color: transparent;
+	transition: backgraund-color 0.1s ease-in-out;
+}
+.menu_items i{
+	font-size: 40px;
+}
+.menu_items:hover{
+	background-color: #009CA1;
+	color: white
+}
+/*==================================
+			FORM UPLOAD
+==================================*/
+.content {
+  overflow-x: hidden!important;
+  overflow-y: hidden!important;
+  margin: 0 0 100px;
+}
+
+.content__title {
+  margin-bottom: 40px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.content__title--m-sm {
+  margin-bottom: 10px;
+}
+
+
+
+.multisteps-form__progress {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  margin-top: 20px;
+}
+
+.multisteps-form__progress-btn {
+  transition-property: all;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  position: relative;
+  padding-top: 20px;
+  color: #4B4B4B;
+  text-indent: -9999px;
+  border: none;
+  background-color: transparent;
+  outline: none !important;
+  cursor: pointer;
+}
+@media (min-width: 500px) {
+  .multisteps-form__progress-btn {
+    text-indent: 0;
+  }
+}
+.multisteps-form__progress-btn:before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  width: 10px;
+  height: 10px;
+  content: '';
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  transition: all 0.15s linear 0s, -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+  transition: all 0.15s linear 0s, transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+  transition: all 0.15s linear 0s, transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s, -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background-color: #4B4B4B;
+  box-sizing: border-box;
+  z-index: 3;
+}
+.multisteps-form__progress-btn:after {
+  position: absolute;
+  top: 5px;
+  left: calc(-50% - 13px / 2);
+  transition-property: all;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  display: block;
+  width: 100%;
+  height: 2px;
+  content: '';
+  background-color: currentColor;
+  z-index: 1;
+}
+.multisteps-form__progress-btn:first-child:after {
+  display: none;
+}
+.multisteps-form__progress-btn.js-active {
+  color: white;
+}
+.multisteps-form__progress-btn.js-active:before {
+  -webkit-transform: translateX(-50%) scale(2);
+          transform: translateX(-50%) scale(2);
+  background-color: currentColor;
+}
+
+.multisteps-form__form {
+  position: relative;
+}
+
+.multisteps-form__panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+.multisteps-form__panel.js-active {
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+}
+.multisteps-form__panel[data-animation="slideHorz"] {
+  left: 50px;
+}
+.multisteps-form__panel[data-animation="slideHorz"].js-active {
+  transition-property: all;
+  transition-duration: 0.25s;
+  transition-timing-function: cubic-bezier(0.2, 1.13, 0.38, 1.43);
+  transition-delay: 0s;
+  left: 0;
+}
+.container input[type="radio"]{
+  display: none;
+}
+.container label{
+  position: flex;
+  color: #A0A0A0;
+  font-family: 'poppins',sans-serif;
+  font-size: 20px;
+  border: 2px solid #A0A0A0;
+  border-radius: 5px;
+  padding: 5px 5px;
+  margin: 4px;
+  display: flex!important;
+  align-items: center;
+  cursor: pointer;
+}
+.container label:before{
+  content: "";
+  height: 20px;
+  width: 20px;
+  border: 3px solid #A0A0A0;
+  border-radius: 50%;
+  margin-right: 10px!important;
+}
+.container input[type="radio"]:checked + label{
+background-color: #009CA1;
+color: white;
+}
+.container input[type="radio"]:checked + label:before{
+  height: 20px;
+  width: 20px;
+  border: 6px solid white;
+  background-color: #009CA1;
+}
+.btn-primary{
+  background-color: #009CA1!important;
+  border: none!important;
+}
+.progress_bar_top{
+	width: 100%;
+	background-color: #009CA1
+}
+/*==================================
+			ANIMACIONES
+==================================*/
+/* Simple CSS3 Fade-in-down Animation */
+.fadeInUp.inactive {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate3d(-50%, -100%, 0);
+    transform: translate3d(-50%, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+   -webkit-transform: translate3d(-50%, 100%, 0);
+    transform: translate3d(-50%, 100%, 0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate3d(-50%, -40%, 0);
+    transform: translate3d(-50%, -40%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(-50%, 100%, 0);
+    transform: translate3d(-50%, 100%, 0);
+  }
+}
+
+.fadeInUp.active {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate3d(-50%, +100%, 0);
+    transform: translate3d(-50%, +100%, 0);
+  }
+  100% {
+    opacity: 1;
+   -webkit-transform: translate3d(-50%, -40%, 0);
+    transform: translate3d(-50%, -40%, 0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate3d(-50%, +100%, 0);
+    transform: translate3d(-50%, +100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(-50%, -40%, 0);
+    transform: translate3d(-50%, -40%, 0);
+  }
+}
+
+/* Simple CSS3 Fade-in Animation */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fadeIn {
+  opacity:0;
+  -webkit-animation:fadeIn ease-in 1;
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+
+.fadeIn.first {
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.fadeIn.second {
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.fadeIn.third {
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.fadeIn.fourth {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: #56baed;
+  content: "";
+  transition: width 0.2s;
+}
+
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+
+.underlineHover:hover:after{
+  width: 100%;
 }

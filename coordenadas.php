@@ -1,4 +1,3 @@
-
 <?php
 if (empty($_GET["categoria"])) {
     exit("No hay categoría");
@@ -6,7 +5,7 @@ if (empty($_GET["categoria"])) {
 
 $categoria = $_GET["categoria"];
 #TODO: hacerlo en una BD
-$veterinarias = [
+$pinos = [
     [
         "latitud" => -36.5311294868868,
         "longitud" => -56.71174973909938,
@@ -20,7 +19,7 @@ $veterinarias = [
         "longitud" => -56.71404973909938,
     ],
 ];
-$pizzerias = [
+$alamos = [
     [
         "latitud" => -36.5311294868868,
         "longitud" => -56.71174973909938,
@@ -35,14 +34,14 @@ $pizzerias = [
     ],
 ];
 
-if ($categoria === "veterinarias") {
+if ($categoria === "pinos") {
     echo json_encode([
         "icono" => "img/pino.png",
-        "coordenadas" => $veterinarias,
+        "coordenadas" => $pinos,
     ]);
 } else {
     echo json_encode([
         "icono" => "img/alamo.png",
-        "coordenadas" => $pizzerias,
+        "coordenadas" => $alamos,
     ]);
 }
