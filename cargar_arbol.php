@@ -41,7 +41,7 @@
 		    <div class="container">
 		        <div class="row">
 		          <div class="col-12 col-lg-8 m-auto">
-		            <form class="multisteps-form__form">
+		            <form action="cargar.php" method="post" class="multisteps-form__form">
 		              <!--====================================
 		                                STEP 1
 		              =====================================-->
@@ -56,8 +56,8 @@
 		                      <div class="col-12 col-sm-6 mt-4 mt-sm-0">
 		                        <select class="form-control" id="especie" name="especie">
 		                          <option>-SELECCIONAR-</option>
-		                          <option>Pino</option>
-		                          <option>Alamo</option>
+		                          <option value="pino">Pino</option>
+		                          <option value="alamo">Alamo</option>
 		                        </select>
 		                      </div>
 		                    </div>
@@ -68,23 +68,23 @@
 		                        <p class="card-text">Copa:</p>
 		                      </div>
 		                      <div class="col-12">
-		                        <input type="radio" name="copa" id="copa_radio1">
+		                        <input type="radio" name="copa" id="copa_radio1" value="globosa">
 		                        <label for="copa_radio1">Globosa</label>
 		                      </div>
 		                      <div class="col-12">
-		                        <input type="radio" name="copa" id="copa_radio2">
+		                        <input type="radio" name="copa" id="copa_radio2" value="pira">
 		                        <label for="copa_radio2">Piramidal</label>
 		                      </div>
 		                      <div class="col-12">
-		                        <input type="radio" name="copa" id="copa_radio3">
+		                        <input type="radio" name="copa" id="copa_radio3" value="colum">
 		                        <label for="copa_radio3">Columnar</label>
 		                      </div>
 		                      <div class="col-12">
-		                        <input type="radio" name="copa" id="copa_radio4">
+		                        <input type="radio" name="copa" id="copa_radio4" value="acha">
 		                        <label for="copa_radio4">Achaparrado</label>
 		                      </div>
 		                      <div class="col-12">
-		                        <input type="radio" name="copa" id="copa_radio5">
+		                        <input type="radio" name="copa" id="copa_radio5" value="llov">
 		                        <label for="copa_radio5">Llovedizo</label>
 		                      </div>
 		                    </div>
@@ -164,15 +164,15 @@
 		                      </div>
 		                      <div class="col-6">
 		                        <input type="radio" name="salud" id="salud_radio2">
-		                        <label for="salud_radio2">Huecos</label>
+		                        <label for="salud_radio2">Hueco</label>
 		                      </div>
 		                      <div class="col-6">
 		                        <input type="radio" name="salud" id="salud_radio3">
-		                        <label for="salud_radio3">Hongos</label>
+		                        <label for="salud_radio3">Con hongos</label>
 		                      </div>
 		                      <div class="col-6">
 		                        <input type="radio" name="salud" id="salud_radio4">
-		                        <label for="salud_radio4">Plaga</label>
+		                        <label for="salud_radio4">Plagado</label>
 		                      </div>
 		                    </div>
 		                  </div>
@@ -269,7 +269,7 @@
 		                <div class="multisteps-form__content">
 		                  <div class="button-row d-flex mt-4">
 		                    <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Atras</button>
-		                    <button class="btn btn-success ml-auto" type="button" title="Send">Cargar</button>
+		                    <button class="btn btn-success ml-auto" type="submit" title="Send">Cargar</button>
 		                  </div>
 		                </div>
 		              </div>
