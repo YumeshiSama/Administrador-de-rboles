@@ -238,21 +238,6 @@
 		                      </div>
 		                    </div>
 		                  </div>
-		                  <div class="card shadow-sm p-3 mb-4 rounded">
-		                    <div class="form-row mt-4">
-		                      <div class="col-12">
-		                        <p class="card-text">Requiere reemplazo?:</p>
-		                      </div>
-		                      <div class="col-12">
-		                        <input type="radio" name="reemplazo" id="reemplazo_radio1">
-		                        <label for="reemplazo_radio1">Si</label>
-		                      </div>
-		                      <div class="col-12">
-		                        <input type="radio" name="reemplazo" id="reemplazo_radio2">
-		                        <label for="reemplazo_radio2">No</label>
-		                      </div>
-		                    </div>
-		                  </div>
 		                  <div class="row">
 		                    <div class="button-row d-flex mt-4 col-12">
 		                      <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Atras</button>
