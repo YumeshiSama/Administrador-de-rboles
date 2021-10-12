@@ -28,7 +28,7 @@
 			</a>
 		</div>
 		<div class="col-6">
-			<a href="#" class="menu_items">
+			<a href="enciclopedia.php" class="menu_items">
 					<i class="fa-solid fa-book"></i>
 					<span class="menu_text">Enciclopedia</span>
 			</a>
