@@ -61,7 +61,28 @@
 		                        </select>
 		                      </div>
 		                    </div>
-		                  </div> 
+		                  </div>
+		                  <div class="card shadow-sm p-3 mb-4 rounded">
+		                    <div class="form-row mt-4">
+		                      <div class="col-12 mb-4">
+		                        <span class="card-text">Cargar fotos:</span>
+		                      </div>
+		                      <div class="col-3 fileUpload btn btn-primary mb-4">
+		                        <span><i class="fa-solid fa-camera"></i></span>
+		                        <input id="uploadBtn_copa" type="file" class="upload" name="copa">
+		                      </div>
+		                      <div class="col-9">
+		                        <input type="text" class="form-control" id="uploadFile_copa" placeholder="Copa..." name="copa_file_name" disabled="disabled">
+		                      </div>
+		                      <div class="col-3 fileUpload btn btn-primary">
+		                        <span><i class="fa-solid fa-camera"></i></span>
+		                        <input id="uploadBtn_tronco" type="file" class="upload" name="tronco">
+		                      </div>
+		                      <div class="col-9">
+		                        <input type="text" id="uploadFile_tronco" class="form-control" placeholder="Tronco..." name="tronco_file_name" disabled="disabled">
+		                      </div>
+		                    </div>
+		                  </div>
 		                  <div class="card shadow-sm p-3 mb-4 rounded">
 		                    <div class="form-row mt-4">
 		                      <div class="col-12">
@@ -310,6 +331,13 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
+document.getElementById("uploadBtn_copa").onchange = function () {
+    document.getElementById("uploadFile_copa").value = this.value;
+};
+document.getElementById("uploadBtn_tronco").onchange = function () {
+    document.getElementById("uploadFile_tronco").value = this.value;
+};
+
 const funcionInit = () => {
 	if (!"geolocation" in navigator) {
 		return alert("Tu navegador no soporta el acceso a la ubicación. Intenta con otro");
@@ -377,8 +405,6 @@ const funcionInit = () => {
 		detenerWatcher();
 		idWatcher = navigator.geolocation.watchPosition(onUbicacionConcedida, onErrorDeUbicacion, opcionesDeSolicitud);
 	});
-
-	$btnDetener.addEventListener("click", detenerWatcher);
 
 	$latitud.innerText = "Cargando...";
 	$longitud.innerText = "Cargando...";
