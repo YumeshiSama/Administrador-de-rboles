@@ -268,14 +268,12 @@
 		                      </div>
 		                      <div class="col-6">
 							  <input type="text" class="card-text" name="latitud" id="latitud">
-		                      	<span ></span>
 		                      </div>
 		                      <div class="col-6">
 		                        <span class="card-text">Longitud:</span>
 		                      </div>
 		                      <div class="col-6">
 								  <input type="text"class="card-text" name="longitud" id="longitud">
-		                      	<span ></span>
 		                      </div>
 		                    </div>
 		                  </div>
