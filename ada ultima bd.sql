@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-09-2021 a las 00:34:22
+-- Tiempo de generación: 13-10-2021 a las 16:54:35
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -31,46 +31,39 @@ CREATE TABLE `arboles` (
   `id` int(8) NOT NULL,
   `id_usuario` int(7) NOT NULL,
   `id_edad` int(1) NOT NULL,
-  `id_extraccion` int(1) NOT NULL,
   `id_magnitud` int(1) NOT NULL,
+  `extraible` tinyint(1) NOT NULL,
+  `poda` tinyint(1) NOT NULL,
+  `peligro_de_caida` tinyint(1) NOT NULL,
   `id_columnar` int(1) NOT NULL,
   `id_copa` int(1) NOT NULL,
   `id_salud` int(1) NOT NULL,
   `id_localidad` int(5) NOT NULL,
   `id_especie` int(7) NOT NULL,
-  `ubicacion` varchar(50) NOT NULL,
+  `latitud` varchar(50) NOT NULL,
+  `longitud` varchar(50) NOT NULL,
   `fecha_carga` date NOT NULL,
-  `foto_hojas` varchar(70) NOT NULL,
   `foto_tronco` varchar(70) NOT NULL,
   `foto_copa` varchar(70) NOT NULL,
   `distancia_prox` varchar(70) NOT NULL,
   `comentario` varchar(400) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `arbol_identificar`
+-- Volcado de datos para la tabla `arboles`
 --
 
-CREATE TABLE `arbol_identificar` (
-  `id` int(10) NOT NULL,
-  `fk_arbol` int(10) NOT NULL,
-  `foto1` varchar(40) NOT NULL,
-  `foto2` varchar(40) NOT NULL,
-  `foto3` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `columnar`
---
-
-CREATE TABLE `columnar` (
-  `id` int(1) NOT NULL,
-  `tipo` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `arboles` (`id`, `id_usuario`, `id_edad`, `id_magnitud`, `extraible`, `poda`, `peligro_de_caida`, `id_columnar`, `id_copa`, `id_salud`, `id_localidad`, `id_especie`, `latitud`, `longitud`, `fecha_carga`, `foto_tronco`, `foto_copa`, `distancia_prox`, `comentario`) VALUES
+(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, '-36.5311294868868', '-56.71174973909938', '2021-09-08', '', '', '', ''),
+(2, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 2, '-36.5311295868868', '-56.71143973909938', '0000-00-00', '', '', '', ''),
+(5, 0, 2, 1, 1, 1, 0, 0, 1, 1, 0, 0, '-36.5635041', '-56.7034239', '0000-00-00', '0', '0', '0', ''),
+(6, 0, 2, 1, 1, 1, 0, 0, 1, 1, 0, 0, '-36.5635041', '-56.7034239', '0000-00-00', '0', '0', '0', ''),
+(7, 0, 2, 1, 1, 1, 0, 0, 1, 1, 0, 0, '-36.5635041', '-56.7034239', '2021-10-13', '0', '0', '0', ''),
+(8, 0, 2, 1, 1, 1, 0, 0, 1, 1, 0, 0, '', '', '2021-10-13', '0', '0', '0', ''),
+(9, 0, 2, 1, 1, 1, 0, 0, 1, 1, 0, 0, '-36.5635041', '-56.7034239', '2021-10-13', '0', '0', '0', ''),
+(10, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, '-40.5311294868868', '-60.71174973909938', '2021-10-06', '1', '1', '1', '1'),
+(11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, '-38.5311294868868', '-58.71174973909938', '2021-10-06', '1', '1', '1', '1'),
+(12, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, '-34.5311294868868', '-54.71174973909938', '2021-10-06', '1', '1', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -83,6 +76,17 @@ CREATE TABLE `copa` (
   `tipo` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `copa`
+--
+
+INSERT INTO `copa` (`id`, `tipo`) VALUES
+(1, 'Globosa'),
+(2, 'Piramidal'),
+(3, 'Columnar'),
+(4, 'Achaparrada'),
+(5, 'Llovediza');
+
 -- --------------------------------------------------------
 
 --
@@ -93,6 +97,15 @@ CREATE TABLE `edad` (
   `id` int(1) NOT NULL,
   `rango` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `edad`
+--
+
+INSERT INTO `edad` (`id`, `rango`) VALUES
+(1, 'adulto'),
+(2, 'joven'),
+(3, 'viejo');
 
 -- --------------------------------------------------------
 
@@ -105,17 +118,13 @@ CREATE TABLE `especie` (
   `nombre_especie` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `extraccion`
+-- Volcado de datos para la tabla `especie`
 --
 
-CREATE TABLE `extraccion` (
-  `id` int(1) NOT NULL,
-  `extraible` tinyint(1) NOT NULL,
-  `comentario` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `especie` (`id`, `nombre_especie`) VALUES
+(1, 'pino'),
+(2, 'alamo');
 
 -- --------------------------------------------------------
 
@@ -128,6 +137,14 @@ CREATE TABLE `localidades` (
   `nombre` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `localidades`
+--
+
+INSERT INTO `localidades` (`id`, `nombre`) VALUES
+(1, 'santa teresita'),
+(2, 'las toninas');
+
 -- --------------------------------------------------------
 
 --
@@ -139,6 +156,15 @@ CREATE TABLE `magnitud` (
   `tamano` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `magnitud`
+--
+
+INSERT INTO `magnitud` (`id`, `tamano`) VALUES
+(1, 'hasta 5 metros'),
+(2, 'entre 5 y 15 metros'),
+(3, 'mas de 15 metros');
+
 -- --------------------------------------------------------
 
 --
@@ -149,6 +175,16 @@ CREATE TABLE `salud` (
   `id` int(1) NOT NULL,
   `estado` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `salud`
+--
+
+INSERT INTO `salud` (`id`, `estado`) VALUES
+(1, 'sano'),
+(2, 'hueco'),
+(3, 'plagado'),
+(4, 'con hongos');
 
 -- --------------------------------------------------------
 
@@ -176,18 +212,6 @@ ALTER TABLE `arboles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `arbol_identificar`
---
-ALTER TABLE `arbol_identificar`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `columnar`
---
-ALTER TABLE `columnar`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `copa`
 --
 ALTER TABLE `copa`
@@ -203,12 +227,6 @@ ALTER TABLE `edad`
 -- Indices de la tabla `especie`
 --
 ALTER TABLE `especie`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `extraccion`
---
-ALTER TABLE `extraccion`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -243,61 +261,43 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `arboles`
 --
 ALTER TABLE `arboles`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `arbol_identificar`
---
-ALTER TABLE `arbol_identificar`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `columnar`
---
-ALTER TABLE `columnar`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `copa`
 --
 ALTER TABLE `copa`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `edad`
 --
 ALTER TABLE `edad`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `especie`
 --
 ALTER TABLE `especie`
-  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `extraccion`
---
-ALTER TABLE `extraccion`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `localidades`
 --
 ALTER TABLE `localidades`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `magnitud`
 --
 ALTER TABLE `magnitud`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `salud`
 --
 ALTER TABLE `salud`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
