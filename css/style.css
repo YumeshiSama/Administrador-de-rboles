@@ -153,7 +153,7 @@ body{
 .content {
   overflow-x: hidden!important;
   overflow-y: hidden!important;
-  margin: 0 0 100px;
+  margin: 0 0 100px 0;
 }
 
 .content__title {
@@ -165,8 +165,6 @@ body{
 .content__title--m-sm {
   margin-bottom: 10px;
 }
-
-
 
 .multisteps-form__progress {
   display: grid;
