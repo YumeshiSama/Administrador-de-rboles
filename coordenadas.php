@@ -1,40 +1,27 @@
 <?php
+
+include 'conexion.php';
+
 if (empty($_GET["categoria"])) {
     exit("No hay categoría");
 }
 
 $categoria = $_GET["categoria"];
-#TODO: hacerlo en una BD
-$pinos = [
-    [
-        "latitud" => -36.5311294868868,
-        "longitud" => -56.71174973909938,
-    ],
-    [
-        "latitud" => -36.5311394868868,
-        "longitud" => -56.71144973909938,
-    ],
-    [
-        "latitud" => -36.5311498968868,
-        "longitud" => -56.71404973909938,
-    ],
-];
-$alamos = [
-    [
-        "latitud" => -36.5311294868868,
-        "longitud" => -56.71174973909938,
-    ],
-    [
-        "latitud" => -36.5311294868868,
-        "longitud" => -56.71144973909938,
-    ],
-    [
-        "latitud" => -36.5311295868868,
-        "longitud" => -56.71143973909938,
-    ],
-];
 
-if ($categoria === "pinos") {
+    $sql = "SELECT latitud, longitud FROM arboles WHERE id_especie='1'";
+    $result = $conn->query($sql);
+
+       while($row = mysqli_fetch_array($result)) {
+
+    $pinos = [
+        [
+            "latitud" => $row["latitud"],
+            "longitud" => $row["longitud"],
+        ],
+    ];
+}
+
+if ($categoria === "1") {
     echo json_encode([
         "icono" => "img/pino.png",
         "coordenadas" => $pinos,
@@ -45,3 +32,5 @@ if ($categoria === "pinos") {
         "coordenadas" => $alamos,
     ]);
 }
+
+$conn->close();

@@ -37,7 +37,7 @@
 				MAP SCRIPT 
 =======================================-->
 <script type="text/javascript">
-	let ultimaCapa; // Para removerla cada vez que se selecciona otra categoría
+    let ultimaCapa; // Para removerla cada vez que se selecciona otra categoría
 
 
 const LATITUD_CENTRO = -36.5311294868868,
