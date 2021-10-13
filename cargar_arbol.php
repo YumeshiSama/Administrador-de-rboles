@@ -67,12 +67,15 @@
 		                      <div class="col-12 mb-4">
 		                        <span class="card-text">Cargar fotos:</span>
 		                      </div>
-		                      <div class="col-3 fileUpload btn btn-primary mb-4">
+		                      <div class="col-3 fileUpload btn btn-primary">
 		                        <span><i class="fa-solid fa-camera"></i></span>
 		                        <input id="uploadBtn_copa" type="file" class="upload" name="copa">
 		                      </div>
 		                      <div class="col-9">
 		                        <input type="text" class="form-control" id="uploadFile_copa" placeholder="Copa..." name="copa_file_name" readonly="readonly" >
+		                      </div>
+		                      <div class="col-12">
+		                      	</br>
 		                      </div>
 		                      <div class="col-3 fileUpload btn btn-primary">
 		                        <span><i class="fa-solid fa-camera"></i></span>
