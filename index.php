@@ -19,15 +19,19 @@
 <div class="main" id="blur">
 	<div class="map_filter">
 		<div class="row">
-			<div class="col-12 mb-2">
-				<div class="form-group">
+            <div class="col-2">
+                <div class="logo">
+                    <img src="img/logoalpha.png">
+                </div>
+            </div>
+			<div class="col-8 mb-2">
 					<label for="selectCategorias">Especie:</label>
-					<select class="form-control" id="selectCategorias">
+					<select class="form-control select_categoria" id="selectCategorias">
 						<option value="1">Pinos</option>
 						<option value="2">Alamos</option>
 					</select>
-				</div>
 			</div>
+            <div class="col-2"></div>
 		</div>
 	</div>
 	<div id="mapa"></div>

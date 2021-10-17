@@ -49,39 +49,25 @@ body{
 ===================================*/
 .map_filter{
 	width: 100%;
-	display: flex;
-	position: relative;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
 	background-color: #009CA1;
+  overflow-x:hidden; 
 }
 .map_filter label{
 	color: white;
 	font-family: 'verdana', sans-serif;
 	font-size: 16px;
 }
-.form-group{
-	width: 1000px;}
-@media only screen and (max-width: 1200px) {
-.form-group{
-	width: 600px;
+.select_categoria{
+	width: 100%!important;
 }
+.logo{
+  transform: translate(5%,15%);
 }
-@media only screen and (max-width: 800px) {
-.form-group{
-	width: 400
-}
-}
-@media only screen and (max-width: 600px) {
-.form-group{
-	width: 280px;
-}
-}
-@media only screen and (max-width: 300px) {
-.form-group{
-	width: 200px;
-}
+.logo img{
+  width: 50px;
 }
 #mapa{
 	width: 100%;
