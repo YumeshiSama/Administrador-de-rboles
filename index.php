@@ -20,8 +20,8 @@
 	<div class="map_filter">
 		<div class="row">
             <div class="col-2">
-                <div class="logo">
-                    <img src="img/logoalpha.png">
+                <div class="filter_items">
+                    <img src="img/logoalpha1.png">
                 </div>
             </div>
 			<div class="col-8 mb-2">

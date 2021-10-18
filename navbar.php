@@ -41,6 +41,21 @@
 					<span class="menu_text">Salir</span>
 			</a>
 		</div>
+		<div class="col-4">
+			<a href="#" class="menu_items_logos">
+					<img src="img/logoalpha1.png">
+			</a>
+		</div>
+		<div class="col-4">
+			<a href="#" class="menu_items_logos la_costa">
+					<img src="img/lacosta2.png">
+			</a>
+		</div>
+		<div class="col-4">
+			<a href="#" class="menu_items_logos">
+					<img src="img/tecnica.png">
+			</a>
+		</div>
 	</div>				
 </div>
 <!--==================================
