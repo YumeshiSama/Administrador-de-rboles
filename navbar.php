@@ -43,7 +43,7 @@
 		</div>
 		<div class="col-4">
 			<a href="#" class="menu_items_logos">
-					<img src="img/logoalpha1.png">
+					<img src="img/logoalpha3.png">
 			</a>
 		</div>
 		<div class="col-4">
