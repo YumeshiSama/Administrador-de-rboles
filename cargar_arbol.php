@@ -11,7 +11,14 @@
 	<script src="https://kit.fontawesome.com/aa00e73738.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
+<?php
+session_start();
+if (empty($_SESSION["id_usuario"])) {
+    header("Location: index.php");
+    exit();
+}
+?>
+<a href="logout.php">Cerrar sesión</a>
 <?php include 'navbar.php'; ?>
 
 <div class="main" id="blur">
