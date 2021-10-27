@@ -27,8 +27,16 @@
 			<div class="col-8 mb-2">
 					<label for="selectCategorias">Especie:</label>
 					<select class="form-control select_categoria" id="selectCategorias">
-						<option value="1">Pinos</option>
+                        <option value="1">Pinos</option>
 						<option value="2">Alamos</option>
+                        <option value="3">Arce tridente</option>
+						<option value="4">Fresno dorado</option>
+                        <option value="5">Crespón</option>
+						<option value="6">Fotinia</option>
+                        <option value="7">Viscote</option>
+						<option value="8">Arce dorado</option>
+                        <option value="9">Cedro</option>
+						<option value="10">Lapacho rosado</option>
 					</select>
 			</div>
             <div class="col-2"></div>
