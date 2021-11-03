@@ -1,3 +1,8 @@
+<?php
+include "conexion.php";
+    $sql = "SELECT * FROM especie ORDER BY nombre_especie='mostrar todos'desc,nombre_especie";
+    $result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html>
 <head lang="es">
@@ -9,6 +14,9 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script src="https://kit.fontawesome.com/aa00e73738.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="build/ol.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
 </head>
 <body>
 <?php
@@ -32,17 +40,13 @@ if (empty($_SESSION["id_usuario"])) {
             </div>
 			<div class="col-8 mb-2">
 					<label for="selectCategorias">Especie:</label>
-					<select class="form-control select_categoria" id="selectCategorias">
-                        <option value="1">Pinos</option>
-						<option value="2">Alamos</option>
-                        <option value="3">Arce tridente</option>
-						<option value="4">Fresno dorado</option>
-                        <option value="5">Crespón</option>
-						<option value="6">Fotinia</option>
-                        <option value="7">Viscote</option>
-						<option value="8">Arce dorado</option>
-                        <option value="9">Cedro</option>
-						<option value="10">Lapacho rosado</option>
+					<select class="form-control select_categoria" id="selectCategorias" name="selectCategorias">
+                        <?php
+                        foreach($result as $row)
+                        {
+                            echo '<option value="'.$row['id'].'">'.ucfirst($row['nombre_especie']).'</option>';
+                        }
+                        ?>
 					</select>
 			</div>
             <div class="col-2"></div>
