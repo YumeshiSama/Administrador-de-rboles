@@ -14,7 +14,7 @@
             <div class="login_box jumbotron">
                 <div class="col-10 col-lg-4 m-auto card shadow-sm p-3 rounded">
                     <div class="login_l m-auto mb-2">
-                        <img src="img/logoalpha3.png">
+                        <img src="img/logoalpha1.png">
                     </div>
                     <form action="login.php" method="post">
                         <!--
