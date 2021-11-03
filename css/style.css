@@ -8,6 +8,39 @@ body{
 	margin: 0 0 55px 0;
 }
 /*===================================
+        LOGIN
+=====================================*/
+.login_l img{
+  width: 150px;
+}
+@media (min-width: 800px) {
+  .login_l img{
+    width: 300px;
+  }
+}
+.login_box{
+  min-height: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.l_logo img{
+  width: 40px
+}
+.l_lacosta img{
+  width: 60px
+}
+@media (min-width: 800px) {
+  .l_logo img{
+  width: 80px
+  }
+  .l_lacosta img{
+  width: 100px
+  }
+}
+/*===================================
 				NAVBAR
 =====================================*/
 .nav{
@@ -77,6 +110,10 @@ body{
 	z-index: -1;
 }
 /*==================================
+        MAP POPUP
+====================================*/
+
+/*==================================
 				MENU
 ====================================*/
 .main{
@@ -92,7 +129,7 @@ body{
 	top: 40%;
 	left: 50%;
 	transform: translate(-50%,-40%);
-	width: 90%;
+	width: 40%;
 	height: 80%;
 	padding: 5%;
 	overflow-x: auto;
@@ -101,6 +138,12 @@ body{
 	opacity: 1;
 	transition: 0.5s;
 }
+@media (max-width: 800px) {
+  .menu{
+    width: 90%;
+  }
+}
+
 .menu.active{
 	visibility: visible;
 	opacity: 1;

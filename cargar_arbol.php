@@ -18,7 +18,6 @@ if (empty($_SESSION["id_usuario"])) {
     exit();
 }
 ?>
-<a href="logout.php">Cerrar sesión</a>
 <?php include 'navbar.php'; ?>
 
 <div class="main" id="blur">

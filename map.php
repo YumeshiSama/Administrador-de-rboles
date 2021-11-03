@@ -18,7 +18,6 @@ if (empty($_SESSION["id_usuario"])) {
     exit();
 }
 ?>
-<a href="logout.php">Cerrar sesión</a>
 <?php include 'navbar.php'; ?>
 <!--=======================================
 					MAP 
@@ -28,7 +27,7 @@ if (empty($_SESSION["id_usuario"])) {
 		<div class="row">
             <div class="col-2">
                 <div class="filter_items">
-                    <img src="img/logoalpha1.png">
+                    <img src="img/logoalpha3.png">
                 </div>
             </div>
 			<div class="col-8 mb-2">
@@ -128,6 +127,7 @@ mapa.on('singleclick', function(evt) {
         // Aquí se puede filtrar la feature
         return feature;
     });
+
     if (feature) {
         console.log("Click en: ", feature);
     }

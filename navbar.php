@@ -9,41 +9,41 @@
 ===================================-->
 <div class="menu fadeInUp inactive" id="menu">
 	<div class="row">
-		<div class="col-6">
-			<a href="index.php" class="menu_items">
+		<div class="col-6 col-lg-3 col-sm-3">
+			<a href="map.php" class="menu_items">
 					<i class="fa-solid fa-map-location-dot"></i>
 					<span class="menu_text">Mapa</span>
 			</a>
 		</div>
-		<div class="col-6">
+		<div class="col-6 col-lg-3 col-sm-3">
 			<a href="cargar_arbol.php" class="menu_items">
 					<i class="fa-solid fa-file-arrow-up"></i>
 					<span class="menu_text">Subir</span>
 			</a>
 		</div>
-		<div class="col-6">
+		<div class="col-6 col-lg-3 col-sm-3">
 			<a href="#" class="menu_items">
 					<i class="fa-solid fa-pen"></i>
 					<span class="menu_text">Editar</span>
 			</a>
 		</div>
-		<div class="col-6">
+		<div class="col-6 col-lg-3 col-sm-3">
 			<a href="enciclopedia.php" class="menu_items">
 					<i class="fa-solid fa-book"></i>
-					<span class="menu_text">Enciclopedia</span>
+					<span class="menu_text">Ref.</span>
 			</a>
 		</div>
-		<div class="col-6">
+		<div class="col-6 col-lg-9 col-sm-9">
 		</div>
-		<div class="col-6">
-			<a href="#" class="menu_items">
+		<div class="col-6 col-lg-3 col-sm-3">
+			<a href="logout.php" class="menu_items">
 					<i class="fa-solid fa-right-from-bracket"></i>
 					<span class="menu_text">Salir</span>
 			</a>
 		</div>
 		<div class="col-4">
 			<a href="#" class="menu_items_logos">
-					<img src="img/logoalpha1.png">
+					<img src="img/logoalpha3.png">
 			</a>
 		</div>
 		<div class="col-4">
