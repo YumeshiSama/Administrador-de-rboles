@@ -24,7 +24,7 @@ if (empty($_SESSION["id_usuario"])) {
 <div class="menu fadeInUp inactive" id="menu">
 	<div class="row">
 		<div class="col-6 col-lg-3 col-sm-3">
-			<a href="map.php" class="menu_items">
+			<a href="index.php" class="menu_items">
 					<i class="fa-solid fa-map-location-dot"></i>
 					<span class="menu_text">Mapa</span>
 			</a>
