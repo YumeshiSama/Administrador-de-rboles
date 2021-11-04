@@ -26,6 +26,6 @@ $sql = "INSERT INTO `arboles` (`id`, `id_usuario`, `id_edad`, `id_magnitud`, `ex
 
 mysqli_query($conn,$sql);
 
-header("Location: map.php");
+header("Location: index.php");
 
 exit;
