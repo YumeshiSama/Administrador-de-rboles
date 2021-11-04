@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head lang="es">
-	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=no">
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=no">
 	<title>Beta_ada</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -9,6 +9,9 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script src="https://kit.fontawesome.com/aa00e73738.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="build/ol.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
 </head>
 <body>
 <?php
@@ -17,13 +20,16 @@ if (empty($_SESSION["id_usuario"])) {
     header("Location: index.php");
     exit();
 };
+
 include 'conexion.php';
+include 'navbar.php';
 $nivel_actual="";
 $id_usuario=$_SESSION["id_usuario"];
 $sql = "SELECT * FROM usuarios";
 $sql2 = "SELECT * FROM usuarios WHERE id='$id_usuario";
 $result2 = $conn->query($sql2);
 $result = $conn->query($sql);?>
+<div class="main" id="blur">
 <table class="table table-striped table-hover">
 	<tr>
 		<th>ID</th>
@@ -55,5 +61,8 @@ while($row = mysqli_fetch_array($result)) {
 	}
 	 ?>
 </table>
+</div>
 </body>
+<script  src="js/main.js"></script>
+
 </html>

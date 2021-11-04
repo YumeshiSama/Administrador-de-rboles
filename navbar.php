@@ -1,10 +1,15 @@
 <?php
-$id=$_SESSION['id_usuario'];
-$sql5 = "SELECT nivel FROM usuarios WHERE id='$id'";
-$result5 = $conn->query($sql5);
-$nivel="";
-while($row5 = mysqli_fetch_array($result5)) {
+if (empty($_SESSION["id_usuario"])) {
+    $id=false;
+	$nivel=0;
+}else {
+	$id=$_SESSION['id_usuario'];
+	$sql5 = "SELECT nivel FROM usuarios WHERE id='$id'";
+	$result5 = $conn->query($sql5);
+	$nivel="";
+	while($row5 = mysqli_fetch_array($result5)) {
 	$nivel = $row5['nivel'];
+}
 }
 ?>
 <nav class="nav">
@@ -62,9 +67,9 @@ while($row5 = mysqli_fetch_array($result5)) {
 			</div>';
 	} else {
 		echo '<div class="col-6 col-lg-3 col-sm-3">
-			<a href="login.php" class="menu_items">
+			<a href="log.php" class="menu_items">
 					<i class="fa-solid fa-right-from-bracket"></i>
-					<span class="menu_text">Salir</span>
+					<span class="menu_text">Iniciar Sesion</span>
 			</a>
 			</div>';
 	}

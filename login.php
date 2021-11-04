@@ -15,7 +15,7 @@ if ($palabra_secreta === $row['pass']) {
     session_start();
 
     $_SESSION["id_usuario"] = $row['id'];
-    header("Location: map.php");
+    header("Location: index.php");
 } else {
     echo "El usuario o la contraseña son incorrectos";
 }}
