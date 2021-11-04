@@ -16,7 +16,27 @@ session_start();
 if (empty($_SESSION["id_usuario"])) {
     header("Location: index.php");
     exit();
-}
+};
+include 'conexion.php';
+
+$sql = "SELECT * FROM usuarios";
+$result = $conn->query($sql);
+while($row = mysqli_fetch_array($result)) {
 ?>
+<tr>
+		<td id="identificador"><?php echo $row['id'] ?></td>
+		<td><?php echo $row['institucion'] ?></td>
+		<td><?php echo $row['username'] ?></td>
+		<td><?php echo $row['nivel'] ?></td>
+		<td><?php echo $row['id_localidad'] ?></td>
+		<td> <a href="moduloeditar.php?id=<?php echo $row['id']; ?>" class="btn btn-info" >✎</a>
+		</td>
+		<td> <a href="moduloeliminar.php?id=<?php echo $row['id']; ?>" class="btn btn-danger" >X</a>
+		</td>
+	</tr>
+	<?php 
+	}
+	 ?>
+
 </body>
 </html>

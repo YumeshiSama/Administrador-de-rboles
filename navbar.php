@@ -1,12 +1,10 @@
 <?php
-
-include 'conexion.php';
 $id=$_SESSION['id_usuario'];
-$sql = "SELECT nivel FROM usuarios WHERE id='$id'";
-$result = $conn->query($sql);
+$sql5 = "SELECT nivel FROM usuarios WHERE id='$id'";
+$result5 = $conn->query($sql5);
 $nivel="";
-while($row = mysqli_fetch_array($result)) {
-	$nivel = $row['nivel'];
+while($row5 = mysqli_fetch_array($result5)) {
+	$nivel = $row5['nivel'];
 }
 ?>
 <nav class="nav">
@@ -37,7 +35,7 @@ while($row = mysqli_fetch_array($result)) {
 			}
 		?>
 		<?php 
-			if ($nivel>=5){
+			if ($nivel>=2){
 			echo '<div class="col-6 col-lg-3 col-sm-3">
 				<a href="usuarios_lista.php" class="menu_items">
 						<i class="fa-solid fa-pen"></i>
