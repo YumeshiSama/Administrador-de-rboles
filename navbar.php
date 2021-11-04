@@ -42,6 +42,16 @@ if (empty($_SESSION["id_usuario"])) {
 		<?php 
 			if ($nivel>=2){
 			echo '<div class="col-6 col-lg-3 col-sm-3">
+				<a href="nueva_categoria.php" class="menu_items">
+						<i class="fa-solid fa-pen"></i>
+						<span class="menu_text">Nueva especie</span>
+				</a>
+			</div>';
+		}
+		?>
+		<?php 
+			if ($nivel>=2){
+			echo '<div class="col-6 col-lg-3 col-sm-3">
 				<a href="usuarios_lista.php" class="menu_items">
 						<i class="fa-solid fa-pen"></i>
 						<span class="menu_text">Usuarios</span>

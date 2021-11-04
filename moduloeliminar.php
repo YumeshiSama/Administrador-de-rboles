@@ -1,4 +1,9 @@
 <?php 
+session_start();
+if (empty($_SESSION["id_usuario"])) {
+    header("Location: index.php");
+    exit();
+};
 include 'conexion.php';
 $id = $_REQUEST['id'];
 $sql = "DELETE FROM `usuarios` WHERE id= $id";

@@ -61,6 +61,7 @@ while($row = mysqli_fetch_array($result)) {
 	}
 	 ?>
 </table>
+<div class="container-fluid"><a href="new_user.php">Añadir usuario</a></div>
 </div>
 </body>
 <script  src="js/main.js"></script>
