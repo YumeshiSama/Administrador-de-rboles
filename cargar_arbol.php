@@ -1,3 +1,8 @@
+<?php
+include "conexion.php";
+    $sql = "SELECT * FROM especie WHERE id>1 ORDER BY nombre_especie asc";
+    $result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,9 +66,12 @@ if (empty($_SESSION["id_usuario"])) {
 		                      </div>
 		                      <div class="col-12 col-sm-6 mt-4 mt-sm-0">
 		                        <select class="form-control" id="especie" name="especie">
-		                          <option value="0">-SELECCIONAR-</option>
-		                          <option value="1">Pino</option>
-		                          <option value="2">Alamo</option>
+								<?php
+									foreach($result as $row)
+									{
+										echo '<option value="'.$row['id'].'">'.ucfirst($row['nombre_especie']).'</option>';
+									}
+								?>
 		                        </select>
 		                      </div>
 		                    </div>
