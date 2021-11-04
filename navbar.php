@@ -1,3 +1,14 @@
+<?php
+
+include 'conexion.php';
+$id=$_SESSION['id_usuario'];
+$sql = "SELECT nivel FROM usuarios WHERE id='$id'";
+$result = $conn->query($sql);
+$nivel="";
+while($row = mysqli_fetch_array($result)) {
+	$nivel = $row['nivel'];
+}
+?>
 <nav class="nav">
 	<a href="#" onclick="toggle()" class="nav_items">
 		<i class="fa-solid fa-caret-up"></i>
@@ -15,32 +26,51 @@
 					<span class="menu_text">Mapa</span>
 			</a>
 		</div>
-		<div class="col-6 col-lg-3 col-sm-3">
-			<a href="cargar_arbol.php" class="menu_items">
-					<i class="fa-solid fa-file-arrow-up"></i>
-					<span class="menu_text">Subir</span>
-			</a>
-		</div>
-		<div class="col-6 col-lg-3 col-sm-3">
-			<a href="#" class="menu_items">
-					<i class="fa-solid fa-pen"></i>
-					<span class="menu_text">Editar</span>
-			</a>
-		</div>
+		<?php 
+			if ($nivel>=1){
+				echo '<div class="col-6 col-lg-3 col-sm-3">
+				<a href="cargar_arbol.php" class="menu_items">
+						<i class="fa-solid fa-file-arrow-up"></i>
+						<span class="menu_text">Subir</span>
+				</a>
+			</div>';
+			}
+		?>
+		<?php 
+			if ($nivel>=5){
+			echo '<div class="col-6 col-lg-3 col-sm-3">
+				<a href="usuarios_lista.php" class="menu_items">
+						<i class="fa-solid fa-pen"></i>
+						<span class="menu_text">Usuarios</span>
+				</a>
+			</div>';
+		}
+		?>
 		<div class="col-6 col-lg-3 col-sm-3">
 			<a href="enciclopedia.php" class="menu_items">
 					<i class="fa-solid fa-book"></i>
-					<span class="menu_text">Ref.</span>
+					<span class="menu_text">Referencia</span>
 			</a>
 		</div>
 		<div class="col-6 col-lg-9 col-sm-9">
 		</div>
-		<div class="col-6 col-lg-3 col-sm-3">
+		<?php 
+			if ($id){
+		echo '<div class="col-6 col-lg-3 col-sm-3">
 			<a href="logout.php" class="menu_items">
 					<i class="fa-solid fa-right-from-bracket"></i>
 					<span class="menu_text">Salir</span>
 			</a>
-		</div>
+			</div>';
+	} else {
+		echo '<div class="col-6 col-lg-3 col-sm-3">
+			<a href="login.php" class="menu_items">
+					<i class="fa-solid fa-right-from-bracket"></i>
+					<span class="menu_text">Salir</span>
+			</a>
+			</div>';
+	}
+	?>
 		<div class="col-4">
 			<a href="#" class="menu_items_logos">
 					<img src="img/logoalpha1.png">
