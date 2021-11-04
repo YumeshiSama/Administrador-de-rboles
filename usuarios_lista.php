@@ -18,10 +18,27 @@ if (empty($_SESSION["id_usuario"])) {
     exit();
 };
 include 'conexion.php';
-
+$nivel_actual="";
+$id_usuario=$_SESSION["id_usuario"];
 $sql = "SELECT * FROM usuarios";
-$result = $conn->query($sql);
+$sql2 = "SELECT * FROM usuarios WHERE id='$id_usuario";
+$result2 = $conn->query($sql2);
+$result = $conn->query($sql);?>
+<table class="table table-striped table-hover">
+	<tr>
+		<th>ID</th>
+		<th>Institucion</th>
+		<th>Nombre de usuario</th>
+		<th>Nivel</th>
+		<th>Localidad</th>
+		<th>Modificar</th>
+		<th>Eliminar</th>
+	</tr>
+<?php
 while($row = mysqli_fetch_array($result)) {
+    if ($row['id']==$id_usuario) {
+        $nivel_actual=$row['nivel'];
+    }
 ?>
 <tr>
 		<td id="identificador"><?php echo $row['id'] ?></td>
@@ -29,14 +46,14 @@ while($row = mysqli_fetch_array($result)) {
 		<td><?php echo $row['username'] ?></td>
 		<td><?php echo $row['nivel'] ?></td>
 		<td><?php echo $row['id_localidad'] ?></td>
-		<td> <a href="moduloeditar.php?id=<?php echo $row['id']; ?>" class="btn btn-info" >✎</a>
+		<td> <a href="moduloeditar.php?id=<?php echo $row['id']; ?>" class="btn btn-info <?php if ($nivel_actual <= $row['nivel'] && $id_usuario!== $row['id']){ echo " disabled";};?>" >✎</a>
 		</td>
-		<td> <a href="moduloeliminar.php?id=<?php echo $row['id']; ?>" class="btn btn-danger" >X</a>
+		<td> <a href="moduloeliminar.php?id=<?php echo $row['id']; ?>" class="btn btn-danger <?php if ($nivel_actual <= $row['nivel']){ echo " disabled";};?>" <?php if ($id_usuario === $row['id']){ echo " disabled";};?>" >X</a>
 		</td>
 	</tr>
 	<?php 
 	}
 	 ?>
-
+</table>
 </body>
 </html>
