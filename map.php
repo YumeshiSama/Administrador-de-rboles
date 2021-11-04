@@ -141,7 +141,7 @@ mapa.on('singleclick', function(evt) {
 });
 
 function arbol_popup() {
-          fetch("http://localhost/github/Sol-de-Mayo/server/productos")
+          fetch("http://localhost/github/Administrador-de-rboles/db_arbolData.php")
           .then((res) => res.json())
           .then((data) => {
               console.log(data);
@@ -158,7 +158,7 @@ function arbol_popup() {
               //   console.log(data);
               // } else{}
 
-              data.map((producto => {
+              data.map((arboles => {
               const div = document.createElement("div");
               div.className += "card"; 
               const img = document.createElement("img");
