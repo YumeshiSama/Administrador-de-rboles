@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-10-2021 a las 16:54:35
+-- Tiempo de generación: 04-11-2021 a las 01:03:13
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -54,16 +54,12 @@ CREATE TABLE `arboles` (
 --
 
 INSERT INTO `arboles` (`id`, `id_usuario`, `id_edad`, `id_magnitud`, `extraible`, `poda`, `peligro_de_caida`, `id_columnar`, `id_copa`, `id_salud`, `id_localidad`, `id_especie`, `latitud`, `longitud`, `fecha_carga`, `foto_tronco`, `foto_copa`, `distancia_prox`, `comentario`) VALUES
-(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, '-36.5311294868868', '-56.71174973909938', '2021-09-08', '', '', '', ''),
+(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 11, '-36.5311294868868', '-56.71174973909938', '2021-09-08', '', '', '', ''),
 (2, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 2, '-36.5311295868868', '-56.71143973909938', '0000-00-00', '', '', '', ''),
-(5, 0, 2, 1, 1, 1, 0, 0, 1, 1, 0, 0, '-36.5635041', '-56.7034239', '0000-00-00', '0', '0', '0', ''),
-(6, 0, 2, 1, 1, 1, 0, 0, 1, 1, 0, 0, '-36.5635041', '-56.7034239', '0000-00-00', '0', '0', '0', ''),
-(7, 0, 2, 1, 1, 1, 0, 0, 1, 1, 0, 0, '-36.5635041', '-56.7034239', '2021-10-13', '0', '0', '0', ''),
-(8, 0, 2, 1, 1, 1, 0, 0, 1, 1, 0, 0, '', '', '2021-10-13', '0', '0', '0', ''),
-(9, 0, 2, 1, 1, 1, 0, 0, 1, 1, 0, 0, '-36.5635041', '-56.7034239', '2021-10-13', '0', '0', '0', ''),
-(10, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, '-40.5311294868868', '-60.71174973909938', '2021-10-06', '1', '1', '1', '1'),
-(11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, '-38.5311294868868', '-58.71174973909938', '2021-10-06', '1', '1', '1', '1'),
-(12, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, '-34.5311294868868', '-54.71174973909938', '2021-10-06', '1', '1', '1', '1');
+(10, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, '-40.5311294868868', '-60.71174973909938', '2021-10-06', '1', '1', '1', '1'),
+(11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, '-38.5311294868868', '-58.71174973909938', '2021-10-06', '1', '1', '1', '1'),
+(12, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10, '-34.5311294868868', '-54.71174973909938', '2021-10-06', '1', '1', '1', '1'),
+(13, 2, 2, 1, 1, 1, 0, 0, 1, 1, 0, 11, '-36.5654185', '-56.7031169', '2021-10-27', '0', '0', '0', '');
 
 -- --------------------------------------------------------
 
@@ -115,16 +111,26 @@ INSERT INTO `edad` (`id`, `rango`) VALUES
 
 CREATE TABLE `especie` (
   `id` int(7) NOT NULL,
-  `nombre_especie` varchar(60) NOT NULL
+  `nombre_especie` varchar(60) NOT NULL,
+  `imagen` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `especie`
 --
 
-INSERT INTO `especie` (`id`, `nombre_especie`) VALUES
-(1, 'pino'),
-(2, 'alamo');
+INSERT INTO `especie` (`id`, `nombre_especie`, `imagen`) VALUES
+(1, 'mostrar todos', 'img/logoalpha1.png'),
+(2, 'alamo', 'img/alamo.png'),
+(3, 'arce tridente', ''),
+(4, 'fresno dorado', ''),
+(5, 'crespón', ''),
+(6, 'fotinia', ''),
+(7, 'viscote', ''),
+(8, 'arce dorado', ''),
+(9, 'cedro', ''),
+(10, 'lapacho rosado', ''),
+(11, 'pino', 'img/pino.png');
 
 -- --------------------------------------------------------
 
@@ -196,10 +202,18 @@ CREATE TABLE `usuarios` (
   `id` int(7) NOT NULL,
   `institucion` varchar(100) NOT NULL,
   `username` varchar(60) NOT NULL,
-  `password` varchar(60) NOT NULL,
+  `pass` varchar(60) NOT NULL,
   `nivel` int(1) NOT NULL,
   `id_localidad` int(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `institucion`, `username`, `pass`, `nivel`, `id_localidad`) VALUES
+(1, 'tecnica1', 'root', '1234', 5, 1),
+(2, 'prueba', 'prueba', '12', 5, 2);
 
 --
 -- Índices para tablas volcadas
@@ -261,7 +275,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `arboles`
 --
 ALTER TABLE `arboles`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `copa`
@@ -279,7 +293,7 @@ ALTER TABLE `edad`
 -- AUTO_INCREMENT de la tabla `especie`
 --
 ALTER TABLE `especie`
-  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `localidades`
@@ -303,7 +317,7 @@ ALTER TABLE `salud`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

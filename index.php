@@ -1,3 +1,8 @@
+<?php
+include "conexion.php";
+    $sql = "SELECT * FROM especie ORDER BY nombre_especie='mostrar todos'desc,nombre_especie";
+    $result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html>
 <head lang="es">
@@ -9,9 +14,15 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script src="https://kit.fontawesome.com/aa00e73738.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="build/ol.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
 </head>
 <body>
+<?php
+session_start();
 
+?>
 <?php include 'navbar.php'; ?>
 <!--=======================================
 					MAP 
@@ -19,15 +30,23 @@
 <div class="main" id="blur">
 	<div class="map_filter">
 		<div class="row">
-			<div class="col-12 mb-2">
-				<div class="form-group">
+            <div class="col-2">
+                <div class="filter_items">
+                    <img src="img/logoalpha1.png">
+                </div>
+            </div>
+			<div class="col-8 mb-2">
 					<label for="selectCategorias">Especie:</label>
-					<select class="form-control" id="selectCategorias">
-						<option value="1">Pinos</option>
-						<option value="2">Alamos</option>
+					<select class="form-control select_categoria" id="selectCategorias" name="selectCategorias">
+                        <?php
+                        foreach($result as $row)
+                        {
+                            echo '<option value="'.$row['id'].'">'.ucfirst($row['nombre_especie']).'</option>';
+                        }
+                        ?>
 					</select>
-				</div>
 			</div>
+            <div class="col-2"></div>
 		</div>
 	</div>
 	<div id="mapa"></div>
@@ -109,12 +128,59 @@ mapa.on('singleclick', function(evt) {
         // Aquí se puede filtrar la feature
         return feature;
     });
+    coord = feature.getGeometry().getCoordinates();
+    var lon = coord[0];
+    var lat = coord[1];
     if (feature) {
-        console.log("Click en: ", feature);
+        console.log("longitud: ", lon, "latitud: ", lat);
+        arbol_popup()
     }
 });
 
+function arbol_popup() {
+          fetch("http://localhost/github/Administrador-de-rboles/db_arbolData.php")
+          .then((res) => res.json())
+          .then((data) => {
+              console.log(data);
+              // data = data[0];
+              // console.log(data);
+              const divDatos = document.getElementById("datos");
+              divDatos.innerHTML="";
+              
+              // filtra el arbol
+              // if (area !== "") {
+              //   data = data.filter(function(items){
+              //   return (items.id_area == area);
+              //   });
+              //   console.log(data);
+              // } else{}
 
+              data.map((arboles => {
+              const div = document.createElement("div");
+              div.className += "card"; 
+              const img = document.createElement("img");
+              img.src = producto.imagen;
+              img.className = "img-card";
+              const nombre = document.createElement("h2");
+              nombre.innerText = producto.nombre;
+              const descripcion = document.createElement("h3");
+              descripcion.innerText = producto.descripcion;
+              const marca = document.createElement("h3");
+              marca.innerText = producto.n_marca;
+              const precio = document.createElement("p");
+              precio.innerText = "precio: " + "$" + producto.precio;
+              const stock = document.createElement("p");
+              stock.innerText = "quedan: " + producto.stock;
+              div.appendChild(img);
+              div.appendChild(nombre);
+              div.appendChild(descripcion);
+              div.appendChild(marca);
+              div.appendChild(precio);
+              div.appendChild(stock);
+              divDatos.appendChild(div);
+              }))
+            });
+        };
 
 let zoomActual = mapa.getView().getZoom();
 mapa.on('moveend', function(e) {

@@ -8,6 +8,39 @@ body{
 	margin: 0 0 55px 0;
 }
 /*===================================
+        LOGIN
+=====================================*/
+.login_l img{
+  width: 150px;
+}
+@media (min-width: 800px) {
+  .login_l img{
+    width: 300px;
+  }
+}
+.login_box{
+  min-height: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.l_logo img{
+  width: 40px
+}
+.l_lacosta img{
+  width: 60px
+}
+@media (min-width: 800px) {
+  .l_logo img{
+  width: 80px
+  }
+  .l_lacosta img{
+  width: 100px
+  }
+}
+/*===================================
 				NAVBAR
 =====================================*/
 .nav{
@@ -49,39 +82,25 @@ body{
 ===================================*/
 .map_filter{
 	width: 100%;
-	display: flex;
-	position: relative;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	background-color: #009CA1;
+	background-color: #00A4A9;
+  overflow-x:hidden; 
 }
 .map_filter label{
 	color: white;
 	font-family: 'verdana', sans-serif;
 	font-size: 16px;
 }
-.form-group{
-	width: 1000px;}
-@media only screen and (max-width: 1200px) {
-.form-group{
-	width: 600px;
+.select_categoria{
+	width: 100%!important;
 }
+.filter_items{
+  transform: translate(10%,15%);
 }
-@media only screen and (max-width: 800px) {
-.form-group{
-	width: 400
-}
-}
-@media only screen and (max-width: 600px) {
-.form-group{
-	width: 280px;
-}
-}
-@media only screen and (max-width: 300px) {
-.form-group{
-	width: 200px;
-}
+.filter_items img{
+  width: 50px;
 }
 #mapa{
 	width: 100%;
@@ -90,6 +109,10 @@ body{
 	position: fixed;
 	z-index: -1;
 }
+/*==================================
+        MAP POPUP
+====================================*/
+
 /*==================================
 				MENU
 ====================================*/
@@ -106,7 +129,7 @@ body{
 	top: 40%;
 	left: 50%;
 	transform: translate(-50%,-40%);
-	width: 90%;
+	width: 40%;
 	height: 80%;
 	padding: 5%;
 	overflow-x: auto;
@@ -115,6 +138,12 @@ body{
 	opacity: 1;
 	transition: 0.5s;
 }
+@media (max-width: 800px) {
+  .menu{
+    width: 90%;
+  }
+}
+
 .menu.active{
 	visibility: visible;
 	opacity: 1;
@@ -146,6 +175,30 @@ body{
 .menu_items:hover{
 	background-color: #009CA1;
 	color: white;
+}
+.menu_items_logos{
+  display: flex;
+  padding: 10%;
+  border-radius: 20%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  min-width: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: 'verdana', sans-serif;
+  font-size: 20px;
+  color: white;
+  text-decoration: none!important;
+  -webkit-tap-highlight-color: transparent;
+  transition: backgraund-color 0.1s ease-in-out;
+}
+.menu_items_logos img{
+  width: 60px;
+}
+.la_costa img{
+  width: 80px;
 }
 /*==================================
 			FORM UPLOAD

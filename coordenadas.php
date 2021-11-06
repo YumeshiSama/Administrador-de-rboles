@@ -6,40 +6,40 @@ if (empty($_GET["categoria"])) {
     exit("No hay categoría");
 }
 $categoria = $_GET["categoria"];
-//$categoria="1";
-//$contador=0;
 $arreglo=array();
 $arreglodos=array();
-$var="]";
-
-    $sql = "SELECT latitud, longitud FROM arboles WHERE id_especie='1'";
+$imagen="";
+if ($categoria==="1") {
+    $sql = "SELECT latitud, longitud FROM arboles";
+    $sqlimg = "SELECT imagen FROM especie WHERE id=$categoria";
+    $resultimg = $conn->query($sqlimg);
+    while($rowimg = mysqli_fetch_array($resultimg)) {
+        $imagen =  [$rowimg["imagen"]];  
+    }
     $result = $conn->query($sql);
-
        while($row = mysqli_fetch_array($result)) {
            
            $arreglodos =  ["latitud" => $row["latitud"],"longitud" => $row["longitud"]];
-           array_push($arreglo,$arreglodos);
-            //$contador= $contador+1;
-            // $pinos =[
-            //             [
-            //                 "latitud" => $row["latitud"],
-            //                 "longitud" => $row["longitud"],
-            //             ],
-            //         ];
-            
-}
-
-
-if ($categoria === "1") {
-    echo json_encode([
-        "icono" => "img/pino.png",
-        "coordenadas" => $arreglo,
-    ]);
+           array_push($arreglo,$arreglodos);    
+    }
 } else {
-    echo json_encode([
-        "icono" => "img/alamo.png",
-        "coordenadas" => $arreglo,
-    ]);
+    $sql = "SELECT latitud, longitud FROM arboles WHERE id_especie=$categoria";
+    $sqlimg = "SELECT imagen FROM especie WHERE id=$categoria";
+    $resultimg = $conn->query($sqlimg);
+    while($rowimg = mysqli_fetch_array($resultimg)) {
+        $imagen =  [$rowimg["imagen"]];  
+    }
+    $result = $conn->query($sql);
+       while($row = mysqli_fetch_array($result)) {
+           
+           $arreglodos =  ["latitud" => $row["latitud"],"longitud" => $row["longitud"]];
+           array_push($arreglo,$arreglodos);    
+    }
 }
+
+echo json_encode([
+    "icono" => $imagen,
+    "coordenadas" => $arreglo,
+]);
 
 $conn->close();
