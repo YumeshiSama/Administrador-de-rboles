@@ -48,7 +48,7 @@
 		              <div class="multisteps-form__panel rounded bg-white js-active" data-animation="slideHorz">
 		                <h3 class="multisteps-form__title card shadow-sm p-3 mb-4 mt-4 rounded">Caracteristicas del arbol</h3>
 		                <div class="multisteps-form__content">
-		                  <div class="card shadow-sm p-3 mb-4 rounded">
+		                  <div class="shadow-sm p-3 mb-4 rounded">
 		                    <div class="form-row mt-4">
 		                      <div class="col-12 col-sm-6">
 		                        <span class="card-text">Especie:</span>
