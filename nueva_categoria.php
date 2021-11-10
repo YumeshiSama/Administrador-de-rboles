@@ -32,13 +32,6 @@ if(isset($_REQUEST['cargarEspecie'])) // when click on Update button
 	}
 
 
-
-
-    
-    //$icon = $_REQUEST['icon'];
-	// $consulta ="INSERT INTO `especies` (`id`, `nombre_especie`, `imagen`) VALUES (NULL, '$nombre', '$icon')";
-    // $qry = mysqli_query($conn, $consulta);
-	
     header("Location: usuarios_lista.php");
 
 exit;
