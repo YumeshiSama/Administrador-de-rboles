@@ -50,6 +50,60 @@ session_start();
 		</div>
 	</div>
 	<div id="mapa"></div>
+    <!--======================================
+             EDIT MARKER POPUP 
+=======================================-->
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div class="edit_m_popup shadow-lg 4px">
+                <div class="row">
+                    <div class="col-6">
+
+                    </div>
+                    <div class="col-6">
+                        
+                    </div>
+                </div>
+                <div class="col-12 m-auto marker_eList card shadow-sm 4px">
+                    <div class="container">
+                        <form action="#">
+                            <div class="row justify-content-end">
+                                <div class="col-12 mt-2 mb-2">
+                                    <span class="input_eData">Especie:</span>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <input type="text" class="form-control" name="especie" readonly="readonly">
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <button type="submit" class="btn btn_edit"><i class="fa-solid fa-pen"></i></button>
+                                </div>
+                                <div class="col-12 mt-2 mb-2">
+                                    <span class="input_eData">Edad:</span>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <input type="text" class="form-control" name="especie" readonly="readonly">
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <button type="submit" class="btn btn_edit"><i class="fa-solid fa-pen"></i></button>
+                                </div>
+                                <div class="col-12 mt-2 mb-2">
+                                    <span class="input_eData">Magnitud:</span>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <input type="text" class="form-control" name="especie" readonly="readonly">
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <button type="submit" class="btn btn_edit"><i class="fa-solid fa-pen"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 <!--======================================

@@ -15,7 +15,7 @@ body{
 }
 @media (min-width: 800px) {
   .login_l img{
-    width: 300px;
+    width: 200px;
   }
 }
 .login_box{
@@ -34,10 +34,10 @@ body{
 }
 @media (min-width: 800px) {
   .l_logo img{
-  width: 80px
+  width: 60px
   }
   .l_lacosta img{
-  width: 100px
+  width: 80px
   }
 }
 /*===================================
@@ -110,8 +110,48 @@ body{
 	z-index: -1;
 }
 /*==================================
-        MAP POPUP
+        EDIT MARKER POPUP
 ====================================*/
+
+.edit_m_popup{
+  position: fixed;
+  background: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 60%;
+  height: 70%;
+  padding: 5%;
+  overflow-x: auto;
+  z-index: 98;
+  opacity: 1;
+  transition: 0.5s;
+}
+@media (max-width: 800px) {
+  .edit_m_popup{
+    width: 90%;
+  }
+}
+.marker_eList{
+  height: 70%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  text-align: center;
+}
+.input_eData{
+  font-family: 'verdana', sans-serif;
+  font-size: 25px;
+  color: #009CA1;
+}
+.btn_edit{
+  width: 100%!important;
+  background: #EDEF4F!important;
+  border-radius: 5px!important;
+  color: white!important;
+}
+.btn_edit:hover{
+  background: #BCBE3B!important;
+}
 
 /*==================================
 				MENU
@@ -129,11 +169,11 @@ body{
 	top: 40%;
 	left: 50%;
 	transform: translate(-50%,-40%);
-	width: 40%;
+	width: 60%;
 	height: 80%;
 	padding: 5%;
 	overflow-x: auto;
-	z-index: 2;
+	z-index: 99;
 	visibility: hidden;
 	opacity: 1;
 	transition: 0.5s;
@@ -151,10 +191,10 @@ body{
 }
 .menu_items{
 	display: flex;
-	padding: 10%;
-	margin: 10% 0;
+	padding: 10px;
+	margin: 10px 0;
 	background: rgba(0, 0, 0,50%);
-	border-radius: 20%;
+	border-radius: 10px;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;

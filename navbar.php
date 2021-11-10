@@ -22,8 +22,8 @@ if (empty($_SESSION["id_usuario"])) {
 				MENU LIST
 ===================================-->
 <div class="menu fadeInUp inactive" id="menu">
-	<div class="row">
-		<div class="col-6 col-lg-3 col-sm-3">
+	<div class="row justify-content-end">
+		<div class="col-6 col-lg-3 col-sm-3 float-end">
 			<a href="index.php" class="menu_items">
 					<i class="fa-solid fa-map-location-dot"></i>
 					<span class="menu_text">Mapa</span>
@@ -31,9 +31,9 @@ if (empty($_SESSION["id_usuario"])) {
 		</div>
 		<?php 
 			if ($nivel>=1){
-				echo '<div class="col-6 col-lg-3 col-sm-3">
+				echo '<div class="col-6 col-lg-3 col-sm-3 float-end">
 				<a href="cargar_arbol.php" class="menu_items">
-						<i class="fa-solid fa-file-arrow-up"></i>
+						<i class="fa-solid fa-location-dot"></i>
 						<span class="menu_text">Subir</span>
 				</a>
 			</div>';
@@ -41,49 +41,49 @@ if (empty($_SESSION["id_usuario"])) {
 		?>
 		<?php 
 			if ($nivel>=2){
-			echo '<div class="col-6 col-lg-3 col-sm-3">
+			echo '<div class="col-12 col-lg-6 col-sm-6 float-end">
 				<a href="nueva_categoria.php" class="menu_items">
-						<i class="fa-solid fa-pen"></i>
-						<span class="menu_text">Nueva especie</span>
+						<i class="fa-solid fa-tree"></i>
+						<span class="menu_text">Admin. Caracteristicas</span>
 				</a>
 			</div>';
 		}
 		?>
 		<?php 
 			if ($nivel>=2){
-			echo '<div class="col-6 col-lg-3 col-sm-3">
+			echo '<div class="col-12 col-lg-6 col-sm-6 float-end">
 				<a href="usuarios_lista.php" class="menu_items">
-						<i class="fa-solid fa-pen"></i>
-						<span class="menu_text">Usuarios</span>
+						<i class="fa-solid fa-user-gear"></i>
+						<span class="menu_text">Admin. Usuarios</span>
 				</a>
 			</div>';
 		}
 		?>
-		<div class="col-6 col-lg-3 col-sm-3">
+		<div class="col-6 col-lg-3 col-sm-3 float-end">
 			<a href="enciclopedia.php" class="menu_items">
 					<i class="fa-solid fa-book"></i>
-					<span class="menu_text">Referencia</span>
+					<span class="menu_text">Especies</span>
 			</a>
-		</div>
-		<div class="col-6 col-lg-9 col-sm-9">
 		</div>
 		<?php 
 			if ($id){
-		echo '<div class="col-6 col-lg-3 col-sm-3">
+		echo '<div class="col-6 col-lg-3 col-sm-3 float-end">
 			<a href="logout.php" class="menu_items">
 					<i class="fa-solid fa-right-from-bracket"></i>
 					<span class="menu_text">Salir</span>
 			</a>
 			</div>';
 	} else {
-		echo '<div class="col-6 col-lg-3 col-sm-3">
+		echo '<div class="col-6 col-lg-3 col-sm-3 float-end">
 			<a href="log.php" class="menu_items">
-					<i class="fa-solid fa-right-from-bracket"></i>
-					<span class="menu_text">Iniciar Sesion</span>
+					<i class="fa-solid fa-right-to-bracket"></i>
+					<span class="menu_text">Login</span>
 			</a>
 			</div>';
 	}
 	?>
+	</div>
+	<div class="row">
 		<div class="col-4">
 			<a href="#" class="menu_items_logos">
 					<img src="img/logoalpha1.png">
@@ -99,7 +99,7 @@ if (empty($_SESSION["id_usuario"])) {
 					<img src="img/tecnica.png">
 			</a>
 		</div>
-	</div>				
+	</div>			
 </div>
 <!--==================================
 			MENU SCRIPT
