@@ -52,7 +52,7 @@ if (empty($_SESSION["id_usuario"])) {
 		    <div class="container">
 		        <div class="row">
 		          <div class="col-12 col-lg-8 m-auto">
-		            <form action="cargar.php" class="multisteps-form__form">
+		            <form action="cargar.php" class="multisteps-form__form" method="post" enctype="multipart/form-data">
 		              <!--====================================
 		                                STEP 1
 		              =====================================-->
