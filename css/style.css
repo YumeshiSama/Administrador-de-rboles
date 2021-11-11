@@ -124,6 +124,7 @@ body{
   padding: 5%;
   overflow-x: auto;
   z-index: 98;
+  visibility: hidden;
   opacity: 1;
   transition: 0.5s;
 }
@@ -140,7 +141,7 @@ body{
 }
 .input_eData{
   font-family: 'verdana', sans-serif;
-  font-size: 25px;
+  font-size: 20px;
   color: #009CA1;
 }
 .btn_edit{
@@ -152,7 +153,15 @@ body{
 .btn_edit:hover{
   background: #BCBE3B!important;
 }
-
+.btn_cancelar{
+  width: 100%!important;
+  background: #F26969!important;
+  border-radius: 5px!important;
+  color: white!important;
+}
+.btn_cancelar:hover{
+  background: #A84B4B!important;
+}
 /*==================================
 				MENU
 ====================================*/

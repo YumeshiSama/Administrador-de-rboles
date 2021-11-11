@@ -72,32 +72,73 @@ session_start();
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Especie:</span>
                                 </div>
-                                <div class="col-12 mb-2">
-                                    <input type="text" class="form-control" name="especie" readonly="readonly">
+                                <div class="col-12 mb-2 markerData1">
+                                    
                                 </div>
-                                <div class="col-6 mb-2">
-                                    <button type="submit" class="btn btn_edit"><i class="fa-solid fa-pen"></i></button>
+                                <div class="col-6 mb-2 markerBtn1">
+                                    
                                 </div>
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Edad:</span>
                                 </div>
-                                <div class="col-12 mb-2">
-                                    <input type="text" class="form-control" name="especie" readonly="readonly">
+                                <div class="col-12 mb-2 markerData2">
+
                                 </div>
-                                <div class="col-6 mb-2">
-                                    <button type="submit" class="btn btn_edit"><i class="fa-solid fa-pen"></i></button>
+                                <div class="col-6 mb-2 markerBtn2">
+
                                 </div>
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Magnitud:</span>
                                 </div>
                                 <div class="col-12 mb-2">
-                                    <input type="text" class="form-control" name="especie" readonly="readonly">
+                                    <input type="text" class="form-control e_magnitud" name="especie" readonly="readonly">
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <button type="submit" class="btn btn_edit"><i class="fa-solid fa-pen"></i></button>
+                                </div>
+                                <div class="col-12 mt-2 mb-2">
+                                    <span class="input_eData">Columnar:</span>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <input type="text" class="form-control e_columnar" name="especie" readonly="readonly">
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <button type="submit" class="btn btn_edit"><i class="fa-solid fa-pen"></i></button>
+                                </div>
+                                <div class="col-12 mt-2 mb-2">
+                                    <span class="input_eData">Copa:</span>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <input type="text" class="form-control e_copa" name="especie" readonly="readonly">
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <button type="submit" class="btn btn_edit"><i class="fa-solid fa-pen"></i></button>
+                                </div>
+                                <div class="col-12 mt-2 mb-2">
+                                    <span class="input_eData">Salud:</span>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <input type="text" class="form-control e_salud" name="especie" readonly="readonly">
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <button type="submit" class="btn btn_edit"><i class="fa-solid fa-pen"></i></button>
+                                </div>
+                                <div class="col-12 mt-2 mb-2">
+                                    <span class="input_eData">Comentario:</span>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <input type="text" class="form-control e_comentario" name="especie" readonly="readonly">
                                 </div>
                                 <div class="col-6 mb-2">
                                     <button type="submit" class="btn btn_edit"><i class="fa-solid fa-pen"></i></button>
                                 </div>
                             </div>
                         </form>
+                    </div>
+                </div>
+                <div class="col-12 m-auto">
+                    <div class="container">
+                        <button class="btn btn_cancelar btn_cerrar mt-2">Cerrar</button>
                     </div>
                 </div>
             </div>
@@ -177,17 +218,27 @@ $select.addEventListener("change", refrescarMapaConCategoriaSeleccionada);
 
 // Algunos eventos que podrían ser de utilidad
 
+edit_m_popup = document.querySelector(".edit_m_popup");
+btn_cerrar = document.querySelector(".btn_cerrar");
+
+btn_cerrar.addEventListener('click', function(){
+    edit_m_popup.style.visibility = 'hidden';
+});
+
 mapa.on('singleclick', function(evt) {
     var feature = mapa.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
         // Aquí se puede filtrar la feature
         return feature;
     });
-    coord = feature.getGeometry().getCoordinates();
-    var lon = coord[0];
-    var lat = coord[1];
     if (feature) {
+        var geom = feature.getGeometry().transform('EPSG:3857', 'EPSG:4326');
+        coord = geom.getCoordinates();
+        edit_m_popup.style.visibility = 'visible';
+        var lon = coord[0];
+        var lat = coord[1];
         console.log("longitud: ", lon, "latitud: ", lat);
-        arbol_popup()
+        arbol_popup();
+        geom = feature.getGeometry().transform('EPSG:4326', 'EPSG:3857');
     }
 });
 
@@ -198,41 +249,58 @@ function arbol_popup() {
               console.log(data);
               // data = data[0];
               // console.log(data);
-              const divDatos = document.getElementById("datos");
-              divDatos.innerHTML="";
+              const markerData1 = document.querySelector(".markerData1");
+              markerData1.innerHTML="";
+
+              const e_especie = document.createElement("input");
+              e_especie.type = "text";
+              e_especie.className = "form-control e_especie";
+              e_especie.name = "e_especie";
+              e_especie.readOnly = true;
+
+              const markerBtn1 = document.querySelector(".markerBtn1");
+              markerBtn1.innerHTML="";
+
+              const e_btn_especie = document.createElement("button");
+              e_btn_especie.type = "submit";
+              e_btn_especie.className = "btn btn_edit e_btn_especie";
+              e_btn_especie.innerHTML = '<i class="fa-solid fa-pen"></i>';
+
+              const markerData2 = document.querySelector(".markerData2");
+              markerData2.innerHTML="";
+
+              const e_edad = document.createElement("input");
+              e_edad.type = "text";
+              e_edad.className = "form-control e_dad";
+              e_edad.name = "e_especie";
+              e_edad.readOnly = true;
+
+              const markerBtn2 = document.querySelector(".markerBtn2");
+              markerBtn2.innerHTML="";
+
+              const e_btn_edad = document.createElement("button");
+              e_btn_edad.type = "submit";
+              e_btn_edad.className = "btn btn_edit e_btn_edad";
+              e_btn_edad.innerHTML = '<i class="fa-solid fa-pen"></i>';
               
               // filtra el arbol
-              // if (area !== "") {
-              //   data = data.filter(function(items){
-              //   return (items.id_area == area);
-              //   });
-              //   console.log(data);
-              // } else{}
+                data = data.filter(function(items){
+                return (items.latitud == coord[1] && items.longitud == coord[0]);
+                });
+                console.log(coord[0]);
+                console.log(data);
 
               data.map((arboles => {
-              const div = document.createElement("div");
-              div.className += "card"; 
-              const img = document.createElement("img");
-              img.src = producto.imagen;
-              img.className = "img-card";
-              const nombre = document.createElement("h2");
-              nombre.innerText = producto.nombre;
-              const descripcion = document.createElement("h3");
-              descripcion.innerText = producto.descripcion;
-              const marca = document.createElement("h3");
-              marca.innerText = producto.n_marca;
-              const precio = document.createElement("p");
-              precio.innerText = "precio: " + "$" + producto.precio;
-              const stock = document.createElement("p");
-              stock.innerText = "quedan: " + producto.stock;
-              div.appendChild(img);
-              div.appendChild(nombre);
-              div.appendChild(descripcion);
-              div.appendChild(marca);
-              div.appendChild(precio);
-              div.appendChild(stock);
-              divDatos.appendChild(div);
+              
+                e_especie.value = arboles.nombre_especie;
+                e_edad.value = arboles.rango;
+
               }))
+
+              markerData1.appendChild(e_especie);
+              markerBtn1.appendChild(e_btn_especie);
+              markerData2.appendChild(e_edad);
+              markerBtn2.appendChild(e_btn_edad);
             });
         };
 
