@@ -73,64 +73,55 @@ session_start();
                                     <span class="input_eData">Especie:</span>
                                 </div>
                                 <div class="col-12 mb-2 markerData1">
-                                    
+                                    <!--INPUT ESPECIE-->
                                 </div>
                                 <div class="col-6 mb-2 markerBtn1">
-                                    
+                                    <!--BUTTON ESPECIE-->
                                 </div>
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Edad:</span>
                                 </div>
                                 <div class="col-12 mb-2 markerData2">
-
+                                    <!--INPUT EDAD-->
                                 </div>
                                 <div class="col-6 mb-2 markerBtn2">
-
+                                    <!--BUTTON EDAD-->
                                 </div>
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Magnitud:</span>
                                 </div>
                                 <div class="col-12 mb-2">
-                                    <input type="text" class="form-control e_magnitud" name="especie" readonly="readonly">
+                                    <!--INPUT MAGNITUD-->
                                 </div>
                                 <div class="col-6 mb-2">
-                                    <button type="submit" class="btn btn_edit"><i class="fa-solid fa-pen"></i></button>
-                                </div>
-                                <div class="col-12 mt-2 mb-2">
-                                    <span class="input_eData">Columnar:</span>
-                                </div>
-                                <div class="col-12 mb-2">
-                                    <input type="text" class="form-control e_columnar" name="especie" readonly="readonly">
-                                </div>
-                                <div class="col-6 mb-2">
-                                    <button type="submit" class="btn btn_edit"><i class="fa-solid fa-pen"></i></button>
+                                    <!--BUTTON MAGNITUD-->
                                 </div>
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Copa:</span>
                                 </div>
                                 <div class="col-12 mb-2">
-                                    <input type="text" class="form-control e_copa" name="especie" readonly="readonly">
+                                    <!--INPUT COPA-->
                                 </div>
                                 <div class="col-6 mb-2">
-                                    <button type="submit" class="btn btn_edit"><i class="fa-solid fa-pen"></i></button>
+                                    <!--BUTTON COPA-->
                                 </div>
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Salud:</span>
                                 </div>
                                 <div class="col-12 mb-2">
-                                    <input type="text" class="form-control e_salud" name="especie" readonly="readonly">
+                                    <!--INPUT SALUD-->
                                 </div>
                                 <div class="col-6 mb-2">
-                                    <button type="submit" class="btn btn_edit"><i class="fa-solid fa-pen"></i></button>
+                                    <!--BUTTON SALUD-->
                                 </div>
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Comentario:</span>
                                 </div>
                                 <div class="col-12 mb-2">
-                                    <input type="text" class="form-control e_comentario" name="especie" readonly="readonly">
+                                    <!--INPUT COMENTARIO-->
                                 </div>
                                 <div class="col-6 mb-2">
-                                    <button type="submit" class="btn btn_edit"><i class="fa-solid fa-pen"></i></button>
+                                    <!--BUTTON COMENTARIO-->
                                 </div>
                             </div>
                         </form>
