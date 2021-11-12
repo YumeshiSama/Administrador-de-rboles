@@ -56,7 +56,7 @@ session_start();
 <div class="container">
     <div class="row">
         <div class="col-8">
-            <div class="edit_m_popup shadow-lg 4px">
+            <div class="edit_m_popup shadow-lg 4px zoom-in inactive">
                 <div class="row">
                     <div class="col-6">
 
@@ -213,6 +213,8 @@ edit_m_popup = document.querySelector(".edit_m_popup");
 btn_cerrar = document.querySelector(".btn_cerrar");
 
 btn_cerrar.addEventListener('click', function(){
+    edit_m_popup.classList.toggle('active');
+    edit_m_popup.classList.toggle('inactive');
     edit_m_popup.style.visibility = 'hidden';
 });
 
@@ -224,6 +226,8 @@ mapa.on('singleclick', function(evt) {
     if (feature) {
         var geom = feature.getGeometry().transform('EPSG:3857', 'EPSG:4326');
         coord = geom.getCoordinates();
+        edit_m_popup.classList.toggle('inactive');
+        edit_m_popup.classList.toggle('active');
         edit_m_popup.style.visibility = 'visible';
         var lon = coord[0];
         var lat = coord[1];
