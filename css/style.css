@@ -171,6 +171,15 @@ body{
   font-size: 20px;
   color: #009CA1;
 }
+.btn_green{
+  width: 100%!important;
+  background: #76D165!important;
+  border-radius: 5px!important;
+  color: white!important;
+}
+.btn_green:hover{
+  background: #539547!important;
+}
 .btn_yellow{
   width: 100%!important;
   background: #EDEF4F!important;

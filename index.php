@@ -76,16 +76,19 @@ session_start();
                 </div>
                 <div class="col-12 m-auto marker_eList card shadow-sm 4px mt-4">
                     <div class="container">
-                            <div class="row justify-content-end">
+                            <div class="row">
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Especie:</span>
                                 </div>
-                                <div class="col-12 mb-2 markerData1">
-                                    <!--INPUT ESPECIE-->
+                                <div class="e_especie">
+                                    <div class="col-12 mb-2 markerData1">
+                                        <!--INPUT ESPECIE-->
+                                    </div>
+                                    <div class="row mb-2 justify-content-end markerBtn1">
+                                        <!--BUTTON ESPECIE-->
+                                    </div>
                                 </div>
-                                <div class="col-6 mb-2 markerBtn1">
-                                    <!--BUTTON ESPECIE-->
-                                </div>
+
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Edad:</span>
                                 </div>
@@ -131,9 +134,12 @@ session_start();
                                 <div class="col-6 mb-2 markerBtn6">
                                     <!--BUTTON COMENTARIO-->
                                 </div>
+                                <div class="col-12 mt-2 mb-2">
+                                    <span class="input_eData">Eliminar:</span>
+                                </div>
                                 <div class="col-12 m-auto">
                                     <div class="container">
-                                        <button class="btn btn_red btn_eliminar btn_del mt-2 mb-2">Eliminar</button>
+                                        <button class="btn btn_red btn_eliminar btn_del mb-2"><i class="fa-solid fa-trash-can"></i></button>
                                     </div>
                                  </div>
                             </div>
@@ -292,10 +298,65 @@ function arbol_popup() {
               const markerBtn1 = document.querySelector(".markerBtn1");
               markerBtn1.innerHTML="";
 
+              const e_btn1 = document.createElement("div");
+              e_btn1.className = "col-6";
+
               const e_btn_especie = document.createElement("button");
               e_btn_especie.type = "submit";
               e_btn_especie.className = "btn btn_yellow e_btn_especie";
               e_btn_especie.innerHTML = '<i class="fa-solid fa-pen"></i>';
+
+
+              e_btn_especie.addEventListener( 'click', function(){
+                markerData1.innerHTML="";
+                markerBtn1.innerHTML="";
+
+                const c_btn1 = document.createElement("div");
+                c_btn1.className = "col-6";
+
+                const c_btn_especie = document.createElement("button");
+                c_btn_especie.type = "submit";
+                c_btn_especie.className = "btn btn_red c_btn_especie";
+                c_btn_especie.innerHTML = '<i class="fa-solid fa-ban"></i>';
+
+                const s_btn1 = document.createElement("div");
+                s_btn1.className = "col-6";
+
+                const s_btn_especie = document.createElement("button");
+                s_btn_especie.type = "submit";
+                s_btn_especie.className = "btn btn_green s_btn_especie";
+                s_btn_especie.innerHTML = '<i class="fa-solid fa-check"></i>';
+
+                const input_especie = document.createElement("select");
+                input_especie.className = "form-control";
+
+                fetch("http://localhost/github/Administrador-de-rboles/db_especieData.php")
+                .then((res) => res.json())
+                .then((data) => {
+                console.log(data);
+                // data = data[0];
+                // console.log(data);
+
+                data = data.filter(function(items){
+                return (items.id > 1);
+                });
+
+                data.map((especie => {
+                    const o_categoria = document.createElement("option");
+                    o_categoria.value = especie.id;
+                    o_categoria.innerText = especie.nombre_especie;
+
+                    input_especie.appendChild(o_categoria);
+                }))
+                });
+
+                c_btn1.appendChild(c_btn_especie);
+                s_btn1.appendChild(s_btn_especie);
+                markerBtn1.appendChild(c_btn1);
+                markerBtn1.appendChild(s_btn1);
+                markerData1.appendChild(input_especie);
+
+              })
 
               // ============ EDAD ==============
 
@@ -413,7 +474,8 @@ function arbol_popup() {
               }))
 
               markerData1.appendChild(e_especie);
-              markerBtn1.appendChild(e_btn_especie);
+              e_btn1.appendChild(e_btn_especie);
+              markerBtn1.appendChild(e_btn1);
               markerData2.appendChild(e_edad);
               markerBtn2.appendChild(e_btn_edad);
               markerData3.appendChild(e_magnitud);
