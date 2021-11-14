@@ -120,7 +120,7 @@ body{
   left: 50%;
   transform: translate(-50%,-50%);
   width: 60%;
-  height: 70%;
+  height: 80%;
   padding: 5%;
   overflow-x: auto;
   z-index: 98;
@@ -131,10 +131,37 @@ body{
 @media (max-width: 800px) {
   .edit_m_popup{
     width: 90%;
+    height: 70%;
   }
 }
+.marker_eTextDiv{
+  text-align: center;
+}
+.marker_eTextDiv p{
+  margin: 0!important;
+  padding: 0!important;
+}
+.marker_eTextDiv span{
+  color: #009CA1;
+  font-weight: bolder;
+}
+.marker_eImgDiv{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.marker_eImg{
+  width: 60%;
+}
+.marker_sendAlert{
+  text-align: center;
+}
+.marker_sendAlert span{
+  color: #009CA1;
+  font-weight: bolder;
+}
 .marker_eList{
-  height: 70%;
+  height: 40%;
   overflow-x: hidden;
   overflow-y: scroll;
   text-align: center;
@@ -144,23 +171,32 @@ body{
   font-size: 20px;
   color: #009CA1;
 }
-.btn_edit{
+.btn_yellow{
   width: 100%!important;
   background: #EDEF4F!important;
   border-radius: 5px!important;
   color: white!important;
 }
-.btn_edit:hover{
+.btn_yellow:hover{
   background: #BCBE3B!important;
 }
-.btn_cancelar{
+.btn_red{
   width: 100%!important;
   background: #F26969!important;
   border-radius: 5px!important;
   color: white!important;
 }
-.btn_cancelar:hover{
+.btn_red:hover{
   background: #A84B4B!important;
+}
+.btn_localColor{
+  width: 100%!important;
+  background: #00A4A9!important;
+  border-radius: 5px!important;
+  color: white!important;
+}
+.btn_localColor:hover{
+  background: #007B7F!important;
 }
 /*==================================
 				MENU

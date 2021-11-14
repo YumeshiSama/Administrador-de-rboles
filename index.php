@@ -58,16 +58,24 @@ session_start();
         <div class="col-8">
             <div class="edit_m_popup shadow-lg 4px zoom-in inactive">
                 <div class="row">
-                    <div class="col-6">
-
+                    <div class="col-6 col-lg-3 marker_eImgDiv">
+                        <img class="marker_eImg">
                     </div>
-                    <div class="col-6">
-                        
+                    <div class="col-6 col-lg-9 marker_eTextDiv">
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <span>Numero:</span>
+                                <p class="marker_number"></p>   
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <span>Usuario:</span>
+                                <p class="marker_user"></p>  
+                            </div>
+                        </div>    
                     </div>
                 </div>
-                <div class="col-12 m-auto marker_eList card shadow-sm 4px">
+                <div class="col-12 m-auto marker_eList card shadow-sm 4px mt-4">
                     <div class="container">
-                        <form action="#">
                             <div class="row justify-content-end">
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Especie:</span>
@@ -90,46 +98,64 @@ session_start();
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Magnitud:</span>
                                 </div>
-                                <div class="col-12 mb-2">
+                                <div class="col-12 mb-2 markerData3">
                                     <!--INPUT MAGNITUD-->
                                 </div>
-                                <div class="col-6 mb-2">
+                                <div class="col-6 mb-2 markerBtn3">
                                     <!--BUTTON MAGNITUD-->
                                 </div>
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Copa:</span>
                                 </div>
-                                <div class="col-12 mb-2">
+                                <div class="col-12 mb-2 markerData4">
                                     <!--INPUT COPA-->
                                 </div>
-                                <div class="col-6 mb-2">
+                                <div class="col-6 mb-2 markerBtn4">
                                     <!--BUTTON COPA-->
                                 </div>
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Salud:</span>
                                 </div>
-                                <div class="col-12 mb-2">
+                                <div class="col-12 mb-2 markerData5">
                                     <!--INPUT SALUD-->
                                 </div>
-                                <div class="col-6 mb-2">
+                                <div class="col-6 mb-2 markerBtn5">
                                     <!--BUTTON SALUD-->
                                 </div>
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Comentario:</span>
                                 </div>
-                                <div class="col-12 mb-2">
+                                <div class="col-12 mb-2 markerData6">
                                     <!--INPUT COMENTARIO-->
                                 </div>
-                                <div class="col-6 mb-2">
+                                <div class="col-6 mb-2 markerBtn6">
                                     <!--BUTTON COMENTARIO-->
                                 </div>
+                                <div class="col-12 m-auto">
+                                    <div class="container">
+                                        <button class="btn btn_red btn_eliminar btn_del mt-2 mb-2">Eliminar</button>
+                                    </div>
+                                 </div>
                             </div>
-                        </form>
+                    </div>
+                </div>   
+                <div class="container mt-2 marker_sendAlert">
+                    <span>Enviar alerta:</span>
+                    <div class="row mt-2">
+                        <div class="col-6">
+                            <select class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn_localColor btn_alerta">Alertar</button>
+                        </div>
                     </div>
                 </div>
-                <div class="col-12 m-auto">
+                <div class="col-12 m-auto fixed-bottom">
                     <div class="container">
-                        <button class="btn btn_cancelar btn_cerrar mt-2">Cerrar</button>
+                        <button class="btn btn_localColor btn_cerrar mt-2 mb-2">Cerrar</button>
                     </div>
                 </div>
             </div>
@@ -244,6 +270,16 @@ function arbol_popup() {
               console.log(data);
               // data = data[0];
               // console.log(data);
+
+              const marker_eImg = document.querySelector(".marker_eImg");
+              marker_eImg.setAttribute('src', "");
+              const marker_number = document.querySelector(".marker_number");
+              marker_number.innerText = "";
+              const marker_user = document.querySelector(".marker_user");
+              marker_user.innerText = "";
+
+
+              // ============ ESPECIE ==============
               const markerData1 = document.querySelector(".markerData1");
               markerData1.innerHTML="";
 
@@ -258,16 +294,18 @@ function arbol_popup() {
 
               const e_btn_especie = document.createElement("button");
               e_btn_especie.type = "submit";
-              e_btn_especie.className = "btn btn_edit e_btn_especie";
+              e_btn_especie.className = "btn btn_yellow e_btn_especie";
               e_btn_especie.innerHTML = '<i class="fa-solid fa-pen"></i>';
+
+              // ============ EDAD ==============
 
               const markerData2 = document.querySelector(".markerData2");
               markerData2.innerHTML="";
 
               const e_edad = document.createElement("input");
               e_edad.type = "text";
-              e_edad.className = "form-control e_dad";
-              e_edad.name = "e_especie";
+              e_edad.className = "form-control e_edad";
+              e_edad.name = "e_edad";
               e_edad.readOnly = true;
 
               const markerBtn2 = document.querySelector(".markerBtn2");
@@ -275,8 +313,84 @@ function arbol_popup() {
 
               const e_btn_edad = document.createElement("button");
               e_btn_edad.type = "submit";
-              e_btn_edad.className = "btn btn_edit e_btn_edad";
+              e_btn_edad.className = "btn btn_yellow e_btn_edad";
               e_btn_edad.innerHTML = '<i class="fa-solid fa-pen"></i>';
+
+              // ============ MAGNITUD ==============
+
+              const markerData3 = document.querySelector(".markerData3");
+              markerData3.innerHTML="";
+
+              const e_magnitud = document.createElement("input");
+              e_magnitud.type = "text";
+              e_magnitud.className = "form-control e_magnitud";
+              e_magnitud.name = "e_magnitud";
+              e_magnitud.readOnly = true;
+
+              const markerBtn3 = document.querySelector(".markerBtn3");
+              markerBtn3.innerHTML="";
+
+              const e_btn_magnitud = document.createElement("button");
+              e_btn_magnitud.type = "submit";
+              e_btn_magnitud.className = "btn btn_yellow e_btn_magnitud";
+              e_btn_magnitud.innerHTML = '<i class="fa-solid fa-pen"></i>';
+
+              // ============ COPA ==============
+
+              const markerData4 = document.querySelector(".markerData4");
+              markerData4.innerHTML="";
+
+              const e_copa = document.createElement("input");
+              e_copa.type = "text";
+              e_copa.className = "form-control e_copa";
+              e_copa.name = "e_copa";
+              e_copa.readOnly = true;
+
+              const markerBtn4 = document.querySelector(".markerBtn4");
+              markerBtn4.innerHTML="";
+
+              const e_btn_copa = document.createElement("button");
+              e_btn_copa.type = "submit";
+              e_btn_copa.className = "btn btn_yellow e_btn_copa";
+              e_btn_copa.innerHTML = '<i class="fa-solid fa-pen"></i>';
+
+              // ============ SALUD ==============
+
+              const markerData5 = document.querySelector(".markerData5");
+              markerData5.innerHTML="";
+
+              const e_salud = document.createElement("input");
+              e_salud.type = "text";
+              e_salud.className = "form-control e_salud";
+              e_salud.name = "e_salud";
+              e_salud.readOnly = true;
+
+              const markerBtn5 = document.querySelector(".markerBtn5");
+              markerBtn5.innerHTML="";
+
+              const e_btn_salud = document.createElement("button");
+              e_btn_salud.type = "submit";
+              e_btn_salud.className = "btn btn_yellow e_btn_salud";
+              e_btn_salud.innerHTML = '<i class="fa-solid fa-pen"></i>';
+
+              // ============ COMENTARIO ==============
+
+              const markerData6 = document.querySelector(".markerData6");
+              markerData6.innerHTML="";
+
+              const e_comentario = document.createElement("input");
+              e_comentario.type = "text";
+              e_comentario.className = "form-control e_comentario";
+              e_comentario.name = "e_comentario";
+              e_comentario.readOnly = true;
+
+              const markerBtn6 = document.querySelector(".markerBtn6");
+              markerBtn6.innerHTML="";
+
+              const e_btn_comentario = document.createElement("button");
+              e_btn_comentario.type = "submit";
+              e_btn_comentario.className = "btn btn_yellow e_btn_comentario";
+              e_btn_comentario.innerHTML = '<i class="fa-solid fa-pen"></i>';
               
               // filtra el arbol
                 data = data.filter(function(items){
@@ -289,13 +403,27 @@ function arbol_popup() {
               
                 e_especie.value = arboles.nombre_especie;
                 e_edad.value = arboles.rango;
-
+                e_magnitud.value = arboles.tamano;
+                e_copa.value = arboles.tipo;
+                e_salud.value = arboles.estado;
+                e_comentario.value = arboles.comentario;
+                marker_number.innerText = arboles.id;
+                marker_user.innerText = arboles.institucion;
+                marker_eImg.setAttribute('src', arboles.imagen);
               }))
 
               markerData1.appendChild(e_especie);
               markerBtn1.appendChild(e_btn_especie);
               markerData2.appendChild(e_edad);
               markerBtn2.appendChild(e_btn_edad);
+              markerData3.appendChild(e_magnitud);
+              markerBtn3.appendChild(e_btn_magnitud);
+              markerData4.appendChild(e_copa);
+              markerBtn4.appendChild(e_btn_copa);
+              markerData5.appendChild(e_salud);
+              markerBtn5.appendChild(e_btn_salud);
+              markerData6.appendChild(e_comentario);
+              markerBtn6.appendChild(e_btn_comentario);
             });
         };
 
