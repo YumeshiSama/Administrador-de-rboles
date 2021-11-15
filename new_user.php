@@ -41,11 +41,11 @@ exit;
     <div class="container">
         <form method="POST">
             <label for="institucion">Institucion</label>
-            <input type="text" name="institucion" Required>
+            <input type="text" maxlength="90" name="institucion" Required>
             <label for="username">Nombre de usuario</label>
-            <input type="text" name="username"  Required>
+            <input type="text" maxlength="50" name="username"  Required>
             <label for="password">Contraseña</label>
-            <input type="text" name="password"  Required>
+            <input type="text" maxlength="50" name="password"  Required>
             <label for="localidad">Localidad</label>
             <select class="form-control" id="localidad" name="localidad">
                 <?php

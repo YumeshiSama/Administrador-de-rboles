@@ -6,12 +6,14 @@ if (empty($_SESSION["id_usuario"])) {
 };
 include 'conexion.php';
 
-$datename = date("Y-m-d-s-v");
+$datename = date("Y-m-d-s");
 $targetDir = "upl/icn/";
 include 'navbar.php';
 if(isset($_REQUEST['cargarEspecie'])) // when click on Update button
 {
     $nombre = (strtolower($_REQUEST['nombreEspecie']));
+	$descripcion = (strtolower($_REQUEST['descripcion']));
+	$img_enci = (($_REQUEST['imagen_enciclo']));
     $fileName = basename($_FILES["icon"]["name"]);
 	$fileName=$datename.$fileName;
 	$targetFilePath = $targetDir . $fileName;
@@ -23,7 +25,7 @@ if(isset($_REQUEST['cargarEspecie'])) // when click on Update button
 		if ((!file_exists($targetFilePath))) {
 			if((in_array($fileType, $allowTypes))){
 				if((move_uploaded_file($_FILES["icon"]["tmp_name"], $targetFilePath))){	
-					$consulta ="INSERT INTO `especie` (`id`, `nombre_especie`, `imagen`) VALUES (NULL, '$nombre', 'upl/icn/$fileName')";
+					$consulta ="INSERT INTO `especie` (`id`, `nombre_especie`, `imagen`, `imagen_enciclo`, `descripcion`) VALUES (NULL, '$nombre', 'upl/icn/$fileName', '$img_enci' , '$descripcion')";
                     $qry = mysqli_query($conn, $consulta);
                 }
 			}
@@ -102,7 +104,18 @@ exit;
 		<form method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="nombreEspecie">Nombre de la especie</label>
-				<input type="text" name="nombreEspecie"  Required>
+				<input type="text" maxlength="50" name="nombreEspecie"  Required>
+			</div>
+			<div class="form-group">
+				<label for="descripcion">Descripción</label>
+				<input type="text" name="descripcion" maxlength="290"  Required>
+			</div>
+			<div class="form-group">
+				<label for="imagen_enciclo">Dirección de imagen para la enciclopedia:</label>
+				<input type="text" name="imagen_enciclo" maxlength="90"  Required>
+			</div>
+			<div class="form-group">
+				<label for="icon">Imagen para el mapa:</label>
 				<div class="col-3 fileUpload btn btn-primary">
 					<span><i class="fa-solid fa-camera"></i></span>
 					<input id="icon" type="file" class="upload" name="icon">
@@ -115,7 +128,7 @@ exit;
 		<form method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="nombreCopa">Tipo de copa</label>
-				<input type="text" name="nombreCopa"  Required>
+				<input type="text" maxlength="50" name="nombreCopa"  Required>
 			</div>
 			<input type="submit" class="btn btn-success" name="cargarCopa" value="Cargar">
 		</form>
@@ -124,7 +137,7 @@ exit;
 		<form method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="nombreEdad">Tipo de edad</label>
-				<input type="text" name="nombreEdad"  Required>
+				<input type="text" maxlength="50" name="nombreEdad"  Required>
 			</div>
 			<input type="submit" class="btn btn-success" name="cargarEdad" value="Cargar">
 		</form>
@@ -133,7 +146,7 @@ exit;
 		<form method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="nombreMagnitud">Tipo de magnitud</label>
-				<input type="text" name="nombreMagnitud"  Required>
+				<input type="text" maxlength="50" name="nombreMagnitud"  Required>
 			</div>
 			<input type="submit" class="btn btn-success" name="cargarMagnitud" value="Cargar">
 		</form>
@@ -142,7 +155,7 @@ exit;
 		<form method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="nombreSalud">Tipo de salud</label>
-				<input type="text" name="nombreSalud"  Required>
+				<input type="text" maxlength="50" name="nombreSalud"  Required>
 			</div>
 			<input type="submit" class="btn btn-success" name="cargarSalud" value="Cargar">
 		</form>
@@ -151,7 +164,7 @@ exit;
 		<form method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="nombreLocali">Nombre de la localidad</label>
-				<input type="text" name="nombreLocali"  Required>
+				<input type="text" maxlength="60" name="nombreLocali"  Required>
 			</div>
 			<input type="submit" class="btn btn-success" name="cargarLocali" value="Cargar">
 		</form>

@@ -11,47 +11,42 @@
 	<script src="https://kit.fontawesome.com/aa00e73738.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<?php include 'navbar.php'; ?>
-<div class="container">
+<?php 
+session_start();
 
-        <div class="progress_bar_top">
-		        <div class="row">
-		          <div class="col-12 col-lg-8 ml-auto mr-auto">
-		            <div class="multisteps-form__progress">
-		              
-		            </div>
-		          </div>
-		        </div>
-		    </div>
-
-    <div class="card">
-        <div class="card-body row">
-          <h5 class="card-title">Alamo</h5>
-          <div class="row">
-            <img class="col-md-3" width="100px" src="https://via.placeholder.com/100.png/09f/fff" alt="">
-            <p class="col-md-6 card-text">El alamo es una especie que Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum iusto deleniti culpa officia numquam minima, sint pariatur voluptate molestias? Quod vitae adipisci pariatur et vero nobis unde voluptate at corrupti?</p>
+include 'conexion.php';
+include 'navbar.php';
+  $nivel_actual="";
+  $id_usuario=$_SESSION["id_usuario"];
+  $sql = "SELECT id,imagen_enciclo,nombre_especie,descripcion FROM especie WHERE id>1 ORDER BY nombre_especie asc";
+  $result = $conn->query($sql);
+?>
+<div class="main" id="blur">
+  <div class="container">
+    <div class="progress_bar_top">
+      <div class="row">
+        <div class="col-12 col-lg-8 ml-auto mr-auto">
+          <div class="multisteps-form__progress">    
           </div>
         </div>
+      </div>
     </div>
-    <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Pino</h5>
-          <div class="row">
-            <img class="col-md-3" width="100px" src="https://via.placeholder.com/100.png/09f/fff" alt="">
-            <p class="col-md-6 card-text">El pino es una especie que Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum iusto deleniti culpa officia numquam minima, sint pariatur voluptate molestias? Quod vitae adipisci pariatur et vero nobis unde voluptate at corrupti?</p>
+    <?php 
+      foreach($result as $row){
+        echo '
+        <div class="card">
+          <div class="card-body row">
+            <h5 class="card-title">'.ucfirst($row['nombre_especie']).'</h5>
+            <div class="row">
+              <img class="col-md-3" width="100px" src="'.$row['imagen_enciclo'].'" alt="">
+              <p class="col-md-6 card-text">'.ucfirst($row['descripcion']).'</p>
+            </div>
           </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Sauce</h5>
-          <div class="row">
-            <img class="col-md-3" width="100px" src="https://via.placeholder.com/100.png/09f/fff" alt="">
-            <p class="col-md-6 card-text">El sauce es una especie que Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum iusto deleniti culpa officia numquam minima, sint pariatur voluptate molestias? Quod vitae adipisci pariatur et vero nobis unde voluptate at corrupti?</p>
-          </div>
-        </div>
-    </div>
-
+      </div>
+        ';
+        }
+    ?>
+  </div>
 </div>
 </body>
 </html>
