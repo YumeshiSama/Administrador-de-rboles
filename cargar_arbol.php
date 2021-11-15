@@ -237,7 +237,7 @@ if (empty($_SESSION["id_usuario"])) {
 		                  <div class="card shadow-sm p-3 mb-4 rounded">
 		                    <div class="form-row mt-4">
 		                      <div class="col-12">
-		                        <span class="card-text">¿Tiene peligro de caida?:</span>
+		                        <span class="card-text">¿Está en peligro de caida?:</span>
 		                      </div>
 		                      <div class="col-6">
 		                        <input type="radio" value="1" name="caida" id="caida_radio1">
