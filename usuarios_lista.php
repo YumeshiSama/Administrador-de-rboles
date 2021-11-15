@@ -25,7 +25,7 @@ include 'conexion.php';
 include 'navbar.php';
 $nivel_actual="";
 $id_usuario=$_SESSION["id_usuario"];
-$sql = "SELECT * FROM usuarios";
+$sql = "SELECT usuarios.id,usuarios.institucion,usuarios.username,usuarios.nivel,localidades.nombre FROM usuarios LEFT JOIN localidades ON usuarios.id_localidad=localidades.id";
 $sql2 = "SELECT * FROM usuarios WHERE id='$id_usuario";
 $result2 = $conn->query($sql2);
 $result = $conn->query($sql);?>
@@ -51,7 +51,7 @@ while($row = mysqli_fetch_array($result)) {
 		<td><?php echo $row['institucion'] ?></td>
 		<td><?php echo $row['username'] ?></td>
 		<td><?php echo $row['nivel'] ?></td>
-		<td><?php echo $row['id_localidad'] ?></td>
+		<td><?php echo ucfirst($row['nombre']) ?></td>
 		<td> <a href="moduloeditar.php?id=<?php echo $row['id']; ?>" class="btn btn-info <?php if ($nivel_actual <= $row['nivel'] && $id_usuario!== $row['id']){ echo " disabled";};?>" >✎</a>
 		</td>
 		<td> <a href="moduloeliminar.php?id=<?php echo $row['id']; ?>" class="btn btn-danger <?php if ($nivel_actual <= $row['nivel']){ echo " disabled";};?>" <?php if ($id_usuario === $row['id']){ echo " disabled";};?>" >X</a>
@@ -65,5 +65,4 @@ while($row = mysqli_fetch_array($result)) {
 </div>
 </body>
 <script  src="js/main.js"></script>
-
 </html>

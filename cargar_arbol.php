@@ -1,7 +1,15 @@
 <?php
 include "conexion.php";
-    $sql = "SELECT * FROM especie WHERE id>1 ORDER BY nombre_especie asc";
-    $result = $conn->query($sql);
+$sql = "SELECT * FROM especie WHERE id>1 ORDER BY nombre_especie asc";
+$result = $conn->query($sql);
+$sqlCopa = "SELECT * FROM copa ORDER BY tipo asc";
+$resultCopa = $conn->query($sqlCopa);
+$sqlMagnitud = "SELECT * FROM magnitud ORDER BY tamano asc";
+$resultMagnitud = $conn->query($sqlMagnitud);
+$sqlEdad = "SELECT * FROM edad ORDER BY rango asc";
+$resultEdad = $conn->query($sqlEdad);
+$sqlSalud = "SELECT * FROM salud ORDER BY estado asc";
+$resultSalud = $conn->query($sqlSalud);
 ?>
 <!DOCTYPE html>
 <html>
@@ -100,52 +108,56 @@ if (empty($_SESSION["id_usuario"])) {
 		                      </div>
 		                    </div>
 		                  </div>
+						  <!-- aaaaaaaaaaaaaaaaaaa -->
 		                  <div class="card shadow-sm p-3 mb-4 rounded">
 		                    <div class="form-row mt-4">
 		                      <div class="col-12">
-		                        <span class="card-text">Copa:</span>
+		                        <span class="card-text">Tipo de copa:</span>
 		                      </div>
-		                      <div class="col-12">
-		                        <input checked type="radio" value="1" name="copa" id="copa_radio1">
-		                        <label for="copa_radio1">Globosa</label>
-		                      </div>
-		                      <div class="col-12">
-		                        <input type="radio" value="2" name="copa" id="copa_radio2">
-		                        <label for="copa_radio2">Piramidal</label>
-		                      </div>
-		                      <div class="col-12">
-		                        <input type="radio" value="3" name="copa" id="copa_radio3">
-		                        <label for="copa_radio3">Columnar</label>
-		                      </div>
-		                      <div class="col-12">
-		                        <input type="radio" value="4" name="copa" id="copa_radio4">
-		                        <label for="copa_radio4">Achaparrada</label>
-		                      </div>
-		                      <div class="col-12">
-		                        <input type="radio" value="5" name="copa" id="copa_radio5">
-		                        <label for="copa_radio5">Llovediza</label>
-		                      </div>
+							  <?php
+									foreach($resultCopa as $rowCopa){
+									if ($rowCopa['id']==1)
+									{
+										echo '<div class="col-12">
+												<input  checked type="radio" value="'.$rowCopa['id'].'" name="copa">
+												<label>'.ucfirst($rowCopa['tipo']).'</label>
+											</div>';
+									} else {
+										echo '<div class="col-12">
+												<input type="radio" value="'.$rowCopa['id'].'" name="copa">
+												<label>'.ucfirst($rowCopa['tipo']).'</label>
+											</div>';
+									}
+								}
+								?>
 		                    </div>
 		                  </div>
+						  <!-- aaaaaaaaaaaaaaaaaaa -->
+						  <!-- aaaaaaaaaaaaaaaaaaa -->
 		                  <div class="card shadow-sm p-3 mb-4 rounded">
 		                    <div class="form-row mt-4">
 		                      <div class="col-12">
 		                        <span class="card-text">Magnitud:</span>
 		                      </div>
-		                      <div class="col-12">
-		                        <input checked type="radio" value="1" name="magnitud" id="magnitud_radio1">
-		                        <label for="magnitud_radio1">Hasta 5 metros</label>
-		                      </div>
-		                      <div class="col-12">
-		                        <input type="radio" value="2" name="magnitud" id="magnitud_radio2">
-		                        <label for="magnitud_radio2">De 5 a 15 metros</label>
-		                      </div>
-		                      <div class="col-12">
-		                        <input type="radio" value="3" name="magnitud" id="magnitud_radio3">
-		                        <label for="magnitud_radio3">Mas de 15 metros</label>
-		                      </div>
+							  <?php
+									foreach($resultMagnitud as $rowMagnitud){
+									if ($rowMagnitud['id']==1)
+									{
+										echo '<div class="col-12">
+												<input  checked type="radio" value="'.$rowMagnitud['id'].'" name="magnitud">
+												<label>'.ucfirst($rowMagnitud['tamano']).'</label>
+											</div>';
+									} else {
+										echo '<div class="col-12">
+												<input type="radio" value="'.$rowMagnitud['id'].'" name="magnitud">
+												<label>'.ucfirst($rowMagnitud['tamano']).'</label>
+											</div>';
+									}
+								}
+								?>
 		                    </div>
 		                  </div>
+						  <!-- aaaaaaaaaaaaaaaaaaa -->
 		                  <div class="button-row d-flex mt-4">
 		                    <button class="btn btn-primary ml-auto js-btn-next" onclick="topFunction()" type="button" title="Next">Siguiente</button>
 		                  </div>
@@ -160,64 +172,72 @@ if (empty($_SESSION["id_usuario"])) {
 		                  <div class="card shadow-sm p-3 mb-4 rounded">
 		                    <div class="form-row mt-4">
 		                      <div class="col-12">
-		                        <span class="card-text">Poda:</span>
+		                        <span class="card-text">¿Se puede podar?</span>
 		                      </div>
 		                      <div class="col-6">
 		                        <input checked type="radio" value="1" name="poda" id="poda_radio1">
-		                        <label for="poda_radio1">Buena</label>
+		                        <label for="poda_radio1">Si</label>
 		                      </div>
 		                      <div class="col-6">
 		                        <input type="radio" value="0" name="poda" id="poda_radio2">
-		                        <label for="poda_radio2">Mala</label>
+		                        <label for="poda_radio2">No</label>
 		                      </div>
 		                    </div>
 		                  </div>
+						  <!-- aaaaaaaaaaaaaaaaaaa -->
 		                  <div class="card shadow-sm p-3 mb-4 rounded">
 		                    <div class="form-row mt-4">
 		                      <div class="col-12">
 		                        <span class="card-text">Edad:</span>
 		                      </div>
-		                      <div class="col-6">
-		                        <input checked type="radio" value="2" name="edad" id="edad_radio1">
-		                        <label for="edad_radio1">Joven</label>
-		                      </div>
-		                      <div class="col-6">
-		                        <input type="radio" value="1" name="edad" id="edad_radio2">
-		                        <label for="edad_radio2">Adulto</label>
-		                      </div>
-		                      <div class="col-6">
-		                        <input type="radio" value="3" name="edad" id="edad_radio3">
-		                        <label for="edad_radio3">Viejo</label>
-		                      </div>
+							  <?php
+									foreach($resultEdad as $rowEdad){
+									if ($rowEdad['id']==1)
+									{
+										echo '<div class="col-12">
+												<input  checked type="radio" value="'.$rowEdad['id'].'" name="edad">
+												<label>'.ucfirst($rowEdad['rango']).'</label>
+											</div>';
+									} else {
+										echo '<div class="col-12">
+												<input type="radio" value="'.$rowEdad['id'].'" name="edad">
+												<label>'.ucfirst($rowEdad['rango']).'</label>
+											</div>';
+									}
+								}
+								?>
 		                    </div>
 		                  </div>
+						  <!-- aaaaaaaaaaaaaaaaaaa -->
+						  <!-- aaaaaaaaaaaaaaaaaaa -->
 		                  <div class="card shadow-sm p-3 mb-4 rounded">
 		                    <div class="form-row mt-4">
 		                      <div class="col-12">
 		                        <span class="card-text">Salud:</span>
 		                      </div>
-		                      <div class="col-6">
-		                        <input checked type="radio" value="1" name="salud" id="salud_radio1">
-		                        <label for="salud_radio1">Sano</label>
-		                      </div>
-		                      <div class="col-6">
-		                        <input type="radio" value="2" name="salud" id="salud_radio2">
-		                        <label for="salud_radio2">Huecos</label>
-		                      </div>
-		                      <div class="col-6">
-		                        <input type="radio" value="4" name="salud" id="salud_radio3">
-		                        <label for="salud_radio3">Hongos</label>
-		                      </div>
-		                      <div class="col-6">
-		                        <input type="radio" value="3" name="salud" id="salud_radio4">
-		                        <label for="salud_radio4">Plaga</label>
-		                      </div>
+							  <?php
+									foreach($resultSalud as $rowSalud){
+									if ($rowSalud['id']==1)
+									{
+										echo '<div class="col-12">
+												<input  checked type="radio" value="'.$rowSalud['id'].'" name="Salud">
+												<label>'.ucfirst($rowSalud['estado']).'</label>
+											</div>';
+									} else {
+										echo '<div class="col-12">
+												<input type="radio" value="'.$rowSalud['id'].'" name="Salud">
+												<label>'.ucfirst($rowSalud['estado']).'</label>
+											</div>';
+									}
+								}
+								?>
 		                    </div>
 		                  </div>
+						  <!-- aaaaaaaaaaaaaaaaaaa -->
 		                  <div class="card shadow-sm p-3 mb-4 rounded">
 		                    <div class="form-row mt-4">
 		                      <div class="col-12">
-		                        <span class="card-text">Peligro de caida?:</span>
+		                        <span class="card-text">¿Está en peligro de caida?:</span>
 		                      </div>
 		                      <div class="col-6">
 		                        <input type="radio" value="1" name="caida" id="caida_radio1">
@@ -244,15 +264,15 @@ if (empty($_SESSION["id_usuario"])) {
 		                  <div class="card shadow-sm p-3 mb-4 rounded">
 		                    <div class="form-row mt-4">
 		                      <div class="col-12">
-		                        <span class="card-text">Extraccion:</span>
+		                        <span class="card-text">¿Es extraible?:</span>
 		                      </div>
 		                      <div class="col-12">
 		                        <input checked type="radio" value="1" name="extraccion" id="extraccion_radio1">
-		                        <label for="extraccion_radio1">Posible</label>
+		                        <label for="extraccion_radio1">Si</label>
 		                      </div>
 		                      <div class="col-12">
 		                        <input type="radio" value="0" name="extraccion" id="extraccion_radio2">
-		                        <label for="extraccion_radio2">Imposible</label>
+		                        <label for="extraccion_radio2">No</label>
 		                      </div>
 		                    </div>
 		                  </div>
@@ -262,17 +282,17 @@ if (empty($_SESSION["id_usuario"])) {
 		                        <span class="card-text">Detalles de Extraccion:</span>
 		                      </div>
 		                      <div class="col-12">
-		                        <input type="text" class="form-control" name="detalles_extraccion" id="detalles_extraccion" placeholder="Detalles...">
+		                        <input type="text" maxlength="360" class="form-control" name="detalles_extraccion" id="detalles_extraccion" placeholder="Detalles...">
 		                      </div>
 		                    </div>
 		                  </div>
 		                  <div class="card shadow-sm p-3 mb-4 rounded">
 		                    <div class="form-row mt-4">
 		                      <div class="col-12">
-		                        <span class="card-text">Distancia con arbol mas cercano (en metros):</span>
+		                        <span class="card-text">Distancia con arbol mas cercano (en metros, redondeado):</span>
 		                      </div>
 		                      <div class="col-12">
-		                        <input type="number" value="0" class="form-control" name="distancia_arbol" id="distancia_arbol" placeholder="Distancia aproximada...">
+		                        <input type="number" maxlength="50" class="form-control" name="distancia_arbol" id="distancia_arbol" placeholder="Distancia aproximada...">
 		                      </div>
 		                    </div>
 		                  </div>

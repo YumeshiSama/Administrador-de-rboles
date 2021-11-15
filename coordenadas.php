@@ -9,37 +9,37 @@ $categoria = $_GET["categoria"];
 $arreglo=array();
 $arreglodos=array();
 $imagen="";
-if ($categoria==="1") {
-    $sql = "SELECT latitud, longitud FROM arboles";
-    $sqlimg = "SELECT imagen FROM especie WHERE id=$categoria";
-    $resultimg = $conn->query($sqlimg);
-    while($rowimg = mysqli_fetch_array($resultimg)) {
-        $imagen =  [$rowimg["imagen"]];  
-    }
+$arregloimagen=array();
+$arregloimagendos=array();
+if ($categoria=="1") {
+    $sql = "SELECT arboles.latitud, arboles.longitud, especie.imagen FROM arboles left join especie on arboles.id_especie=especie.id";
+
     $result = $conn->query($sql);
        while($row = mysqli_fetch_array($result)) {
-           
-           $arreglodos =  ["latitud" => $row["latitud"],"longitud" => $row["longitud"]];
-           array_push($arreglo,$arreglodos);    
+            $arregloimagendos =  [$row["imagen"]];
+            array_push($arregloimagen,$arregloimagendos);
+            $arreglodos =  ["latitud" => $row["latitud"],"longitud" => $row["longitud"]];
+            array_push($arreglo,$arreglodos);    
     }
 } else {
-    $sql = "SELECT latitud, longitud FROM arboles WHERE id_especie=$categoria";
-    $sqlimg = "SELECT imagen FROM especie WHERE id=$categoria";
-    $resultimg = $conn->query($sqlimg);
-    while($rowimg = mysqli_fetch_array($resultimg)) {
-        $imagen =  [$rowimg["imagen"]];  
-    }
+    $sql = "SELECT arboles.latitud, arboles.longitud, especie.imagen FROM arboles left join especie on arboles.id_especie=especie.id WHERE arboles.id_especie=$categoria";
     $result = $conn->query($sql);
        while($row = mysqli_fetch_array($result)) {
-           
-           $arreglodos =  ["latitud" => $row["latitud"],"longitud" => $row["longitud"]];
-           array_push($arreglo,$arreglodos);    
+            $imagen =  [$row["imagen"]];
+            $arreglodos =  ["latitud" => $row["latitud"],"longitud" => $row["longitud"]];
+            array_push($arreglo,$arreglodos);    
     }
 }
-
-echo json_encode([
-    "icono" => $imagen,
-    "coordenadas" => $arreglo,
-]);
+if ($categoria=="1") {
+    echo json_encode([
+        "icono" => $arregloimagen,
+        "coordenadas" => $arreglo,
+    ]);
+} else {
+    echo json_encode([
+        "icono" => $imagen,
+        "coordenadas" => $arreglo,
+    ]);
+}
 
 $conn->close();
