@@ -11,8 +11,7 @@ $targetDir = "upl/icn/";
 include 'navbar.php';
 if(isset($_REQUEST['cargarEspecie'])) // when click on Update button
 {
-    $nombre = $_REQUEST['nombreEspecie'];
-
+    $nombre = (strtolower($_REQUEST['nombreEspecie']));
     $fileName = basename($_FILES["icon"]["name"]);
 	$fileName=$datename.$fileName;
 	$targetFilePath = $targetDir . $fileName;
@@ -32,10 +31,54 @@ if(isset($_REQUEST['cargarEspecie'])) // when click on Update button
 	}
 
 
-    header("Location: usuarios_lista.php");
+	echo '<script language="javascript">alert("Cargado correctamente");window.location.href="nueva_categoria.php"</script>';
+exit;         	
+}
 
+if(isset($_REQUEST['cargarCopa'])) // when click on Update button
+{
+	$copa = (strtolower($_REQUEST['nombreCopa']));
+	$consulta ="INSERT INTO `copa` (`id`, `tipo`) VALUES (NULL, '$copa')";
+    $qry = mysqli_query($conn, $consulta);
+
+	echo '<script language="javascript">alert("Cargado correctamente");window.location.href="nueva_categoria.php"</script>';
 exit;
-           	
+}
+if(isset($_REQUEST['cargarEdad'])) // when click on Update button
+{
+	$edad = (strtolower($_REQUEST['nombreEdad']));
+	$consulta ="INSERT INTO `edad` (`id`, `rango`) VALUES (NULL, '$edad')";
+    $qry = mysqli_query($conn, $consulta);
+
+	echo '<script language="javascript">alert("Cargado correctamente");window.location.href="nueva_categoria.php"</script>';
+exit;
+}
+if(isset($_REQUEST['cargarMagnitud'])) // when click on Update button
+{
+	$magnitud = (strtolower($_REQUEST['nombreMagnitud']));
+	$consulta ="INSERT INTO `copa` (`id`, `tamano`) VALUES (NULL, '$magnitud')";
+    $qry = mysqli_query($conn, $consulta);
+
+	echo '<script language="javascript">alert("Cargado correctamente");window.location.href="nueva_categoria.php"</script>';
+exit;
+}
+if(isset($_REQUEST['cargarSalud'])) // when click on Update button
+{
+	$salud = (strtolower($_REQUEST['nombreSalud']));
+	$consulta ="INSERT INTO `copa` (`id`, `estado`) VALUES (NULL, '$salud')";
+    $qry = mysqli_query($conn, $consulta);
+
+	echo '<script language="javascript">alert("Cargado correctamente");window.location.href="nueva_categoria.php"</script>';
+exit;
+}
+if(isset($_REQUEST['cargarLocali'])) // when click on Update button
+{
+	$localidad = (strtolower($_REQUEST['nombreLocali']));
+	$consulta ="INSERT INTO `localidades` (`id`, `nombre`) VALUES (NULL, '$localidad')";
+    $qry = mysqli_query($conn, $consulta);
+
+	echo '<script language="javascript">alert("Cargado correctamente");window.location.href="nueva_categoria.php"</script>';
+exit;
 }
 ?>
 <!DOCTYPE html>
@@ -54,37 +97,70 @@ exit;
 
 
 <div class="main" id="blur">
-<div class="container">
-        <form class="multisteps-form__form" method="post" enctype="multipart/form-data">
-            <label for="nombreEspecie">Nombre de la especie</label>
-            <input type="text" name="nombreEspecie"  Required>
-            <div class="col-3 fileUpload btn btn-primary">
-                <span><i class="fa-solid fa-camera"></i></span>
-                <input id="icon" type="file" class="upload" name="icon">
-            </div>
-            <input type="submit" name="cargarEspecie" value="Cargar">
-        </form>
-    </div>
-    <div class="container">
-        <form class="multisteps-form__form" method="post" enctype="multipart/form-data">
-            <label for="nombreCopa">Tipo de copa</label>
-            <input type="text" name="nombreCopa"  Required>
-            <div class="col-3 fileUpload btn btn-primary">
-                <span><i class="fa-solid fa-camera"></i></span>
-                <input id="uploadBtn_copa" type="file" class="upload" name="icon">
-            </div>
-            <input type="submit" name="cargarCopa" value="Cargar">
-        </form>
-    </div>
 
-
+	<div class="container">
+		<form method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="nombreEspecie">Nombre de la especie</label>
+				<input type="text" name="nombreEspecie"  Required>
+				<div class="col-3 fileUpload btn btn-primary">
+					<span><i class="fa-solid fa-camera"></i></span>
+					<input id="icon" type="file" class="upload" name="icon">
+				</div>
+			</div>
+			<input type="submit" class="btn btn-success" name="cargarEspecie" value="Cargar">
+		</form>
+	</div>
+	<div class="container">
+		<form method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="nombreCopa">Tipo de copa</label>
+				<input type="text" name="nombreCopa"  Required>
+			</div>
+			<input type="submit" class="btn btn-success" name="cargarCopa" value="Cargar">
+		</form>
+	</div>
+	<div class="container">
+		<form method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="nombreEdad">Tipo de edad</label>
+				<input type="text" name="nombreEdad"  Required>
+			</div>
+			<input type="submit" class="btn btn-success" name="cargarEdad" value="Cargar">
+		</form>
+	</div>
+	<div class="container">
+		<form method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="nombreMagnitud">Tipo de magnitud</label>
+				<input type="text" name="nombreMagnitud"  Required>
+			</div>
+			<input type="submit" class="btn btn-success" name="cargarMagnitud" value="Cargar">
+		</form>
+	</div>
+	<div class="container">
+		<form method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="nombreSalud">Tipo de salud</label>
+				<input type="text" name="nombreSalud"  Required>
+			</div>
+			<input type="submit" class="btn btn-success" name="cargarSalud" value="Cargar">
+		</form>
+	</div>
+	<div class="container">
+		<form method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="nombreLocali">Nombre de la localidad</label>
+				<input type="text" name="nombreLocali"  Required>
+			</div>
+			<input type="submit" class="btn btn-success" name="cargarLocali" value="Cargar">
+		</form>
+	</div>
 
 </div>
-<!--=====================================
-			SCRIPT FORM UPLOAD 
-======================================-->
+
 <script  src="js/main.js"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   mybutton = document.getElementsByClassName("btn");
 
 
@@ -153,6 +229,6 @@ const funcionInit = () => {
 
 };
 document.addEventListener("DOMContentLoaded", funcionInit);
-</script>
+</script> -->
 </body>
 </html>
