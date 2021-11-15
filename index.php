@@ -92,48 +92,63 @@ session_start();
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Edad:</span>
                                 </div>
-                                <div class="col-12 mb-2 markerData2">
-                                    <!--INPUT EDAD-->
+                                <div class="e_edad">
+                                    <div class="col-12 mb-2 markerData2">
+                                        <!--INPUT EDAD-->
+                                    </div>
+                                    <div class="row mb-2 justify-content-end markerBtn2">
+                                        <!--BUTTON EDAD-->
+                                    </div>
                                 </div>
-                                <div class="col-6 mb-2 markerBtn2">
-                                    <!--BUTTON EDAD-->
-                                </div>
+
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Magnitud:</span>
                                 </div>
-                                <div class="col-12 mb-2 markerData3">
-                                    <!--INPUT MAGNITUD-->
+                                <div class="e_magnitud">
+                                    <div class="col-12 mb-2 markerData3">
+                                        <!--INPUT MAGNITUD-->
+                                    </div>
+                                    <div class="row mb-2 justify-content-end markerBtn3">
+                                        <!--BUTTON MAGNITUD-->
+                                    </div>
                                 </div>
-                                <div class="col-6 mb-2 markerBtn3">
-                                    <!--BUTTON MAGNITUD-->
-                                </div>
+
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Copa:</span>
                                 </div>
-                                <div class="col-12 mb-2 markerData4">
-                                    <!--INPUT COPA-->
+                                <div class="e_copa">
+                                    <div class="col-12 mb-2 markerData4">
+                                        <!--INPUT COPA-->
+                                    </div>
+                                    <div class="row mb-2 justify-content-end markerBtn4">
+                                        <!--BUTTON COPA-->
+                                    </div>
                                 </div>
-                                <div class="col-6 mb-2 markerBtn4">
-                                    <!--BUTTON COPA-->
-                                </div>
+
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Salud:</span>
                                 </div>
-                                <div class="col-12 mb-2 markerData5">
-                                    <!--INPUT SALUD-->
+                                <div class="e_salud">
+                                    <div class="col-12 mb-2 markerData5">
+                                        <!--INPUT SALUD-->
+                                    </div>
+                                    <div class="row mb-2 justify-content-end markerBtn5">
+                                        <!--BUTTON SALUD-->
+                                    </div>
                                 </div>
-                                <div class="col-6 mb-2 markerBtn5">
-                                    <!--BUTTON SALUD-->
-                                </div>
+
                                 <div class="col-12 mt-2 mb-2">
-                                    <span class="input_eData">Comentario:</span>
+                                    <span class="input_eData">Comentarios:</span>
                                 </div>
-                                <div class="col-12 mb-2 markerData6">
-                                    <!--INPUT COMENTARIO-->
+                                <div class="e_comentarios">
+                                    <div class="col-12 mb-2 markerData6">
+                                        <!--INPUT COMENTARIOS-->
+                                    </div>
+                                    <div class="row mb-2 justify-content-end markerBtn6">
+                                        <!--BUTTON COMENTARIOS-->
+                                    </div>
                                 </div>
-                                <div class="col-6 mb-2 markerBtn6">
-                                    <!--BUTTON COMENTARIO-->
-                                </div>
+
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Eliminar:</span>
                                 </div>
@@ -270,7 +285,7 @@ mapa.on('singleclick', function(evt) {
 });
 
 function arbol_popup() {
-          fetch("http://localhost/github/Administrador-de-rboles/db_arbolData.php")
+          fetch("https://tecnica1lacosta.com.ar/ada/db_arbolData.php")
           .then((res) => res.json())
           .then((data) => {
               console.log(data);
@@ -330,7 +345,7 @@ function arbol_popup() {
                 const input_especie = document.createElement("select");
                 input_especie.className = "form-control";
 
-                fetch("http://localhost/github/Administrador-de-rboles/db_especieData.php")
+                fetch("https://tecnica1lacosta.com.ar/ada/db_especieData.php")
                 .then((res) => res.json())
                 .then((data) => {
                 console.log(data);
@@ -372,10 +387,61 @@ function arbol_popup() {
               const markerBtn2 = document.querySelector(".markerBtn2");
               markerBtn2.innerHTML="";
 
+              const e_btn2 = document.createElement("div");
+              e_btn2.className = "col-6";
+
               const e_btn_edad = document.createElement("button");
               e_btn_edad.type = "submit";
               e_btn_edad.className = "btn btn_yellow e_btn_edad";
               e_btn_edad.innerHTML = '<i class="fa-solid fa-pen"></i>';
+
+
+              e_btn_edad.addEventListener( 'click', function(){
+                markerData2.innerHTML="";
+                markerBtn2.innerHTML="";
+
+                const c_btn2 = document.createElement("div");
+                c_btn2.className = "col-6";
+
+                const c_btn_edad = document.createElement("button");
+                c_btn_edad.type = "submit";
+                c_btn_edad.className = "btn btn_red c_btn_edad";
+                c_btn_edad.innerHTML = '<i class="fa-solid fa-ban"></i>';
+
+                const s_btn2 = document.createElement("div");
+                s_btn2.className = "col-6";
+
+                const s_btn_edad = document.createElement("button");
+                s_btn_edad.type = "submit";
+                s_btn_edad.className = "btn btn_green s_btn_edad";
+                s_btn_edad.innerHTML = '<i class="fa-solid fa-check"></i>';
+
+                const input_edad = document.createElement("select");
+                input_edad.className = "form-control";
+
+                fetch("https://tecnica1lacosta.com.ar/ada/db_edadData.php")
+                .then((res) => res.json())
+                .then((data) => {
+                console.log(data);
+                // data = data[0];
+                // console.log(data);
+
+                data.map((edad => {
+                    const o_categoria = document.createElement("option");
+                    o_categoria.value = edad.id;
+                    o_categoria.innerText = edad.rango;
+
+                    input_edad.appendChild(o_categoria);
+                }))
+                });
+
+                c_btn2.appendChild(c_btn_edad);
+                s_btn2.appendChild(s_btn_edad);
+                markerBtn2.appendChild(c_btn2);
+                markerBtn2.appendChild(s_btn2);
+                markerData2.appendChild(input_edad);
+
+              })
 
               // ============ MAGNITUD ==============
 
@@ -391,10 +457,61 @@ function arbol_popup() {
               const markerBtn3 = document.querySelector(".markerBtn3");
               markerBtn3.innerHTML="";
 
+              const e_btn3 = document.createElement("div");
+              e_btn3.className = "col-6";
+
               const e_btn_magnitud = document.createElement("button");
               e_btn_magnitud.type = "submit";
               e_btn_magnitud.className = "btn btn_yellow e_btn_magnitud";
               e_btn_magnitud.innerHTML = '<i class="fa-solid fa-pen"></i>';
+
+
+              e_btn_magnitud.addEventListener( 'click', function(){
+                markerData3.innerHTML="";
+                markerBtn3.innerHTML="";
+
+                const c_btn3 = document.createElement("div");
+                c_btn3.className = "col-6";
+
+                const c_btn_magnitud = document.createElement("button");
+                c_btn_magnitud.type = "submit";
+                c_btn_magnitud.className = "btn btn_red c_btn_magnitud";
+                c_btn_magnitud.innerHTML = '<i class="fa-solid fa-ban"></i>';
+
+                const s_btn3 = document.createElement("div");
+                s_btn3.className = "col-6";
+
+                const s_btn_magnitud = document.createElement("button");
+                s_btn_magnitud.type = "submit";
+                s_btn_magnitud.className = "btn btn_green s_btn_magnitud";
+                s_btn_magnitud.innerHTML = '<i class="fa-solid fa-check"></i>';
+
+                const input_magnitud = document.createElement("select");
+                input_magnitud.className = "form-control";
+
+                fetch("https://tecnica1lacosta.com.ar/ada/db_magnitudData.php")
+                .then((res) => res.json())
+                .then((data) => {
+                console.log(data);
+                // data = data[0];
+                // console.log(data);
+
+                data.map((magnitud => {
+                    const o_categoria = document.createElement("option");
+                    o_categoria.value = magnitud.id;
+                    o_categoria.innerText = magnitud.tamano;
+
+                    input_magnitud.appendChild(o_categoria);
+                }))
+                });
+
+                c_btn3.appendChild(c_btn_magnitud);
+                s_btn3.appendChild(s_btn_magnitud);
+                markerBtn3.appendChild(c_btn3);
+                markerBtn3.appendChild(s_btn3);
+                markerData3.appendChild(input_magnitud);
+
+              })
 
               // ============ COPA ==============
 
@@ -410,10 +527,61 @@ function arbol_popup() {
               const markerBtn4 = document.querySelector(".markerBtn4");
               markerBtn4.innerHTML="";
 
+              const e_btn4 = document.createElement("div");
+              e_btn4.className = "col-6";
+
               const e_btn_copa = document.createElement("button");
               e_btn_copa.type = "submit";
               e_btn_copa.className = "btn btn_yellow e_btn_copa";
               e_btn_copa.innerHTML = '<i class="fa-solid fa-pen"></i>';
+
+
+              e_btn_copa.addEventListener( 'click', function(){
+                markerData4.innerHTML="";
+                markerBtn4.innerHTML="";
+
+                const c_btn4 = document.createElement("div");
+                c_btn4.className = "col-6";
+
+                const c_btn_copa = document.createElement("button");
+                c_btn_copa.type = "submit";
+                c_btn_copa.className = "btn btn_red c_btn_copa";
+                c_btn_copa.innerHTML = '<i class="fa-solid fa-ban"></i>';
+
+                const s_btn4 = document.createElement("div");
+                s_btn4.className = "col-6";
+
+                const s_btn_copa = document.createElement("button");
+                s_btn_copa.type = "submit";
+                s_btn_copa.className = "btn btn_green s_btn_copa";
+                s_btn_copa.innerHTML = '<i class="fa-solid fa-check"></i>';
+
+                const input_copa = document.createElement("select");
+                input_copa.className = "form-control";
+
+                fetch("https://tecnica1lacosta.com.ar/ada/db_copaData.php")
+                .then((res) => res.json())
+                .then((data) => {
+                console.log(data);
+                // data = data[0];
+                // console.log(data);
+
+                data.map((copa => {
+                    const o_categoria = document.createElement("option");
+                    o_categoria.value = copa.id;
+                    o_categoria.innerText = copa.tipo;
+
+                    input_copa.appendChild(o_categoria);
+                }))
+                });
+
+                c_btn4.appendChild(c_btn_copa);
+                s_btn4.appendChild(s_btn_copa);
+                markerBtn4.appendChild(c_btn4);
+                markerBtn4.appendChild(s_btn4);
+                markerData4.appendChild(input_copa);
+
+              })
 
               // ============ SALUD ==============
 
@@ -429,10 +597,61 @@ function arbol_popup() {
               const markerBtn5 = document.querySelector(".markerBtn5");
               markerBtn5.innerHTML="";
 
+              const e_btn5 = document.createElement("div");
+              e_btn5.className = "col-6";
+
               const e_btn_salud = document.createElement("button");
               e_btn_salud.type = "submit";
               e_btn_salud.className = "btn btn_yellow e_btn_salud";
               e_btn_salud.innerHTML = '<i class="fa-solid fa-pen"></i>';
+
+
+              e_btn_salud.addEventListener( 'click', function(){
+                markerData5.innerHTML="";
+                markerBtn5.innerHTML="";
+
+                const c_btn5 = document.createElement("div");
+                c_btn5.className = "col-6";
+
+                const c_btn_salud = document.createElement("button");
+                c_btn_salud.type = "submit";
+                c_btn_salud.className = "btn btn_red c_btn_salud";
+                c_btn_salud.innerHTML = '<i class="fa-solid fa-ban"></i>';
+
+                const s_btn5 = document.createElement("div");
+                s_btn5.className = "col-6";
+
+                const s_btn_salud = document.createElement("button");
+                s_btn_salud.type = "submit";
+                s_btn_salud.className = "btn btn_green s_btn_salud";
+                s_btn_salud.innerHTML = '<i class="fa-solid fa-check"></i>';
+
+                const input_salud = document.createElement("select");
+                input_salud.className = "form-control";
+
+                fetch("https://tecnica1lacosta.com.ar/ada/db_saludData.php")
+                .then((res) => res.json())
+                .then((data) => {
+                console.log(data);
+                // data = data[0];
+                // console.log(data);
+
+                data.map((salud => {
+                    const o_categoria = document.createElement("option");
+                    o_categoria.value = salud.id;
+                    o_categoria.innerText = salud.estado;
+
+                    input_salud.appendChild(o_categoria);
+                }))
+                });
+
+                c_btn5.appendChild(c_btn_salud);
+                s_btn5.appendChild(s_btn_salud);
+                markerBtn5.appendChild(c_btn5);
+                markerBtn5.appendChild(s_btn5);
+                markerData5.appendChild(input_salud);
+
+              })
 
               // ============ COMENTARIO ==============
 
@@ -448,10 +667,46 @@ function arbol_popup() {
               const markerBtn6 = document.querySelector(".markerBtn6");
               markerBtn6.innerHTML="";
 
+              const e_btn6 = document.createElement("div");
+              e_btn6.className = "col-6";
+
               const e_btn_comentario = document.createElement("button");
               e_btn_comentario.type = "submit";
               e_btn_comentario.className = "btn btn_yellow e_btn_comentario";
               e_btn_comentario.innerHTML = '<i class="fa-solid fa-pen"></i>';
+
+
+              e_btn_comentario.addEventListener( 'click', function(){
+                markerData6.innerHTML="";
+                markerBtn6.innerHTML="";
+
+                const c_btn6 = document.createElement("div");
+                c_btn6.className = "col-6";
+
+                const c_btn_comentario = document.createElement("button");
+                c_btn_comentario.type = "submit";
+                c_btn_comentario.className = "btn btn_red c_btn_comentario";
+                c_btn_comentario.innerHTML = '<i class="fa-solid fa-ban"></i>';
+
+                const s_btn6 = document.createElement("div");
+                s_btn6.className = "col-6";
+
+                const s_btn_comentario = document.createElement("button");
+                s_btn_comentario.type = "submit";
+                s_btn_comentario.className = "btn btn_green s_btn_comentario";
+                s_btn_comentario.innerHTML = '<i class="fa-solid fa-check"></i>';
+
+                const input_comentario = document.createElement("input");
+                input_comentario.type = "text";
+                input_comentario.className = "form-control input_comm";
+                input_comentario.name = "input_comm";
+
+                c_btn6.appendChild(c_btn_comentario);
+                s_btn6.appendChild(s_btn_comentario);
+                markerBtn6.appendChild(c_btn6);
+                markerBtn6.appendChild(s_btn6);
+                markerData6.appendChild(input_comentario);
+            }); 
               
               // filtra el arbol
                 data = data.filter(function(items){
@@ -477,15 +732,20 @@ function arbol_popup() {
               e_btn1.appendChild(e_btn_especie);
               markerBtn1.appendChild(e_btn1);
               markerData2.appendChild(e_edad);
-              markerBtn2.appendChild(e_btn_edad);
+              e_btn2.appendChild(e_btn_edad);
+              markerBtn2.appendChild(e_btn2);
               markerData3.appendChild(e_magnitud);
-              markerBtn3.appendChild(e_btn_magnitud);
+              e_btn3.appendChild(e_btn_magnitud);
+              markerBtn3.appendChild(e_btn3);
               markerData4.appendChild(e_copa);
-              markerBtn4.appendChild(e_btn_copa);
+              e_btn4.appendChild(e_btn_copa)
+              markerBtn4.appendChild(e_btn4);
               markerData5.appendChild(e_salud);
-              markerBtn5.appendChild(e_btn_salud);
+              e_btn5.appendChild(e_btn_salud);
+              markerBtn5.appendChild(e_btn5);
               markerData6.appendChild(e_comentario);
-              markerBtn6.appendChild(e_btn_comentario);
+              e_btn6.appendChild(e_btn_comentario);
+              markerBtn6.appendChild(e_btn6);
             });
         };
 
