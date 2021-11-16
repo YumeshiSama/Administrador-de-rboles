@@ -99,6 +99,7 @@ if (empty($_SESSION["id_usuario"])) {
                                         <div class="col-12 mb-2 markerData1">
                                             <!--INPUT ESPECIE-->
                                         </div>
+                                        
                                         <div class="row mb-2 justify-content-end markerBtn1">
                                             <!--BUTTON ESPECIE-->
                                         </div>
@@ -347,7 +348,7 @@ function arbol_popup() {
               console.log(data);
               // data = data[0];
               // console.log(data);
-
+              var nivel = "<?php echo"$nivel"?>";
               const marker_eImg = document.querySelector(".marker_eImg");
               marker_eImg.setAttribute('src', "");
               const marker_number = document.querySelector(".marker_number");
@@ -377,7 +378,6 @@ function arbol_popup() {
               e_especie.className = "form-control e_especie";
               e_especie.name = "e_especie";
               e_especie.readOnly = true;
-
               const markerBtn1 = document.querySelector(".markerBtn1");
               markerBtn1.innerHTML="";
 
