@@ -413,6 +413,7 @@ function arbol_popup() {
 
                 const input_especie = document.createElement("select");
                 input_especie.className = "form-control";
+                input_especie.name = "especie";
 
                 fetch("http://localhost/github/administrador-de-rboles/db_especieData.php")
                 .then((res) => res.json())
@@ -484,9 +485,11 @@ function arbol_popup() {
                 s_btn_edad.type = "submit";
                 s_btn_edad.className = "btn btn_green s_btn_edad";
                 s_btn_edad.innerHTML = '<i class="fa-solid fa-check"></i>';
+                s_btn_edad.formAction = "edit_arbolData.php";
 
                 const input_edad = document.createElement("select");
                 input_edad.className = "form-control";
+                input_edad.name = "edad";
 
                 fetch("http://localhost/github/administrador-de-rboles/db_edadData.php")
                 .then((res) => res.json())
@@ -554,9 +557,11 @@ function arbol_popup() {
                 s_btn_magnitud.type = "submit";
                 s_btn_magnitud.className = "btn btn_green s_btn_magnitud";
                 s_btn_magnitud.innerHTML = '<i class="fa-solid fa-check"></i>';
+                s_btn_magnitud.formAction = "edit_arbolData.php";
 
                 const input_magnitud = document.createElement("select");
                 input_magnitud.className = "form-control";
+                input_magnitud.name = "magnitud";
 
                 fetch("http://localhost/github/administrador-de-rboles/db_magnitudData.php")
                 .then((res) => res.json())
@@ -624,9 +629,11 @@ function arbol_popup() {
                 s_btn_copa.type = "submit";
                 s_btn_copa.className = "btn btn_green s_btn_copa";
                 s_btn_copa.innerHTML = '<i class="fa-solid fa-check"></i>';
+                s_btn_copa.formAction = "edit_arbolData.php";
 
                 const input_copa = document.createElement("select");
                 input_copa.className = "form-control";
+                input_copa.name = "copa";
 
                 fetch("http://localhost/github/administrador-de-rboles/db_copaData.php")
                 .then((res) => res.json())
@@ -694,9 +701,11 @@ function arbol_popup() {
                 s_btn_salud.type = "submit";
                 s_btn_salud.className = "btn btn_green s_btn_salud";
                 s_btn_salud.innerHTML = '<i class="fa-solid fa-check"></i>';
+                s_btn_salud.formAction = "edit_arbolData.php";
 
                 const input_salud = document.createElement("select");
                 input_salud.className = "form-control";
+                input_salud.name = "salud"
 
                 fetch("http://localhost/github/administrador-de-rboles/db_saludData.php")
                 .then((res) => res.json())
@@ -764,11 +773,12 @@ function arbol_popup() {
                 s_btn_comentario.type = "submit";
                 s_btn_comentario.className = "btn btn_green s_btn_comentario";
                 s_btn_comentario.innerHTML = '<i class="fa-solid fa-check"></i>';
+                s_btn_comentario.formAction = "edit_arbolData.php";
 
                 const input_comentario = document.createElement("input");
                 input_comentario.type = "text";
                 input_comentario.className = "form-control input_comm";
-                input_comentario.name = "input_comm";
+                input_comentario.name = "comentario";
 
                 c_btn6.appendChild(c_btn_comentario);
                 s_btn6.appendChild(s_btn_comentario);
