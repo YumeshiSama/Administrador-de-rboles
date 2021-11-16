@@ -222,9 +222,10 @@ const dibujarMarcadoresEnMapa = coordenadasConIcono => {
         mapa.removeLayer(ultimaCapa);
     }
     const { icono, coordenadas } = coordenadasConIcono;
-
     const marcadores = [];
+    let contador = -1
     coordenadas.forEach(coordenada => {
+        contador += 1
         let marcador = new ol.Feature({
             geometry: new ol.geom.Point(
                 ol.proj.fromLonLat([coordenada.longitud, coordenada.latitud])
@@ -232,17 +233,19 @@ const dibujarMarcadoresEnMapa = coordenadasConIcono => {
         });
         marcador.setStyle(new ol.style.Style({
             image: new ol.style.Icon(({
-                src: icono,
+                src: icono[contador],
             }))
         }));
         marcadores.push(marcador);
     });
+
     ultimaCapa = new ol.layer.Vector({
         source: new ol.source.Vector({
             features: marcadores,
         }),
     });
     mapa.addLayer(ultimaCapa);
+    
 };
 
 
@@ -285,7 +288,7 @@ mapa.on('singleclick', function(evt) {
 });
 
 function arbol_popup() {
-          fetch("https://tecnica1lacosta.com.ar/ada/db_arbolData.php")
+          fetch("http://localhost/github/Administrador-de-rboles/db_arbolData.php")
           .then((res) => res.json())
           .then((data) => {
               console.log(data);
