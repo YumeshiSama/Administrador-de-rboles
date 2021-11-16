@@ -27,11 +27,6 @@ if ($categoria=="1") {
             array_push($arregloimagen,$arregloimagendos);
             $arreglodos =  ["latitud" => $row["latitud"],"longitud" => $row["longitud"]];
             array_push($arreglo,$arreglodos);
-            // $arreglotres= ([
-            //     "icono" => $arregloimagendos,
-            //     "coordenadas" => $arreglodos,
-            // ]);
-            // array_push($arreglocuatro,$arreglotres);
     }
 } else {
     $sql = "SELECT arboles.latitud, arboles.longitud, especie.imagen FROM arboles left join especie on arboles.id_especie=especie.id WHERE arboles.id_especie=$categoria";
