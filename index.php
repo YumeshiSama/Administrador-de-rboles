@@ -21,7 +21,18 @@ include "conexion.php";
 <body>
 <?php
 session_start();
-
+if (empty($_SESSION["id_usuario"])) {
+    $id=false;
+	$nivel=0;
+}else {
+	$id=$_SESSION['id_usuario'];
+	$sql5 = "SELECT nivel FROM usuarios WHERE id='$id'";
+	$result5 = $conn->query($sql5);
+	$nivel="";
+	while($row5 = mysqli_fetch_array($result5)) {
+	$nivel = $row5['nivel'];
+}
+}
 ?>
 <?php include 'navbar.php'; ?>
 <!--=======================================
@@ -246,9 +257,10 @@ const dibujarMarcadoresEnMapa = coordenadasConIcono => {
         mapa.removeLayer(ultimaCapa);
     }
     const { icono, coordenadas } = coordenadasConIcono;
-
     const marcadores = [];
+    let contador = -1
     coordenadas.forEach(coordenada => {
+        contador += 1
         let marcador = new ol.Feature({
             geometry: new ol.geom.Point(
                 ol.proj.fromLonLat([coordenada.longitud, coordenada.latitud])
@@ -256,17 +268,19 @@ const dibujarMarcadoresEnMapa = coordenadasConIcono => {
         });
         marcador.setStyle(new ol.style.Style({
             image: new ol.style.Icon(({
-                src: icono,
+                src: icono[contador],
             }))
         }));
         marcadores.push(marcador);
     });
+
     ultimaCapa = new ol.layer.Vector({
         source: new ol.source.Vector({
             features: marcadores,
         }),
     });
     mapa.addLayer(ultimaCapa);
+    
 };
 
 
@@ -324,7 +338,10 @@ mapa.on('singleclick', function(evt) {
 });
 
 function arbol_popup() {
-          fetch("http://localhost/github/administrador-de-rboles/db_arbolData.php")
+
+          fetch("http://localhost/github/Administrador-de-rboles/db_arbolData.php")
+
+
           .then((res) => res.json())
           .then((data) => {
               console.log(data);
