@@ -77,77 +77,102 @@ session_start();
                 <div class="col-12 m-auto marker_eList card shadow-sm 4px mt-4">
                     <div class="container">
                             <div class="row">
-                                <div class="col-12 mt-2 mb-2">
-                                    <span class="input_eData">Especie:</span>
-                                </div>
-                                <div class="e_especie">
-                                    <div class="col-12 mb-2 markerData1">
-                                        <!--INPUT ESPECIE-->
-                                    </div>
-                                    <div class="row mb-2 justify-content-end markerBtn1">
-                                        <!--BUTTON ESPECIE-->
-                                    </div>
-                                </div>
 
-                                <div class="col-12 mt-2 mb-2">
-                                    <span class="input_eData">Edad:</span>
-                                </div>
-                                <div class="e_edad">
-                                    <div class="col-12 mb-2 markerData2">
-                                        <!--INPUT EDAD-->
+                                <form action="#">
+                                    <input type="text" class="markerId1" name="id" hidden="true">
+                                    <input type="text" class="markerType1" name="type" hidden="true" value="1">
+                                    <div class="col-12 mt-2 mb-2">
+                                        <span class="input_eData">Especie:</span>
                                     </div>
-                                    <div class="row mb-2 justify-content-end markerBtn2">
-                                        <!--BUTTON EDAD-->
+                                    <div class="e_especie">
+                                        <div class="col-12 mb-2 markerData1">
+                                            <!--INPUT ESPECIE-->
+                                        </div>
+                                        <div class="row mb-2 justify-content-end markerBtn1">
+                                            <!--BUTTON ESPECIE-->
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
 
-                                <div class="col-12 mt-2 mb-2">
-                                    <span class="input_eData">Magnitud:</span>
-                                </div>
-                                <div class="e_magnitud">
-                                    <div class="col-12 mb-2 markerData3">
-                                        <!--INPUT MAGNITUD-->
+                                <form action="#">
+                                    <input type="text" class="markerId2" name="id" hidden="true">
+                                    <input type="text" class="markerType2" name="type" hidden="true" value="2">
+                                    <div class="col-12 mt-2 mb-2">
+                                        <span class="input_eData">Edad:</span>
                                     </div>
-                                    <div class="row mb-2 justify-content-end markerBtn3">
-                                        <!--BUTTON MAGNITUD-->
+                                    <div class="e_edad">
+                                        <div class="col-12 mb-2 markerData2">
+                                            <!--INPUT EDAD-->
+                                        </div>
+                                        <div class="row mb-2 justify-content-end markerBtn2">
+                                            <!--BUTTON EDAD-->
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
 
-                                <div class="col-12 mt-2 mb-2">
-                                    <span class="input_eData">Copa:</span>
-                                </div>
-                                <div class="e_copa">
-                                    <div class="col-12 mb-2 markerData4">
-                                        <!--INPUT COPA-->
+                                <form action="#">
+                                    <input type="text" class="markerId3" name="id" hidden="true">
+                                    <input type="text" class="markerType3" name="type" hidden="true" value="3">
+                                    <div class="col-12 mt-2 mb-2">
+                                        <span class="input_eData">Magnitud:</span>
                                     </div>
-                                    <div class="row mb-2 justify-content-end markerBtn4">
-                                        <!--BUTTON COPA-->
+                                    <div class="e_magnitud">
+                                        <div class="col-12 mb-2 markerData3">
+                                            <!--INPUT MAGNITUD-->
+                                        </div>
+                                        <div class="row mb-2 justify-content-end markerBtn3">
+                                            <!--BUTTON MAGNITUD-->
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
 
-                                <div class="col-12 mt-2 mb-2">
-                                    <span class="input_eData">Salud:</span>
-                                </div>
-                                <div class="e_salud">
-                                    <div class="col-12 mb-2 markerData5">
-                                        <!--INPUT SALUD-->
+                                <form action="#">
+                                    <input type="text" class="markerId4" name="id" hidden="true">
+                                    <input type="text" class="markerType4" name="type" hidden="true" value="4">
+                                    <div class="col-12 mt-2 mb-2">
+                                        <span class="input_eData">Copa:</span>
                                     </div>
-                                    <div class="row mb-2 justify-content-end markerBtn5">
-                                        <!--BUTTON SALUD-->
+                                    <div class="e_copa">
+                                        <div class="col-12 mb-2 markerData4">
+                                            <!--INPUT COPA-->
+                                        </div>
+                                        <div class="row mb-2 justify-content-end markerBtn4">
+                                            <!--BUTTON COPA-->
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
 
-                                <div class="col-12 mt-2 mb-2">
-                                    <span class="input_eData">Comentarios:</span>
-                                </div>
-                                <div class="e_comentarios">
-                                    <div class="col-12 mb-2 markerData6">
-                                        <!--INPUT COMENTARIOS-->
+                                <form action="#">
+                                    <input type="text" class="markerId5" name="id" hidden="true">
+                                    <input type="text" class="markerType5" name="type" hidden="true" value="5">
+                                    <div class="col-12 mt-2 mb-2">
+                                        <span class="input_eData">Salud:</span>
                                     </div>
-                                    <div class="row mb-2 justify-content-end markerBtn6">
-                                        <!--BUTTON COMENTARIOS-->
+                                    <div class="e_salud">
+                                        <div class="col-12 mb-2 markerData5">
+                                            <!--INPUT SALUD-->
+                                        </div>
+                                        <div class="row mb-2 justify-content-end markerBtn5">
+                                            <!--BUTTON SALUD-->
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
+
+                                <form action="#">
+                                    <input type="text" class="markerId6" name="id" hidden="true">
+                                    <input type="text" class="markerType6" name="type" hidden="true" value="6">
+                                    <div class="col-12 mt-2 mb-2">
+                                        <span class="input_eData">Comentarios:</span>
+                                    </div>
+                                    <div class="e_comentarios">
+                                        <div class="col-12 mb-2 markerData6">
+                                            <!--INPUT COMENTARIOS-->
+                                        </div>
+                                        <div class="row mb-2 justify-content-end markerBtn6">
+                                            <!--BUTTON COMENTARIOS-->
+                                        </div>
+                                    </div>
+                                </form>
 
                                 <div class="col-12 mt-2 mb-2">
                                     <span class="input_eData">Eliminar:</span>
@@ -312,6 +337,18 @@ function arbol_popup() {
               marker_number.innerText = "";
               const marker_user = document.querySelector(".marker_user");
               marker_user.innerText = "";
+              const markerId1 = document.querySelector(".markerId1");
+              markerId1.innerText = "";
+              const markerId2 = document.querySelector(".markerId2");
+              markerId2.innerText = "";
+              const markerId3 = document.querySelector(".markerId3");
+              markerId3.innerText = "";
+              const markerId4 = document.querySelector(".markerId4");
+              markerId4.innerText = "";
+              const markerId5 = document.querySelector(".markerId5");
+              markerId5.innerText = "";
+              const markerId6 = document.querySelector(".markerId6");
+              markerId6.innerText = "";
 
 
               // ============ ESPECIE ==============
@@ -355,6 +392,7 @@ function arbol_popup() {
                 s_btn_especie.type = "submit";
                 s_btn_especie.className = "btn btn_green s_btn_especie";
                 s_btn_especie.innerHTML = '<i class="fa-solid fa-check"></i>';
+                s_btn_especie.formAction = "edit_arbolData.php";
 
                 const input_especie = document.createElement("select");
                 input_especie.className = "form-control";
@@ -740,6 +778,12 @@ function arbol_popup() {
                 marker_number.innerText = arboles.id;
                 marker_user.innerText = arboles.institucion;
                 marker_eImg.setAttribute('src', arboles.imagen);
+                markerId1.value = arboles.id;
+                markerId2.value = arboles.id;
+                markerId3.value = arboles.id;
+                markerId4.value = arboles.id;
+                markerId5.value = arboles.id;
+                markerId6.value = arboles.id;
               }))
 
               markerData1.appendChild(e_especie);
