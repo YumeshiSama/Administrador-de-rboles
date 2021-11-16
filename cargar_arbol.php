@@ -220,12 +220,12 @@ if (empty($_SESSION["id_usuario"])) {
 									if ($rowSalud['id']==1)
 									{
 										echo '<div class="col-12">
-												<input  checked type="radio" value="'.$rowSalud['id'].'" name="Salud">
+												<input  checked type="radio" value="'.$rowSalud['id'].'" name="salud">
 												<label>'.ucfirst($rowSalud['estado']).'</label>
 											</div>';
 									} else {
 										echo '<div class="col-12">
-												<input type="radio" value="'.$rowSalud['id'].'" name="Salud">
+												<input type="radio" value="'.$rowSalud['id'].'" name="salud">
 												<label>'.ucfirst($rowSalud['estado']).'</label>
 											</div>';
 									}
