@@ -191,7 +191,6 @@ session_start();
 <script type="text/javascript">
     let ultimaCapa; // Para removerla cada vez que se selecciona otra categoría
 
-
 const LATITUD_CENTRO = -36.5311294868868,
     LONGITUD_CENTRO = -56.71174973909938,
     ZOOM = 17;
@@ -265,27 +264,42 @@ btn_cerrar.addEventListener('click', function(){
     edit_m_popup.style.visibility = 'hidden';
 });
 
+var meters2degress = function(lon,lat) {
+    var x = lon *  180 / 20037508.34 ;
+    //thanks magichim @ github for the correction
+    var y = Math.atan(Math.exp(lat * Math.PI / 20037508.34)) * 360 / Math.PI - 90; 
+
+    x= (+x).toFixed(7).replace(/(\.0+|0+)$/, '')
+
+    y= (+y).toFixed(7).replace(/(\.0+|0+)$/, '')
+            
+    $lon = x;
+    $lat = y;
+
+}
+
 mapa.on('singleclick', function(evt) {
     var feature = mapa.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
         // Aquí se puede filtrar la feature
         return feature;
     });
     if (feature) {
-        var geom = feature.getGeometry().transform('EPSG:3857', 'EPSG:4326');
-        coord = geom.getCoordinates();
+        coord = feature.getGeometry().getCoordinates();
         edit_m_popup.classList.toggle('inactive');
         edit_m_popup.classList.toggle('active');
         edit_m_popup.style.visibility = 'visible';
         var lon = coord[0];
         var lat = coord[1];
-        console.log("longitud: ", lon, "latitud: ", lat);
-        arbol_popup();
-        geom = feature.getGeometry().transform('EPSG:4326', 'EPSG:3857');
+
+        meters2degress(lon,lat);
+
+        console.log("longitud: ", $lon, "latitud: ", $lat);
+         arbol_popup();
     }
 });
 
 function arbol_popup() {
-          fetch("https://tecnica1lacosta.com.ar/ada/db_arbolData.php")
+          fetch("http://localhost/github/administrador-de-rboles/db_arbolData.php")
           .then((res) => res.json())
           .then((data) => {
               console.log(data);
@@ -345,7 +359,7 @@ function arbol_popup() {
                 const input_especie = document.createElement("select");
                 input_especie.className = "form-control";
 
-                fetch("https://tecnica1lacosta.com.ar/ada/db_especieData.php")
+                fetch("http://localhost/github/administrador-de-rboles/db_especieData.php")
                 .then((res) => res.json())
                 .then((data) => {
                 console.log(data);
@@ -419,7 +433,7 @@ function arbol_popup() {
                 const input_edad = document.createElement("select");
                 input_edad.className = "form-control";
 
-                fetch("https://tecnica1lacosta.com.ar/ada/db_edadData.php")
+                fetch("http://localhost/github/administrador-de-rboles/db_edadData.php")
                 .then((res) => res.json())
                 .then((data) => {
                 console.log(data);
@@ -489,7 +503,7 @@ function arbol_popup() {
                 const input_magnitud = document.createElement("select");
                 input_magnitud.className = "form-control";
 
-                fetch("https://tecnica1lacosta.com.ar/ada/db_magnitudData.php")
+                fetch("http://localhost/github/administrador-de-rboles/db_magnitudData.php")
                 .then((res) => res.json())
                 .then((data) => {
                 console.log(data);
@@ -559,7 +573,7 @@ function arbol_popup() {
                 const input_copa = document.createElement("select");
                 input_copa.className = "form-control";
 
-                fetch("https://tecnica1lacosta.com.ar/ada/db_copaData.php")
+                fetch("http://localhost/github/administrador-de-rboles/db_copaData.php")
                 .then((res) => res.json())
                 .then((data) => {
                 console.log(data);
@@ -629,7 +643,7 @@ function arbol_popup() {
                 const input_salud = document.createElement("select");
                 input_salud.className = "form-control";
 
-                fetch("https://tecnica1lacosta.com.ar/ada/db_saludData.php")
+                fetch("http://localhost/github/administrador-de-rboles/db_saludData.php")
                 .then((res) => res.json())
                 .then((data) => {
                 console.log(data);
@@ -710,7 +724,7 @@ function arbol_popup() {
               
               // filtra el arbol
                 data = data.filter(function(items){
-                return (items.latitud == coord[1] && items.longitud == coord[0]);
+                return (items.latitud == $lat && items.longitud == $lon);
                 });
                 console.log(coord[0]);
                 console.log(data);
