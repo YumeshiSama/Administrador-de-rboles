@@ -32,7 +32,7 @@ switch ($type) {
         break;
     case 6:
         $comentario=$_REQUEST["comentario"];
-        $sql = "UPDATE arboles SET comentario = $comentario  where id=$id";
+        $sql = "UPDATE arboles SET comentario = '$comentario'  where id=$id";
         mysqli_query($conn, $sql);
         break;
 }
