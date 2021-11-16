@@ -21,7 +21,18 @@ include "conexion.php";
 <body>
 <?php
 session_start();
-
+if (empty($_SESSION["id_usuario"])) {
+    $id=false;
+	$nivel=0;
+}else {
+	$id=$_SESSION['id_usuario'];
+	$sql5 = "SELECT nivel FROM usuarios WHERE id='$id'";
+	$result5 = $conn->query($sql5);
+	$nivel="";
+	while($row5 = mysqli_fetch_array($result5)) {
+	$nivel = $row5['nivel'];
+}
+}
 ?>
 <?php include 'navbar.php'; ?>
 <!--=======================================
