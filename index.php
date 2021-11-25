@@ -99,10 +99,14 @@ if (empty($_SESSION["id_usuario"])) {
                                         <div class="col-12 mb-2 markerData1">
                                             <!--INPUT ESPECIE-->
                                         </div>
-                                        
-                                        <div class="row mb-2 justify-content-end markerBtn1">
-                                            <!--BUTTON ESPECIE-->
-                                        </div>
+                                        <?php
+                                            if ($nivel>=2) {
+                                                echo '
+                                                    <div class="row mb-2 justify-content-end markerBtn1">
+                                                    <!--BUTTON ESPECIE-->
+                                                    </div>
+                                                ';}
+                                        ?>
                                     </div>
                                 </form>
 
@@ -116,9 +120,14 @@ if (empty($_SESSION["id_usuario"])) {
                                         <div class="col-12 mb-2 markerData2">
                                             <!--INPUT EDAD-->
                                         </div>
-                                        <div class="row mb-2 justify-content-end markerBtn2">
-                                            <!--BUTTON EDAD-->
-                                        </div>
+                                        <?php
+                                        if ($nivel>=2) {
+                                                echo '
+                                                    <div class="row mb-2 justify-content-end markerBtn2">
+                                                    <!--BUTTON EDAD-->
+                                                    </div>
+                                                ';}
+                                        ?>
                                     </div>
                                 </form>
 
@@ -132,9 +141,14 @@ if (empty($_SESSION["id_usuario"])) {
                                         <div class="col-12 mb-2 markerData3">
                                             <!--INPUT MAGNITUD-->
                                         </div>
-                                        <div class="row mb-2 justify-content-end markerBtn3">
-                                            <!--BUTTON MAGNITUD-->
-                                        </div>
+                                        <?php
+                                        if ($nivel>=2) {
+                                                echo '
+                                                    <div class="row mb-2 justify-content-end markerBtn3">
+                                                    <!--BUTTON MAGNITUD-->
+                                                    </div>
+                                                ';}
+                                        ?>
                                     </div>
                                 </form>
 
@@ -148,9 +162,14 @@ if (empty($_SESSION["id_usuario"])) {
                                         <div class="col-12 mb-2 markerData4">
                                             <!--INPUT COPA-->
                                         </div>
-                                        <div class="row mb-2 justify-content-end markerBtn4">
-                                            <!--BUTTON COPA-->
-                                        </div>
+                                        <?php
+                                        if ($nivel>=2) {
+                                                echo '
+                                                    <div class="row mb-2 justify-content-end markerBtn4">
+                                                    <!--BUTTON COPA-->
+                                                    </div>
+                                                ';}
+                                        ?>
                                     </div>
                                 </form>
 
@@ -164,9 +183,14 @@ if (empty($_SESSION["id_usuario"])) {
                                         <div class="col-12 mb-2 markerData5">
                                             <!--INPUT SALUD-->
                                         </div>
-                                        <div class="row mb-2 justify-content-end markerBtn5">
-                                            <!--BUTTON SALUD-->
-                                        </div>
+                                        <?php
+                                        if ($nivel>=2) {
+                                                echo '
+                                                    <div class="row mb-2 justify-content-end markerBtn5">
+                                                    <!--BUTTON SALUD-->
+                                                    </div>
+                                                ';}
+                                        ?>
                                     </div>
                                 </form>
 
@@ -180,30 +204,48 @@ if (empty($_SESSION["id_usuario"])) {
                                         <div class="col-12 mb-2 markerData6">
                                             <!--INPUT COMENTARIOS-->
                                         </div>
-                                        <div class="row mb-2 justify-content-end markerBtn6">
-                                            <!--BUTTON COMENTARIOS-->
-                                        </div>
+                                        <?php
+                                        if ($nivel>=2) {
+                                                echo '
+                                                    <div class="row mb-2 justify-content-end markerBtn6">
+                                                    <!--BUTTON COMENTARIOS-->
+                                                    </div>
+                                                ';}
+                                        ?>
                                     </div>
                                 </form>
 
-                                <div class="col-12 mt-2 mb-2">
-                                    <span class="input_eData">Eliminar:</span>
-                                </div>
-                                <div class="col-12 m-auto">
-                                    <div class="container">
-                                        <button class="btn btn_red btn_eliminar btn_del mb-2"><i class="fa-solid fa-trash-can"></i></button>
-                                    </div>
-                                 </div>
+                                    <?php 
+                                        if ($nivel>=2) {
+                                            echo '
+                                                <form action="#">
+                                                <div class="col-12 mt-2 mb-2">
+                                                <span class="input_eData">Eliminar:</span>
+                                                </div>
+                                                <input type="text" class="markerId99" name="id" hidden="true">
+                                                <div class="col-12 m-auto">
+                                                <div class="container">
+                                                    <button class="btn btn_red btn_eliminar btn_del mb-2" formaction="del_arbolData.php"><i class="fa-solid fa-trash-can"></i></button>
+                                                </div>
+                                                </div>
+                                                </form>
+                                            ';}
+                                    ?>
                             </div>
                     </div>
-                </div>   
-                <div class="container mt-2 marker_sendAlert">
+                </div>
+
+                <?php
+                if ($nivel>=2) {
+                      echo '
+                      <div class="container mt-2 marker_sendAlert">
                     <span>Enviar alerta:</span>
                     <div class="row mt-2">
                         <div class="col-6">
                             <select class="form-control">
-                                <option>1</option>
-                                <option>2</option>
+                                <option>Amarilla</option>
+                                <option>Naranja</option>
+                                <option>Roja</option>
                             </select>
                         </div>
                         <div class="col-6">
@@ -211,6 +253,8 @@ if (empty($_SESSION["id_usuario"])) {
                         </div>
                     </div>
                 </div>
+                      ';}  
+                ?>
                 <div class="col-12 m-auto fixed-bottom">
                     <div class="container">
                         <button class="btn btn_localColor btn_cerrar mt-2 mb-2">Cerrar</button>
@@ -340,7 +384,7 @@ mapa.on('singleclick', function(evt) {
 
 function arbol_popup() {
 
-          fetch("http://localhost/github/Administrador-de-rboles/db_arbolData.php")
+          fetch("https://tecnica1lacosta.com.ar/ada/db_arbolData.php")
 
 
           .then((res) => res.json())
@@ -355,18 +399,25 @@ function arbol_popup() {
               marker_number.innerText = "";
               const marker_user = document.querySelector(".marker_user");
               marker_user.innerText = "";
-              const markerId1 = document.querySelector(".markerId1");
-              markerId1.innerText = "";
-              const markerId2 = document.querySelector(".markerId2");
-              markerId2.innerText = "";
-              const markerId3 = document.querySelector(".markerId3");
-              markerId3.innerText = "";
-              const markerId4 = document.querySelector(".markerId4");
-              markerId4.innerText = "";
-              const markerId5 = document.querySelector(".markerId5");
-              markerId5.innerText = "";
-              const markerId6 = document.querySelector(".markerId6");
-              markerId6.innerText = "";
+              <?php 
+                if ($nivel>=2) {
+                    echo '
+                      const markerId1 = document.querySelector(".markerId1");
+                      markerId1.innerText = "";
+                      const markerId2 = document.querySelector(".markerId2");
+                      markerId2.innerText = "";
+                      const markerId3 = document.querySelector(".markerId3");
+                      markerId3.innerText = "";
+                      const markerId4 = document.querySelector(".markerId4");
+                      markerId4.innerText = "";
+                      const markerId5 = document.querySelector(".markerId5");
+                      markerId5.innerText = "";
+                      const markerId6 = document.querySelector(".markerId6");
+                      markerId6.innerText = "";
+                      const markerId99 = document.querySelector(".markerId99");
+                      markerId99.innerText = "";
+                    ';}    
+              ?>
 
 
               // ============ ESPECIE ==============
@@ -378,7 +429,10 @@ function arbol_popup() {
               e_especie.className = "form-control e_especie";
               e_especie.name = "e_especie";
               e_especie.readOnly = true;
-              const markerBtn1 = document.querySelector(".markerBtn1");
+
+              <?php
+                if ($nivel>=2) { echo '
+                    const markerBtn1 = document.querySelector(".markerBtn1");
               markerBtn1.innerHTML="";
 
               const e_btn1 = document.createElement("div");
@@ -387,10 +441,10 @@ function arbol_popup() {
               const e_btn_especie = document.createElement("button");
               e_btn_especie.type = "submit";
               e_btn_especie.className = "btn btn_yellow e_btn_especie";
-              e_btn_especie.innerHTML = '<i class="fa-solid fa-pen"></i>';
+              e_btn_especie.innerHTML = \'<i class="fa-solid fa-pen"></i>\';
 
 
-              e_btn_especie.addEventListener( 'click', function(){
+              e_btn_especie.addEventListener( \'click\', function(){
                 markerData1.innerHTML="";
                 markerBtn1.innerHTML="";
 
@@ -400,7 +454,7 @@ function arbol_popup() {
                 const c_btn_especie = document.createElement("button");
                 c_btn_especie.type = "submit";
                 c_btn_especie.className = "btn btn_red c_btn_especie";
-                c_btn_especie.innerHTML = '<i class="fa-solid fa-ban"></i>';
+                c_btn_especie.innerHTML = \'<i class="fa-solid fa-ban"></i>\';
 
                 const s_btn1 = document.createElement("div");
                 s_btn1.className = "col-6";
@@ -408,14 +462,14 @@ function arbol_popup() {
                 const s_btn_especie = document.createElement("button");
                 s_btn_especie.type = "submit";
                 s_btn_especie.className = "btn btn_green s_btn_especie";
-                s_btn_especie.innerHTML = '<i class="fa-solid fa-check"></i>';
+                s_btn_especie.innerHTML = \'<i class="fa-solid fa-check"></i>\';
                 s_btn_especie.formAction = "edit_arbolData.php";
 
                 const input_especie = document.createElement("select");
                 input_especie.className = "form-control";
                 input_especie.name = "especie";
 
-                fetch("http://localhost/github/administrador-de-rboles/db_especieData.php")
+                fetch("https://tecnica1lacosta.com.ar/ada/db_especieData.php")
                 .then((res) => res.json())
                 .then((data) => {
                 console.log(data);
@@ -441,7 +495,10 @@ function arbol_popup() {
                 markerBtn1.appendChild(s_btn1);
                 markerData1.appendChild(input_especie);
 
-              })
+                })
+                    ';}
+
+              ?>
 
               // ============ EDAD ==============
 
@@ -454,7 +511,9 @@ function arbol_popup() {
               e_edad.name = "e_edad";
               e_edad.readOnly = true;
 
-              const markerBtn2 = document.querySelector(".markerBtn2");
+              <?php
+              if ($nivel>=2) {echo '
+                const markerBtn2 = document.querySelector(".markerBtn2");
               markerBtn2.innerHTML="";
 
               const e_btn2 = document.createElement("div");
@@ -463,10 +522,10 @@ function arbol_popup() {
               const e_btn_edad = document.createElement("button");
               e_btn_edad.type = "submit";
               e_btn_edad.className = "btn btn_yellow e_btn_edad";
-              e_btn_edad.innerHTML = '<i class="fa-solid fa-pen"></i>';
+              e_btn_edad.innerHTML = \'<i class="fa-solid fa-pen"></i>\';
 
 
-              e_btn_edad.addEventListener( 'click', function(){
+              e_btn_edad.addEventListener( \'click\', function(){
                 markerData2.innerHTML="";
                 markerBtn2.innerHTML="";
 
@@ -476,7 +535,7 @@ function arbol_popup() {
                 const c_btn_edad = document.createElement("button");
                 c_btn_edad.type = "submit";
                 c_btn_edad.className = "btn btn_red c_btn_edad";
-                c_btn_edad.innerHTML = '<i class="fa-solid fa-ban"></i>';
+                c_btn_edad.innerHTML = \'<i class="fa-solid fa-ban"></i>\';
 
                 const s_btn2 = document.createElement("div");
                 s_btn2.className = "col-6";
@@ -484,14 +543,14 @@ function arbol_popup() {
                 const s_btn_edad = document.createElement("button");
                 s_btn_edad.type = "submit";
                 s_btn_edad.className = "btn btn_green s_btn_edad";
-                s_btn_edad.innerHTML = '<i class="fa-solid fa-check"></i>';
+                s_btn_edad.innerHTML = \'<i class="fa-solid fa-check"></i>\';
                 s_btn_edad.formAction = "edit_arbolData.php";
 
                 const input_edad = document.createElement("select");
                 input_edad.className = "form-control";
                 input_edad.name = "edad";
 
-                fetch("http://localhost/github/administrador-de-rboles/db_edadData.php")
+                fetch("https://tecnica1lacosta.com.ar/ada/db_edadData.php")
                 .then((res) => res.json())
                 .then((data) => {
                 console.log(data);
@@ -514,7 +573,8 @@ function arbol_popup() {
                 markerData2.appendChild(input_edad);
 
               })
-
+                ';}
+              ?>
               // ============ MAGNITUD ==============
 
               const markerData3 = document.querySelector(".markerData3");
@@ -526,7 +586,9 @@ function arbol_popup() {
               e_magnitud.name = "e_magnitud";
               e_magnitud.readOnly = true;
 
-              const markerBtn3 = document.querySelector(".markerBtn3");
+              <?php
+              if ($nivel>=2) { echo'
+                const markerBtn3 = document.querySelector(".markerBtn3");
               markerBtn3.innerHTML="";
 
               const e_btn3 = document.createElement("div");
@@ -535,10 +597,10 @@ function arbol_popup() {
               const e_btn_magnitud = document.createElement("button");
               e_btn_magnitud.type = "submit";
               e_btn_magnitud.className = "btn btn_yellow e_btn_magnitud";
-              e_btn_magnitud.innerHTML = '<i class="fa-solid fa-pen"></i>';
+              e_btn_magnitud.innerHTML = \'<i class="fa-solid fa-pen"></i>\';
 
 
-              e_btn_magnitud.addEventListener( 'click', function(){
+              e_btn_magnitud.addEventListener( \'click\', function(){
                 markerData3.innerHTML="";
                 markerBtn3.innerHTML="";
 
@@ -548,7 +610,7 @@ function arbol_popup() {
                 const c_btn_magnitud = document.createElement("button");
                 c_btn_magnitud.type = "submit";
                 c_btn_magnitud.className = "btn btn_red c_btn_magnitud";
-                c_btn_magnitud.innerHTML = '<i class="fa-solid fa-ban"></i>';
+                c_btn_magnitud.innerHTML = \'<i class="fa-solid fa-ban"></i>\';
 
                 const s_btn3 = document.createElement("div");
                 s_btn3.className = "col-6";
@@ -556,14 +618,14 @@ function arbol_popup() {
                 const s_btn_magnitud = document.createElement("button");
                 s_btn_magnitud.type = "submit";
                 s_btn_magnitud.className = "btn btn_green s_btn_magnitud";
-                s_btn_magnitud.innerHTML = '<i class="fa-solid fa-check"></i>';
+                s_btn_magnitud.innerHTML = \'<i class="fa-solid fa-check"></i>\';
                 s_btn_magnitud.formAction = "edit_arbolData.php";
 
                 const input_magnitud = document.createElement("select");
                 input_magnitud.className = "form-control";
                 input_magnitud.name = "magnitud";
 
-                fetch("http://localhost/github/administrador-de-rboles/db_magnitudData.php")
+                fetch("https://tecnica1lacosta.com.ar/ada/db_magnitudData.php")
                 .then((res) => res.json())
                 .then((data) => {
                 console.log(data);
@@ -586,7 +648,8 @@ function arbol_popup() {
                 markerData3.appendChild(input_magnitud);
 
               })
-
+                ';}
+              ?>
               // ============ COPA ==============
 
               const markerData4 = document.querySelector(".markerData4");
@@ -598,7 +661,9 @@ function arbol_popup() {
               e_copa.name = "e_copa";
               e_copa.readOnly = true;
 
-              const markerBtn4 = document.querySelector(".markerBtn4");
+              <?php
+              if ($nivel>=2) { echo'
+                const markerBtn4 = document.querySelector(".markerBtn4");
               markerBtn4.innerHTML="";
 
               const e_btn4 = document.createElement("div");
@@ -607,10 +672,10 @@ function arbol_popup() {
               const e_btn_copa = document.createElement("button");
               e_btn_copa.type = "submit";
               e_btn_copa.className = "btn btn_yellow e_btn_copa";
-              e_btn_copa.innerHTML = '<i class="fa-solid fa-pen"></i>';
+              e_btn_copa.innerHTML = \'<i class="fa-solid fa-pen"></i>\';
 
 
-              e_btn_copa.addEventListener( 'click', function(){
+              e_btn_copa.addEventListener( \'click\', function(){
                 markerData4.innerHTML="";
                 markerBtn4.innerHTML="";
 
@@ -620,7 +685,7 @@ function arbol_popup() {
                 const c_btn_copa = document.createElement("button");
                 c_btn_copa.type = "submit";
                 c_btn_copa.className = "btn btn_red c_btn_copa";
-                c_btn_copa.innerHTML = '<i class="fa-solid fa-ban"></i>';
+                c_btn_copa.innerHTML = \'<i class="fa-solid fa-ban"></i>\';
 
                 const s_btn4 = document.createElement("div");
                 s_btn4.className = "col-6";
@@ -628,14 +693,14 @@ function arbol_popup() {
                 const s_btn_copa = document.createElement("button");
                 s_btn_copa.type = "submit";
                 s_btn_copa.className = "btn btn_green s_btn_copa";
-                s_btn_copa.innerHTML = '<i class="fa-solid fa-check"></i>';
+                s_btn_copa.innerHTML = \'<i class="fa-solid fa-check"></i>\';
                 s_btn_copa.formAction = "edit_arbolData.php";
 
                 const input_copa = document.createElement("select");
                 input_copa.className = "form-control";
                 input_copa.name = "copa";
 
-                fetch("http://localhost/github/administrador-de-rboles/db_copaData.php")
+                fetch("https://tecnica1lacosta.com.ar/ada/db_copaData.php")
                 .then((res) => res.json())
                 .then((data) => {
                 console.log(data);
@@ -658,7 +723,8 @@ function arbol_popup() {
                 markerData4.appendChild(input_copa);
 
               })
-
+                ';}
+              ?>
               // ============ SALUD ==============
 
               const markerData5 = document.querySelector(".markerData5");
@@ -670,7 +736,9 @@ function arbol_popup() {
               e_salud.name = "e_salud";
               e_salud.readOnly = true;
 
-              const markerBtn5 = document.querySelector(".markerBtn5");
+              <?php
+              if ($nivel>=2) { echo'
+                const markerBtn5 = document.querySelector(".markerBtn5");
               markerBtn5.innerHTML="";
 
               const e_btn5 = document.createElement("div");
@@ -679,10 +747,10 @@ function arbol_popup() {
               const e_btn_salud = document.createElement("button");
               e_btn_salud.type = "submit";
               e_btn_salud.className = "btn btn_yellow e_btn_salud";
-              e_btn_salud.innerHTML = '<i class="fa-solid fa-pen"></i>';
+              e_btn_salud.innerHTML = \'<i class="fa-solid fa-pen"></i>\';
 
 
-              e_btn_salud.addEventListener( 'click', function(){
+              e_btn_salud.addEventListener( \'click\', function(){
                 markerData5.innerHTML="";
                 markerBtn5.innerHTML="";
 
@@ -692,7 +760,7 @@ function arbol_popup() {
                 const c_btn_salud = document.createElement("button");
                 c_btn_salud.type = "submit";
                 c_btn_salud.className = "btn btn_red c_btn_salud";
-                c_btn_salud.innerHTML = '<i class="fa-solid fa-ban"></i>';
+                c_btn_salud.innerHTML = \'<i class="fa-solid fa-ban"></i>\';
 
                 const s_btn5 = document.createElement("div");
                 s_btn5.className = "col-6";
@@ -700,14 +768,14 @@ function arbol_popup() {
                 const s_btn_salud = document.createElement("button");
                 s_btn_salud.type = "submit";
                 s_btn_salud.className = "btn btn_green s_btn_salud";
-                s_btn_salud.innerHTML = '<i class="fa-solid fa-check"></i>';
+                s_btn_salud.innerHTML = \'<i class="fa-solid fa-check"></i>\';
                 s_btn_salud.formAction = "edit_arbolData.php";
 
                 const input_salud = document.createElement("select");
                 input_salud.className = "form-control";
                 input_salud.name = "salud"
 
-                fetch("http://localhost/github/administrador-de-rboles/db_saludData.php")
+                fetch("https://tecnica1lacosta.com.ar/ada/db_saludData.php")
                 .then((res) => res.json())
                 .then((data) => {
                 console.log(data);
@@ -730,7 +798,8 @@ function arbol_popup() {
                 markerData5.appendChild(input_salud);
 
               })
-
+                ';}
+              ?>
               // ============ COMENTARIO ==============
 
               const markerData6 = document.querySelector(".markerData6");
@@ -742,7 +811,9 @@ function arbol_popup() {
               e_comentario.name = "e_comentario";
               e_comentario.readOnly = true;
 
-              const markerBtn6 = document.querySelector(".markerBtn6");
+              <?php
+              if ($nivel>=2) { echo'
+                const markerBtn6 = document.querySelector(".markerBtn6");
               markerBtn6.innerHTML="";
 
               const e_btn6 = document.createElement("div");
@@ -751,10 +822,10 @@ function arbol_popup() {
               const e_btn_comentario = document.createElement("button");
               e_btn_comentario.type = "submit";
               e_btn_comentario.className = "btn btn_yellow e_btn_comentario";
-              e_btn_comentario.innerHTML = '<i class="fa-solid fa-pen"></i>';
+              e_btn_comentario.innerHTML = \'<i class="fa-solid fa-pen"></i>\';
 
 
-              e_btn_comentario.addEventListener( 'click', function(){
+              e_btn_comentario.addEventListener( \'click\', function(){
                 markerData6.innerHTML="";
                 markerBtn6.innerHTML="";
 
@@ -764,7 +835,7 @@ function arbol_popup() {
                 const c_btn_comentario = document.createElement("button");
                 c_btn_comentario.type = "submit";
                 c_btn_comentario.className = "btn btn_red c_btn_comentario";
-                c_btn_comentario.innerHTML = '<i class="fa-solid fa-ban"></i>';
+                c_btn_comentario.innerHTML = \'<i class="fa-solid fa-ban"></i>\';
 
                 const s_btn6 = document.createElement("div");
                 s_btn6.className = "col-6";
@@ -772,7 +843,7 @@ function arbol_popup() {
                 const s_btn_comentario = document.createElement("button");
                 s_btn_comentario.type = "submit";
                 s_btn_comentario.className = "btn btn_green s_btn_comentario";
-                s_btn_comentario.innerHTML = '<i class="fa-solid fa-check"></i>';
+                s_btn_comentario.innerHTML = \'<i class="fa-solid fa-check"></i>\';
                 s_btn_comentario.formAction = "edit_arbolData.php";
 
                 const input_comentario = document.createElement("input");
@@ -786,7 +857,8 @@ function arbol_popup() {
                 markerBtn6.appendChild(s_btn6);
                 markerData6.appendChild(input_comentario);
             }); 
-              
+                ';}
+            ?>  
               // filtra el arbol
                 data = data.filter(function(items){
                 return (items.latitud == $lat && items.longitud == $lon);
@@ -805,32 +877,41 @@ function arbol_popup() {
                 marker_number.innerText = arboles.id;
                 marker_user.innerText = arboles.institucion;
                 marker_eImg.setAttribute('src', arboles.imagen);
-                markerId1.value = arboles.id;
-                markerId2.value = arboles.id;
-                markerId3.value = arboles.id;
-                markerId4.value = arboles.id;
-                markerId5.value = arboles.id;
-                markerId6.value = arboles.id;
+                <?php
+                    if ($nivel>=2) { echo '
+                        markerId1.value = arboles.id;
+                        markerId2.value = arboles.id;
+                        markerId3.value = arboles.id;
+                        markerId4.value = arboles.id;
+                        markerId5.value = arboles.id;
+                        markerId6.value = arboles.id;
+                        markerId99.value = arboles.id;
+                        ';}
+                ?>
               }))
 
               markerData1.appendChild(e_especie);
-              e_btn1.appendChild(e_btn_especie);
-              markerBtn1.appendChild(e_btn1);
               markerData2.appendChild(e_edad);
+              markerData3.appendChild(e_magnitud);
+              markerData4.appendChild(e_copa);
+              markerData5.appendChild(e_salud);
+              markerData6.appendChild(e_comentario);
+              <?php
+              if ($nivel>=2) {echo '
+                e_btn1.appendChild(e_btn_especie);
+              markerBtn1.appendChild(e_btn1);
               e_btn2.appendChild(e_btn_edad);
               markerBtn2.appendChild(e_btn2);
-              markerData3.appendChild(e_magnitud);
               e_btn3.appendChild(e_btn_magnitud);
               markerBtn3.appendChild(e_btn3);
-              markerData4.appendChild(e_copa);
               e_btn4.appendChild(e_btn_copa)
               markerBtn4.appendChild(e_btn4);
-              markerData5.appendChild(e_salud);
               e_btn5.appendChild(e_btn_salud);
               markerBtn5.appendChild(e_btn5);
-              markerData6.appendChild(e_comentario);
               e_btn6.appendChild(e_btn_comentario);
               markerBtn6.appendChild(e_btn6);
+                ';}
+              ?>
             });
         };
 

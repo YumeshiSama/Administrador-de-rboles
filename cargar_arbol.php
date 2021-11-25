@@ -119,13 +119,13 @@ if (empty($_SESSION["id_usuario"])) {
 									if ($rowCopa['id']==1)
 									{
 										echo '<div class="col-12">
-												<input  checked type="radio" value="'.$rowCopa['id'].'" name="copa">
-												<label>'.ucfirst($rowCopa['tipo']).'</label>
+												<input  checked type="radio" value="'.$rowCopa['id'].'" id="copa'.$rowCopa['id'].'" name="copa">
+												<label for="copa'.$rowCopa['id'].'">'.ucfirst($rowCopa['tipo']).'</label>
 											</div>';
 									} else {
 										echo '<div class="col-12">
-												<input type="radio" value="'.$rowCopa['id'].'" name="copa">
-												<label>'.ucfirst($rowCopa['tipo']).'</label>
+												<input type="radio" id="copa'.$rowCopa['id'].'" value="'.$rowCopa['id'].'" name="copa">
+												<label for="copa'.$rowCopa['id'].'">'.ucfirst($rowCopa['tipo']).'</label>
 											</div>';
 									}
 								}
@@ -144,13 +144,13 @@ if (empty($_SESSION["id_usuario"])) {
 									if ($rowMagnitud['id']==1)
 									{
 										echo '<div class="col-12">
-												<input  checked type="radio" value="'.$rowMagnitud['id'].'" name="magnitud">
-												<label>'.ucfirst($rowMagnitud['tamano']).'</label>
+												<input  checked type="radio" value="'.$rowMagnitud['id'].'" id="magnitud'.$rowMagnitud['id'].'" name="magnitud">
+												<label for="magnitud'.$rowMagnitud['id'].'">'.ucfirst($rowMagnitud['tamano']).'</label>
 											</div>';
 									} else {
 										echo '<div class="col-12">
-												<input type="radio" value="'.$rowMagnitud['id'].'" name="magnitud">
-												<label>'.ucfirst($rowMagnitud['tamano']).'</label>
+												<input id="magnitud'.$rowMagnitud['id'].'" type="radio" id="magnitud'.$rowMagnitud['id'].'" value="'.$rowMagnitud['id'].'" name="magnitud">
+												<label for="magnitud'.$rowMagnitud['id'].'">'.ucfirst($rowMagnitud['tamano']).'</label>
 											</div>';
 									}
 								}
@@ -195,13 +195,13 @@ if (empty($_SESSION["id_usuario"])) {
 									if ($rowEdad['id']==1)
 									{
 										echo '<div class="col-12">
-												<input  checked type="radio" value="'.$rowEdad['id'].'" name="edad">
-												<label>'.ucfirst($rowEdad['rango']).'</label>
+												<input id="edad'.$rowEdad['id'].'" checked type="radio" value="'.$rowEdad['id'].'" name="edad">
+												<label for="edad'.$rowEdad['id'].'">'.ucfirst($rowEdad['rango']).'</label>
 											</div>';
 									} else {
 										echo '<div class="col-12">
-												<input type="radio" value="'.$rowEdad['id'].'" name="edad">
-												<label>'.ucfirst($rowEdad['rango']).'</label>
+												<input id="edad'.$rowEdad['id'].'" type="radio" value="'.$rowEdad['id'].'" name="edad">
+												<label for="edad'.$rowEdad['id'].'">'.ucfirst($rowEdad['rango']).'</label>
 											</div>';
 									}
 								}
@@ -220,13 +220,13 @@ if (empty($_SESSION["id_usuario"])) {
 									if ($rowSalud['id']==1)
 									{
 										echo '<div class="col-12">
-												<input  checked type="radio" value="'.$rowSalud['id'].'" name="salud">
-												<label>'.ucfirst($rowSalud['estado']).'</label>
+												<input id="salud'.$rowSalud['id'].'" checked type="radio" value="'.$rowSalud['id'].'" name="salud">
+												<label for="salud'.$rowSalud['id'].'">'.ucfirst($rowSalud['estado']).'</label>
 											</div>';
 									} else {
 										echo '<div class="col-12">
-												<input type="radio" value="'.$rowSalud['id'].'" name="salud">
-												<label>'.ucfirst($rowSalud['estado']).'</label>
+												<input id="salud'.$rowSalud['id'].'" type="radio" value="'.$rowSalud['id'].'" name="salud">
+												<label for="salud'.$rowSalud['id'].'">'.ucfirst($rowSalud['estado']).'</label>
 											</div>';
 									}
 								}
