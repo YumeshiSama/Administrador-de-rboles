@@ -412,10 +412,10 @@ body{
   transition-delay: 0s;
   left: 0;
 }
-.container input[type="radio"]{
+.multisteps-form__form input[type="radio"]{
   display: none;
 }
-.container label{
+.multisteps-form__form label{
   position: flex;
   color: #A0A0A0;
   font-family: 'poppins',sans-serif;
@@ -428,7 +428,7 @@ body{
   align-items: center;
   cursor: pointer;
 }
-.container label:before{
+.multisteps-form__form label:before{
   content: "";
   height: 20px;
   width: 20px;
@@ -436,11 +436,11 @@ body{
   border-radius: 50%;
   margin-right: 10px!important;
 }
-.container input[type="radio"]:checked + label{
+.multisteps-form__form input[type="radio"]:checked + label{
 background-color: #009CA1;
 color: white;
 }
-.container input[type="radio"]:checked + label:before{
+.multisteps-form__form input[type="radio"]:checked + label:before{
   height: 20px;
   width: 20px;
   border: 6px solid white;
